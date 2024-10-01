@@ -1,0 +1,84 @@
+@import '../variables.scss';
+
+.header {
+  background-color: $white; // Light background color
+  padding: $spacing-lg $spacing-md; // Large padding for the header
+  box-shadow: $box-shadow; // Soft shadow for the header
+  position: sticky; // Make header sticky
+  top: 0; // Stick to the top of the viewport
+  z-index: 1000; // Ensure it's above other content
+  transition: all 0.3s ease; // Transition for all properties
+
+  @include respond-to(md) {
+    padding: $spacing-lg; // For medium screens (768px and up)
+  }
+
+  &.shrink { // Class to apply when scrolling down
+    padding: $spacing-xs; // Reduce padding
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Smaller shadow
+  }
+}
+
+.container {
+  max-width: 1200px; // Maximum width for the container
+  margin: 0 auto; // Center the container
+  display: flex; // Use flexbox for layout
+  justify-content: space-between; // Space items apart
+  align-items: center; // Align items vertically in the center
+}
+
+.logo {
+  font-family: $font-family; /* Font family from variables */
+  font-size: $font-size-heading; /* Use defined font size */
+  font-weight: 600; /* Semi-bold */
+  color: $color-text; /* Darker gray from variables */
+  text-align: center; /* Centered text */
+  margin: 0; /* Remove default margin */
+  padding: $spacing-xs 0; /* Padding around the text */
+  border-bottom: 2px solid $primary-color; /* Underline effect */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.logo img {
+  max-height: 50px; // Set maximum height for the logo
+}
+
+.nav-buttons {
+  display: flex; // Ensure buttons are in a horizontal row
+  gap: $spacing-sm; // Add space between buttons
+
+  @include respond-to(md) {
+    gap: $spacing-md;
+  }
+
+  .login-btn,
+  .signup-btn {
+    padding: $spacing-sm; // Padding for buttons
+    border: none; // No border
+    font-size: $font-size-medium; // Medium font size
+    cursor: pointer; // Pointer cursor for buttons
+    text-decoration: none; // Remove underline from links
+    color: $color-text; // Text color
+    border-radius: $border-radius; // Rounded corners
+    transition: background-color $transition-speed ease; // Smooth background color transition
+  }
+
+  .login-btn {
+    background-color: $color-card-background; // Background color for login button
+    border: 2px solid $color-border; // Light border for login button
+  }
+
+  .signup-btn {
+    background-color: $primary-color; // Background color for signup button
+    color: $white; // White text for signup button
+    border: 2px solid transparent; // Border color matching background
+  }
+
+  .login-btn:hover {
+    border: 2px solid $black;
+  }
+
+  .signup-btn:hover {
+    background-color: $secondary-color;
+  }
+}

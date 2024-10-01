@@ -1,0 +1,65 @@
+/* Color Variables */
+$primary-color: #456dff; /* Bold blue for primary actions */
+$color-primary: #5bc0de; /* Light blue for primary elements */
+$color-primary-dark: #1075a8; /* Darker blue for hover */
+$secondary-color: #456dff; /* Dark blue for contrast */
+$color-background: #f7f7f7; /* Light gray background */
+$color-text: #636161; /* Darker gray for text */
+$color-card-background: #ffffff; /* Card background color */
+$color-border: #ebebeb; /* Light border color */
+$color-hover: #79b2d2; /* Light blue for hover */
+$dark: #151522; /* Dark background color */
+$white: #fff; /* White color */
+$black: #000; /* Black color */
+
+/* Font Size Variables */
+$font-size-small: 14px; /* Small font size */
+$font-size-medium: 16px; /* Medium font size */
+$font-size-large: 20px; /* Large font size */
+$font-size-heading: 24px; /* Heading font size */
+
+/* Spacing Variables */
+$spacing-xs: 5px; /* Extra small spacing */
+$spacing-sm: 10px; /* Small spacing */
+$spacing-md: 20px; /* Medium spacing */
+$spacing-lg: 40px; /* Large spacing */
+
+/* Border Radius */
+$border-radius: 24px; /* Rounded corners for a modern look */
+
+/* Box Shadow */
+$box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Soft shadow for cards and buttons */
+
+/* Transition */
+$transition-speed: 0.3s; /* Speed for transitions */
+
+/* Font */
+$font-family: 'Circular', 'Roboto', sans-serif; /* Font family */
+$font-color: #333333; /* Default font color */
+$background-color: #f9f9f9; /* Background color */
+
+/* Viewport Mixins */
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: 575.98px) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (min-width: 576px) and (max-width: 767.98px) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}

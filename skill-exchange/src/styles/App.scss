@@ -1,0 +1,16 @@
+// src/styles/App.scss
+@import './variables';
+@import './animations';
+
+body {
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+  color: $font-color;
+}
+
+h1 {
+  text-align: center; 
+  margin-top: 2rem;
+  animation: fadeIn $transition-speed ease-in-out;
+}
