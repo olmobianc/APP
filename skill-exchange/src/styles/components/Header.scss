@@ -9,7 +9,7 @@
   z-index: 1000; // Ensure it's above other content
   transition: all 0.3s ease; // Transition for all properties
 
-  @include respond-to(md) {
+  @media (min-width: $breakpoint-tablet) {
     padding: $spacing-lg; // For medium screens (768px and up)
   }
 
@@ -47,7 +47,7 @@
   display: flex; // Ensure buttons are in a horizontal row
   gap: $spacing-sm; // Add space between buttons
 
-  @include respond-to(md) {
+  @media (min-width: $breakpoint-tablet) {
     gap: $spacing-md;
   }
 
@@ -60,7 +60,7 @@
     text-decoration: none; // Remove underline from links
     color: $color-text; // Text color
     border-radius: $border-radius; // Rounded corners
-    transition: background-color $transition-speed ease; // Smooth background color transition
+    transition: opacity, border $transition-speed ease; // Smooth background color transition
   }
 
   .login-btn {
@@ -79,6 +79,6 @@
   }
 
   .signup-btn:hover {
-    background-color: $secondary-color;
+    opacity: 90%;
   }
 }

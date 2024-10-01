@@ -5,18 +5,21 @@
   color: $white;
   padding: $spacing-sm;
 
-  @include respond-to(md) {
+  @media (min-width: $breakpoint-tablet) {
     padding: $spacing-lg; // For medium screens (768px and up)
   }
 
   &-content {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: $spacing-sm;
+    padding: $spacing-md;
+    gap: $spacing-lg;
 
-    @include respond-to(md) {
+    @media (min-width: $breakpoint-tablet) {
       padding: $spacing-lg; // For medium screens (768px and up)
+      flex-direction: row;
     }
 
     .footer-logo {
@@ -31,11 +34,20 @@
 
     .footer-columns {
       display: flex;
+      flex-direction: column;
       justify-content: space-around;
       flex: 2;
 
+      @media (min-width: $breakpoint-tablet) {
+        flex-direction: row;
+      }
+
       .footer-section {
-        margin: 0 20px;
+        margin: 0;
+
+        @media (min-width: $breakpoint-tablet) {
+          margin: 0 20px;
+        }
 
         &__title {
           color: $color-text;
@@ -51,7 +63,7 @@
 
           a {
             color: $white;
-            transition: color 0.2s ease;
+            transition: color $transition-speed ease;
           }
 
           a:hover {
@@ -75,7 +87,7 @@
               color: $white;
               text-decoration: none;
               border-bottom: 2px solid transparent;
-              transition: border-bottom 0.2s ease;
+              transition: border-bottom $transition-speed ease;
 
               &:hover {
                 border-bottom: 2px solid $secondary-color;
