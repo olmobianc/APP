@@ -20,7 +20,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'shrink' : ''}`}>
       <div className="container">
         <div className="logo">
-            <span>ExchangeU</span>
+            <span>marcopolo</span>
         </div>
         <div className="nav-buttons">
           <button className="login-btn">Log In</button>

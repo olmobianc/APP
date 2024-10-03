@@ -28,14 +28,14 @@
 }
 
 .logo {
-  font-family: $font-family; /* Font family from variables */
+  font-family: $font-family-logo; /* Font family from variables */
   font-size: $font-size-heading; /* Use defined font size */
   font-weight: 600; /* Semi-bold */
   color: $color-text; /* Darker gray from variables */
   text-align: center; /* Centered text */
   margin: 0; /* Remove default margin */
   padding: $spacing-xs 0; /* Padding around the text */
-  border-bottom: 2px solid $primary-color; /* Underline effect */
+  // border-bottom: 2px solid $primary-color; /* Underline effect */
   cursor: pointer; /* Pointer cursor on hover */
 }
 

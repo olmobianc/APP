@@ -1,6 +1,5 @@
 import React from 'react';
-import SkillForm from '../components/SkillForm';
-import SkillCard from '../components/SkillCard';
+import CTA from '../components/CTA';
 
 const Home = () => {
   const skills = []; // This will be your state or props for skills
@@ -13,12 +12,13 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome to Skill Exchange</h1>
-      <SkillForm onSubmit={handleSkillSubmit} />
-      <div className="skills-list">
-        {skills.map((skill, index) => (
-          <SkillCard key={index} skill={skill} />
-        ))}
-      </div>
+
+      <CTA
+        heading="Join Us Today!"
+        text="Be part of our amazing community and enjoy exclusive benefits."
+        imageSrc="https://via.placeholder.com/400"
+        onClick={console.log("hello")}
+      />
 
         <div style={{height:"1200px"}}>Lorem Ipsum Lorem</div>
 

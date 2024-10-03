@@ -1,11 +1,22 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faXTwitter, faTiktok, faLinkedin } from '@fortawesome/free-brands-svg-icons'; // Import the brand icons
+
 
 const Footer = () => {
   return (
     <footer className="footer">
+      <div className="footer-pre">
+        <div className="get-started-container">
+          <h2 className="get-started-title">Get Started with Your Plan.</h2>
+          <button className="get-started-button" onClick={console.log("hello")}>
+            Get Started
+          </button>
+        </div>
+      </div>
       <div className="footer-content">
         <div className="footer-logo">
-          <span className="logo">ExchangeU</span>
+          <span className="logo">marcopolo</span>
         </div>
         <div className="footer-columns">
           <div className="footer-section">
@@ -14,6 +25,7 @@ const Footer = () => {
               <li><a href="/courses">Learn</a></li>
               <li><a href="/practice">Teach</a></li>
               <li><a href="/community">Cities</a></li>
+              <li><a href="/community">Categories</a></li>
               <li><a href="/blog">Make Friends</a></li>
             </ul>
           </div>
@@ -21,7 +33,7 @@ const Footer = () => {
             <h4 className="footer-section__title">Company</h4>
             <ul>
               <li><a href="/about">About us</a></li>
-              <li><a href="/about">ExchangeU Pro</a></li>
+              <li><a href="/about">marcopolo Pro</a></li>
               <li><a href="/contact">Contact us</a></li>
             </ul>
           </div>
@@ -29,23 +41,26 @@ const Footer = () => {
             <h4 className="footer-section__title">Follow</h4>
             <div className='footer-section__social'>
                 <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <i className="fa fa-facebook" />
+                    <FontAwesomeIcon icon={faFacebook} />
                 </a>
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <i className="fa fa-instagram" />
+                    <FontAwesomeIcon icon={faInstagram} />
                 </a>
                 <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <i className="fa fa-twitter" />
+                    <FontAwesomeIcon icon={faXTwitter} />
+                </a>
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <FontAwesomeIcon icon={faTiktok} />
                 </a>
                 <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i className="fa fa-linkedin" />
+                    <FontAwesomeIcon icon={faLinkedin} />
                 </a>
             </div>
           </div>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} ExchangeU Technologies Inc. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} marcopolo Technologies Inc. All rights reserved.</p>
       </div>
     </footer>
   );

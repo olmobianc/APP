@@ -17,6 +17,7 @@ $font-size-small: 14px; /* Small font size */
 $font-size-medium: 16px; /* Medium font size */
 $font-size-large: 20px; /* Large font size */
 $font-size-heading: 24px; /* Heading font size */
+$font-size-heading: 28px; /* Heading font size */
 
 /* Spacing Variables */
 $spacing-xs: 5px; /* Extra small spacing */
@@ -25,7 +26,7 @@ $spacing-md: 20px; /* Medium spacing */
 $spacing-lg: 40px; /* Large spacing */
 
 /* Border Radius */
-$border-radius: 24px; /* Rounded corners for a modern look */
+$border-radius: 20px; /* Rounded corners for a modern look */
 
 /* Box Shadow */
 $box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Soft shadow for cards and buttons */
@@ -35,6 +36,7 @@ $transition-speed: 0.3s; /* Speed for transitions */
 
 /* Font */
 $font-family: 'Circular', 'Roboto', sans-serif; /* Font family */
+$font-family-logo: 'Playfair Display', serif;
 $font-color: #333333; /* Default font color */
 $background-color: #f9f9f9; /* Background color */
 
@@ -43,3 +45,10 @@ $breakpoint-mobile: 576px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 992px;
 $breakpoint-desktop-xl: 1200px;
+
+/* Buttons */
+$get-started-bg: transparent;
+$get-started-hover-bg: $white;
+$get-started-text-color: $white;
+$get-started-padding: $spacing-sm;
+$get-started-border-radius: $border-radius;

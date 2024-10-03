@@ -9,6 +9,43 @@
     padding: $spacing-lg; // For medium screens (768px and up)
   }
 
+  &-pre {
+    margin: $spacing-sm $spacing-lg;
+    border-bottom: 1px solid $white;
+    .get-started-container {
+      display: flex;
+      gap: $spacing-md;
+      align-items: center;
+      padding: 0 0 $spacing-lg 0;
+
+      .get-started-title {
+        font-size: $font-size-medium;
+        color: $white;
+        margin: 0;
+      }
+
+      .get-started-button {
+        background-color: $get-started-bg;
+        border: 2px solid $white;
+        font-weight: 600;
+        color: $get-started-text-color;
+        padding: $get-started-padding;
+        border-radius: $get-started-border-radius;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $white;
+          color: $dark;
+        }
+
+        &:focus {
+          outline: none; // Remove outline on focus
+        }
+      }
+    }
+  }
+
   &-content {
     display: flex;
     flex-direction: column;
@@ -27,6 +64,7 @@
 
       .logo {
         color: $white;
+        padding-top: 0;
         font-size: 1.8rem;
         font-weight: bold;
       }
@@ -51,6 +89,7 @@
 
         &__title {
           color: $color-text;
+          margin-top: 0;
         }
 
         &__social {
