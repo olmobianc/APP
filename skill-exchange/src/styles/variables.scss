@@ -1,29 +1,32 @@
 /* Color Variables */
-$primary-color: #456dff; /* Bold blue for primary actions */
-$color-primary: #5bc0de; /* Light blue for primary elements */
-$color-primary-dark: #1075a8; /* Darker blue for hover */
-$secondary-color: #456dff; /* Dark blue for contrast */
-$color-background: #f7f7f7; /* Light gray background */
-$color-text: #636161; /* Darker gray for text */
-$color-card-background: #ffffff; /* Card background color */
-$color-border: #ebebeb; /* Light border color */
-$color-hover: #79b2d2; /* Light blue for hover */
-$dark: #151522; /* Dark background color */
-$white: #fff; /* White color */
-$black: #000; /* Black color */
+// $primary-color: #456dff;
+$primary-color: #AA2B2D; //red
+$color-primary: #5bc0de; //blue
+$color-primary-dark: #1075a8;
+// $secondary-color: #FFC700; //yellow
+$secondary-color: #AA2B2D;
+$color-background: #f7f7f7;
+$color-text: #636161;
+$color-card-background: #ffffff;
+$color-border: #ebebeb;
+$color-hover: #79b2d2;
+$dark: #151522;
+$white: #fff; 
+$black: #000;
 
 /* Font Size Variables */
 $font-size-small: 14px; /* Small font size */
 $font-size-medium: 16px; /* Medium font size */
 $font-size-large: 20px; /* Large font size */
-$font-size-heading: 24px; /* Heading font size */
-$font-size-heading: 28px; /* Heading font size */
+$font-size-heading: 36px; /* Heading font size */
+$font-size-xxl: 54px;
 
 /* Spacing Variables */
 $spacing-xs: 5px; /* Extra small spacing */
 $spacing-sm: 10px; /* Small spacing */
 $spacing-md: 20px; /* Medium spacing */
 $spacing-lg: 40px; /* Large spacing */
+$spacing-xxl: 80px;
 
 /* Border Radius */
 $border-radius: 20px; /* Rounded corners for a modern look */

@@ -2,27 +2,34 @@ import React from 'react';
 import CTA from '../components/CTA';
 
 const Home = () => {
-  const skills = []; // This will be your state or props for skills
-
-  const handleSkillSubmit = (newSkill) => {
-    // Handle skill submission logic here
-    console.log(newSkill);
-  };
-
   return (
-    <div>
-      <h1>Welcome to Skill Exchange</h1>
+    <>
 
       <CTA
-        heading="Join Us Today!"
-        text="Be part of our amazing community and enjoy exclusive benefits."
-        imageSrc="https://via.placeholder.com/400"
-        onClick={console.log("hello")}
+        heading="The people platform—Where interests become friendships"
+        text="Whatever your passion, whether it’s cooking, coding, or connecting with others, there’s a 
+        community of like-minded people waiting for you. Events are happening every day, right in your neighborhood. 
+        Sign up and become part of something truly amazing—right where you live!"
+        buttonText="Get Started"
+        imageSrc="/test.jpeg"
+        inputPlaceholder="Enter your location"
+        onClick={() => console.log('CTA Button Clicked')}
       />
 
-        <div style={{height:"1200px"}}>Lorem Ipsum Lorem</div>
+        <CTA
+            heading="Learn it, Share it, Make Friends!"
+            text="No matter what excites you—be it art, tech, or making new friends—there’s a 
+            local group of people who share your enthusiasm. 
+            Opportunities to connect are just around the corner. Sign up today and 
+            see how easy it is to meet people who share your passions!"
+            buttonText="Explore"
+            imageSrc="/test2.jpeg"
+            inputPlaceholder="Enter your location"
+            onClick={() => console.log('CTA Button Clicked')}
+        />
 
-    </div>
+
+    </>
   );
 };
 

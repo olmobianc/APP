@@ -36,7 +36,7 @@
 
         &:hover {
           background-color: $white;
-          color: $dark;
+          color: $dark; 
         }
 
         &:focus {
@@ -65,7 +65,7 @@
       .logo {
         color: $white;
         padding-top: 0;
-        font-size: 1.8rem;
+        font-size: 36px;
         font-weight: bold;
       }
     }
@@ -106,7 +106,7 @@
           }
 
           a:hover {
-            color: $primary-color;
+            color: $secondary-color;
           }
         }
 

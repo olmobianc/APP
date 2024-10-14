@@ -60,16 +60,18 @@
     text-decoration: none; // Remove underline from links
     color: $color-text; // Text color
     border-radius: $border-radius; // Rounded corners
-    transition: opacity, border $transition-speed ease; // Smooth background color transition
+    transition: opacity, background-color $transition-speed ease; // Smooth background color transition
   }
 
   .login-btn {
+    font-weight: 600;
     background-color: $color-card-background; // Background color for login button
     border: 2px solid $color-border; // Light border for login button
   }
 
   .signup-btn {
-    background-color: $primary-color; // Background color for signup button
+    font-weight: 600;
+    background-color: $secondary-color; // Background color for signup button
     color: $white; // White text for signup button
     border: 2px solid transparent; // Border color matching background
   }
@@ -79,6 +81,7 @@
   }
 
   .signup-btn:hover {
-    opacity: 90%;
+    opacity: 95%;
+    background-color: $color-primary-dark;
   }
 }

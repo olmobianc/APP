@@ -8,9 +8,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-pre">
         <div className="get-started-container">
-          <h2 className="get-started-title">Get Started with Your Plan.</h2>
+          <h2 className="get-started-title">Go learn everything with everyone now.</h2>
           <button className="get-started-button" onClick={console.log("hello")}>
-            Get Started
+            Join Marcopolo
           </button>
         </div>
       </div>
@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="footer-section__title">Company</h4>
             <ul>
-              <li><a href="/about">About us</a></li>
+              <li><a href="/about">Our mission</a></li>
               <li><a href="/about">marcopolo Pro</a></li>
               <li><a href="/contact">Contact us</a></li>
             </ul>
