@@ -1,36 +1,38 @@
 @import '../variables.scss';
 
+.cta-wrapper {
+  display: flex;
+  flex-direction: column; // Stacking vertically by default
+}
+
 .cta-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: $color-background;
   padding: $spacing-xxl;
+  padding-right: 0;
   gap: $spacing-xxl;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   transition: background-color $transition-speed;
-  
+
+  &:nth-child(even) {
+    justify-content: center;
+  }
+
+  &:nth-child(even) .cta-content {
+    order: 2; // Second occurrence
+    justify-self: center;
+  }
+
   @media (max-width: $breakpoint-tablet) {
     flex-direction: column;
     text-align: center;
   }
 
-   // Apply order based on odd/even
-   &:nth-child(odd) {
-    order: 1; // First occurrence
-  }
-
-  &:nth-child(even) {
-    order: 2; // Second occurrence
-  }
-  
   .cta-content {
-    max-width: 500px;
-
-      &:nth-child(odd) {
-        order: 2; // Applies to every odd child of cta-container
-      }
+    max-width: 400px;
 
     .cta-heading {
       font-size: $font-size-xxl;
@@ -55,7 +57,7 @@
         border: 1px solid $color-border;
         border-radius: $border-radius;
         font-size: $font-size-medium;
-        width: 50%;
+        width: 60%;
         transition: border-color $transition-speed;
 
         &:focus {
@@ -68,7 +70,7 @@
         background-color: $primary-color;
         color: $white;
         padding: $get-started-padding;
-        width: 20%;
+        width: 25%;
         border: none;
         border-radius: $get-started-border-radius;
         cursor: pointer;
@@ -84,8 +86,8 @@
   .cta-image {
     img {
       max-width: 100%;
-      border-radius: $border-radius;
+      // border-radius: $border-radius;
+      max-height: 700px;
     }
   }
-
 }
