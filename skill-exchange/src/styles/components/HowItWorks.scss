@@ -1,0 +1,119 @@
+@import '../variables.scss';
+
+.how-it-works {
+  padding: $spacing-xxl;
+  background-color: $dark;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  overflow: hidden;
+
+  &.visible {
+    opacity: 1;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(0);
+  }
+
+  &__heading {
+    font-size: $font-size-heading;
+    color: $primary-color;
+    margin-bottom: $spacing-lg;
+    font-family: $font-family-logo;
+  }
+
+  .scroll-wrapper {
+    margin-top: 80px;
+    position: relative;
+    overflow-x: hidden;
+
+    .steps-container {
+      display: flex;
+      justify-content: space-around;
+      gap: $spacing-lg;
+      overflow-x: auto;
+      padding-bottom: $spacing-lg;
+
+      &:hover {
+        overflow-x: scroll;
+      }
+    }
+
+    .custom-scrollbar {
+      height: 5px;
+      background-color: white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .step {
+    min-width: 25%;
+    background-color: $color-card-background;
+    border-radius: $border-radius;
+    padding: $spacing-md;
+    box-shadow: $box-shadow;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 1s ease, opacity 1s ease;
+    animation: slideUp 0.8s ease forwards;  // Defined the slideUp animation here
+    
+    // Apply different delays for each step for smoother left-to-right appearance
+    &:nth-child(1) {
+      animation-delay: 1s;
+    }
+    &:nth-child(2) {
+      animation-delay: 3s;
+    }
+    &:nth-child(3) {
+      animation-delay: 7s;
+    }
+    &:nth-child(4) {
+      animation-delay: 4s;
+    }
+    &:nth-child(5) {
+      animation-delay: 5s;
+    }
+
+    &.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .step-number {
+      font-size: $font-size-xxl;
+      color: $primary-color;
+      font-weight: bold;
+      margin-bottom: $spacing-sm;
+      font-family: $font-family-logo;
+    }
+
+    .step-title {
+      font-size: $font-size-large;
+      color: $color-primary-dark;
+      margin-bottom: $spacing-xs;
+    }
+
+    .step-description {
+      font-size: $font-size-medium;
+      color: $color-text;
+    }
+  }
+}
+
+// Define the slideUp animation
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

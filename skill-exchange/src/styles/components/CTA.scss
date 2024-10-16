@@ -15,15 +15,24 @@
   gap: $spacing-xxl;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
-  transition: background-color $transition-speed;
+  transition: background-color $transition-speed, transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Move it slightly down */
+  visibility: hidden; /* Hide it visually at the start */
 
-  &:nth-child(even) {
+  &:last-child {
     justify-content: center;
   }
 
-  &:nth-child(even) .cta-content {
+  &:last-child .cta-content {
     order: 2; // Second occurrence
     justify-self: center;
+  }
+
+  &.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Back to original position */
+    visibility: visible; /* Make it visible */
   }
 
   @media (max-width: $breakpoint-tablet) {
@@ -56,7 +65,7 @@
         margin-bottom: $spacing-sm;
         border: 1px solid $color-border;
         border-radius: $border-radius;
-        font-size: $font-size-medium;
+        font-size: $font-size-small;
         width: 60%;
         transition: border-color $transition-speed;
 
@@ -69,6 +78,7 @@
       .cta-submit-btn {
         background-color: $primary-color;
         color: $white;
+        font-weight: 600;
         padding: $get-started-padding;
         width: 25%;
         border: none;
@@ -86,7 +96,6 @@
   .cta-image {
     img {
       max-width: 100%;
-      // border-radius: $border-radius;
       max-height: 700px;
     }
   }

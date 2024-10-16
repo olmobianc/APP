@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import './styles/App.scss';
 import './styles/components/Header.scss';
 import './styles/components/CTA.scss';
+import './styles/components/HowItWorks.scss';
 import './styles/components/Footer.scss';
 
 import 'font-awesome/css/font-awesome.min.css';

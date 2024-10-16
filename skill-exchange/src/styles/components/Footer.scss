@@ -35,8 +35,8 @@
         transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: $white;
-          color: $dark; 
+          background-color: $color-primary-dark;
+          color: $white; 
         }
 
         &:focus {
