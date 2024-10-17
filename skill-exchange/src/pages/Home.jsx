@@ -1,16 +1,19 @@
 import React from 'react';
 import CTA from '../components/CTA';
 import HowItWorks from '../components/HowItWorks';
+import TopCategories from '../components/TopCategories';
 
 const Home = () => {
   return (
     <>
      <div className='cta-wrapper'>
         <CTA
-            heading="The people platform—Where interests become friendships."
-            text="Whatever is your passion, whether it's cooking, tennis, or connecting with others, there's a 
-            community of like-minded people waiting for you. Events are happening every day, right in your neighborhood. 
-            Sign up and become part of something truly amazing—right where you live!"
+            heading="Share What You Know, Learn What You Love."
+            text="Marcopolo is built on the belief that anyone can be a teacher, without even realizing it. 
+            It's also built on the idea that learning should be free and social. Our goal is to get 
+            you out there sharing skills and making connections, not keeping you glued to a screen. 
+            With Marcopolo, you can learn anything for free while getting to know amazing people in 
+            your community. Discover the teacher in you and the friends you haven't met yet."
             buttonText="Get Started"
             imageSrc="/test.jpeg"
             inputPlaceholder="Enter your location"
@@ -21,16 +24,18 @@ const Home = () => {
 
         <CTA
             heading="Learn it, Share it, Make Friends!"
-            text="No matter what excites you—be it art, tech, or surfing, there's a 
-            local group of people who share your enthusiasm. 
-            Opportunities to connect are just around the corner. Sign up today and 
-            see how easy it is to meet people who share your passions!"
+            text="Share what you already know and learn something new in return. It's a fun, free way to grow 
+            your abilities and connect with like-minded people. Join our community today and turn your 
+            passion into an exciting exchange of skills, all while making new friends just around the corner!"
             buttonText="Explore"
             imageSrc="/test3.jpeg"
             inputPlaceholder="Enter your location"
             onClick={() => console.log('CTA Button Clicked')}
         />
+
     </div>
+
+    <TopCategories />
 
     </>
   );

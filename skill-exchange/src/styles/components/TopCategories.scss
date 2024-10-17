@@ -1,0 +1,52 @@
+@import '../variables.scss';
+
+.top-categories {
+  padding: $spacing-xxl $spacing-md;
+  background-color: $white;
+
+  &__heading {
+    font-size: $font-size-heading;
+    color: $color-text;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+    font-family: $font-family-logo;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: $spacing-md;
+    background-color: $color-card-background;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Slightly enhanced shadow on hover
+    }
+  }
+
+  .category-icon {
+    font-size: 3rem;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+  }
+
+  .category-name {
+    font-size: $font-size-medium;
+    color: $color-text;
+    font-weight: 600;
+  }
+}
