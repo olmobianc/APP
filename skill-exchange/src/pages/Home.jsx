@@ -1,6 +1,7 @@
 import React from 'react';
 import CTA from '../components/CTA';
 import HowItWorks from '../components/HowItWorks';
+import ShareOptions from '../components/ShareOptions';
 import TopCategories from '../components/TopCategories';
 
 const Home = () => {
@@ -34,6 +35,8 @@ const Home = () => {
         />
 
     </div>
+
+    <ShareOptions url={window.location.href} />
 
     <TopCategories />
 

@@ -41,23 +41,23 @@ const HowItWorks = () => {
   const steps = [
     {
       number: 'I',
-      title: 'Discover Local Talents',
-      description: 'Explore a diverse range of skills in your community. From cooking to coding, find passionate individuals ready to share their expertise.'
+      title: 'Discover Your Inner Teacher',
+      description: "Realize that everyone has something valuable to share. Whether it's a hobby, a skill, or a passion, you have knowledge worth passing on."
     },
     {
       number: 'II',
-      title: 'Connect In Person',
-      description: 'Move beyond screens and meet face-to-face. Our platform facilitates real-world connections, allowing for more engaging and effective skill exchanges.'
+      title: 'Connect Locally',
+      description: "Find like-minded individuals in your community who are eager to learn what you know and share what they know. It's all about local, face-to-face connections."
     },
     {
       number: 'III',
-      title: 'Learn Through Experience',
-      description: 'Immerse yourself in hands-on learning experiences. Whether you\'re teaching or learning, practical application is at the heart of every exchange.'
+      title: 'Share and Learn for Free',
+      description: "Engage in free, social learning experiences. Teach what you know and learn something new in return, all without any cost."
     },
     {
       number: 'IV',
-      title: 'Build Community',
-      description: 'Foster meaningful relationships within your local community. As you exchange skills, you\'ll also be creating a network of like-minded individuals passionate about continuous learning and growth.'
+      title: 'Grow Together',
+      description: "As you exchange skills and knowledge, you'll not only improve your abilities but also form meaningful friendships. Watch your community and yourself flourish."
     }
   ];
 

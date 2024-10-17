@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .top-categories {
-  padding: $spacing-xxl $spacing-md;
+  padding: $spacing-md $spacing-md $spacing-xxl;
   background-color: $white;
 
   &__heading {

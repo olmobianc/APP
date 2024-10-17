@@ -48,41 +48,34 @@
       gap: $spacing-lg;
       overflow-x: auto;
       padding-bottom: $spacing-lg;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
       
-      // Add padding to account for the scrollbar
-      padding-right: 20px;
-      margin-bottom: -20px;
+      // Ensure the scrollbar is always visible
+      overflow-y: scroll;
 
+      // Webkit scrollbar styles (for Chrome, Safari, newer versions of Edge)
       &::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
       }
 
       &::-webkit-scrollbar-track {
-        background: transparent;
+        background: rgba($white, 0.1);
+        border-radius: 5px;
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
+        background-color: rgba($white, 0.5);
+        border-radius: 5px;
+        border: 2px solid $dark;
       }
 
-      &:hover {
-        &::-webkit-scrollbar-thumb {
-          background-color: rgba($white, 0.3);
-        }
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: rgba($white, 0.7);
       }
 
-      // Remove the fade effect when scrolled to the end
-      &::-webkit-scrollbar-thumb:horizontal:hover,
-      &::-webkit-scrollbar-thumb:horizontal:active {
-        & + .scroll-wrapper::after {
-          opacity: 0;
-        }
-      }
+      // Firefox scrollbar styles
+      scrollbar-width: thin;
+      scrollbar-color: rgba($white, 0.5) rgba($white, 0.1);
     }
   }
 
