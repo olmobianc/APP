@@ -38,7 +38,7 @@ const HowItWorks = () => {
             <div
               className={`step ${isVisible ? 'animate' : ''}`}
               key={index}
-              style={{ animationDelay: `${index * 0.2 + 0.1}s` }} // Adjusted delay for smoother animation
+              
             >
               <div className="step-number">{num}</div>
               <h3 className="step-title">Step {num}</h3>

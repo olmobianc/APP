@@ -6,12 +6,13 @@
   padding: $spacing-sm;
 
   @media (min-width: $breakpoint-tablet) {
-    padding: $spacing-lg; // For medium screens (768px and up)
+    padding: $spacing-lg;
   }
 
   &-pre {
     margin: $spacing-sm $spacing-lg;
     border-bottom: 1px solid $white;
+
     .get-started-container {
       display: flex;
       gap: $spacing-md;
@@ -36,11 +37,11 @@
 
         &:hover {
           background-color: $color-primary-dark;
-          color: $white; 
+          color: $white;
         }
 
         &:focus {
-          outline: none; // Remove outline on focus
+          outline: none;
         }
       }
     }
@@ -55,7 +56,7 @@
     gap: $spacing-lg;
 
     @media (min-width: $breakpoint-tablet) {
-      padding: $spacing-lg; // For medium screens (768px and up)
+      padding: $spacing-lg;
       flex-direction: row;
     }
 
@@ -67,6 +68,42 @@
         padding-top: 0;
         font-size: 36px;
         font-weight: bold;
+        text-align: left;
+        cursor: default;
+
+        // Add this class to handle visibility
+        &.visible {
+          opacity: 1; // Ensure it's visible when active
+          transition: opacity 0.5s ease-in-out; // Smooth transition
+
+          .marcopolo-animation {
+            span {
+              animation: fadeInLeft 1s ease forwards;
+
+              @for $i from 1 through 9 {
+                &:nth-child(#{$i}) {
+                  animation-delay: #{$i * 0.1}s;
+                }
+              }
+            }
+          }
+        }
+
+        &.hidden {
+          opacity: 0; // Hide the logo
+          transition: opacity 0.5s ease-in-out; // Smooth transition
+        }
+
+        .marcopolo-animation {
+          display: inline-block;
+          font-family: $font-family-logo;
+          letter-spacing: 2px;
+
+          span {
+            display: inline-block;
+            opacity: 0; // Start with opacity 0
+          }
+        }
       }
     }
 
@@ -143,5 +180,14 @@
     text-align: left;
     margin-top: 20px;
     font-size: 0.9rem;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -1,7 +1,7 @@
 @import '../variables.scss';
 
 .how-it-works {
-  padding: $spacing-xxl;
+  padding: $spacing-xxl $spacing-md 300px;
   background-color: $dark;
   text-align: center;
   opacity: 0;
@@ -37,15 +37,6 @@
         overflow-x: scroll;
       }
     }
-
-    .custom-scrollbar {
-      height: 5px;
-      background-color: white;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
   }
 
   .step {
@@ -57,33 +48,13 @@
     opacity: 0;
     transform: translateY(20px);
     transition: transform 1s ease, opacity 1s ease;
-    animation: slideUp 0.8s ease forwards;  // Defined the slideUp animation here
+    animation: slideUp 1.8s ease forwards;  // Defined the slideUp animation here
     
-    // Apply different delays for each step for smoother left-to-right appearance
-    &:nth-child(1) {
-      animation-delay: 1s;
-    }
-    &:nth-child(2) {
-      animation-delay: 3s;
-    }
-    &:nth-child(3) {
-      animation-delay: 7s;
-    }
-    &:nth-child(4) {
-      animation-delay: 4s;
-    }
-    &:nth-child(5) {
-      animation-delay: 5s;
-    }
-
-    &.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    &:hover {
-      transform: translateY(-5px);
-    }
+    &:nth-child(1) { animation-delay: 0.4s; }
+    &:nth-child(2) { animation-delay: 0.8s; }
+    &:nth-child(3) { animation-delay: 1.2s; }
+    &:nth-child(4) { animation-delay: 1.6s; }
+    &:nth-child(5) { animation-delay: 2s; }
 
     .step-number {
       font-size: $font-size-xxl;
