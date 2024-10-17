@@ -7,10 +7,10 @@
   opacity: 0;
   transform: translateY(20px);
   overflow: hidden;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 
   &.visible {
     opacity: 1;
-    transition: opacity 0.8s ease, transform 0.8s ease;
     transform: translateY(0);
   }
 
@@ -24,17 +24,64 @@
   .scroll-wrapper {
     margin-top: 80px;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      background: linear-gradient(to right, rgba($dark, 0), rgba($dark, 1));
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    &.scrolled-to-end::after {
+      opacity: 0;
+    }
 
     .steps-container {
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
       gap: $spacing-lg;
       overflow-x: auto;
       padding-bottom: $spacing-lg;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      
+      // Add padding to account for the scrollbar
+      padding-right: 20px;
+      margin-bottom: -20px;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
 
       &:hover {
-        overflow-x: scroll;
+        &::-webkit-scrollbar-thumb {
+          background-color: rgba($white, 0.3);
+        }
+      }
+
+      // Remove the fade effect when scrolled to the end
+      &::-webkit-scrollbar-thumb:horizontal:hover,
+      &::-webkit-scrollbar-thumb:horizontal:active {
+        & + .scroll-wrapper::after {
+          opacity: 0;
+        }
       }
     }
   }
@@ -48,13 +95,16 @@
     opacity: 0;
     transform: translateY(20px);
     transition: transform 1s ease, opacity 1s ease;
-    animation: slideUp 1.8s ease forwards;  // Defined the slideUp animation here
     
-    &:nth-child(1) { animation-delay: 0.4s; }
-    &:nth-child(2) { animation-delay: 0.8s; }
-    &:nth-child(3) { animation-delay: 1.2s; }
-    &:nth-child(4) { animation-delay: 1.6s; }
-    &:nth-child(5) { animation-delay: 2s; }
+    &.animate {
+      animation: slideUp 1.8s ease forwards;
+      
+      &:nth-child(1) { animation-delay: 0.4s; }
+      &:nth-child(2) { animation-delay: 0.8s; }
+      &:nth-child(3) { animation-delay: 1.2s; }
+      &:nth-child(4) { animation-delay: 1.6s; }
+      &:nth-child(5) { animation-delay: 2s; }
+    }
 
     .step-number {
       font-size: $font-size-xxl;
@@ -77,7 +127,6 @@
   }
 }
 
-// Define the slideUp animation
 @keyframes slideUp {
   from {
     opacity: 0;

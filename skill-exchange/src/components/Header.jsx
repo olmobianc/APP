@@ -19,8 +19,11 @@ const Header = () => {
   return (
     <header className={`header ${isScrolled ? 'shrink' : ''}`}>
       <div className="container">
+        <div className="left-section">
+          <a href="/mission" className="mission-link">Our Mission</a>
+        </div>
         <div className="logo">
-            <span>marcopolo</span>
+          <span>marcopolo</span>
         </div>
         <div className="nav-buttons">
           <button className="login-btn">Log In</button>

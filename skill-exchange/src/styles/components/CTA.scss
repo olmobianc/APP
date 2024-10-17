@@ -27,8 +27,8 @@
     .cta-image {
       img {
         margin-top: -200px;
-        border-top-right-radius: 6px;
-        border-bottom-right-radius: 6px;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
@@ -108,8 +108,8 @@
     img {
       max-width: 100%;
       max-height: 800px;
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
     }
   }
 }

@@ -6,7 +6,7 @@ $color-primary-dark: #1075a8;
 // $secondary-color: #FFC700; //yellow
 $secondary-color: #AA2B2D;
 $color-background: #f7f7f7;
-$color-text: #636161;
+$color-text: rgb(72 72 72);
 $color-card-background: #ffffff;
 $color-border: #ebebeb;
 $color-hover: #79b2d2;
@@ -29,7 +29,7 @@ $spacing-lg: 40px; /* Large spacing */
 $spacing-xxl: 120px;
 
 /* Border Radius */
-$border-radius: 20px; /* Rounded corners for a modern look */
+$border-radius: 6px; /* Rounded corners for a modern look */
 
 /* Box Shadow */
 $box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Soft shadow for cards and buttons */
