@@ -11,11 +11,9 @@ const Home = () => {
         <CTA
             heading="Share What You Know, Learn What You Love."
             text="Marcopolo is built on the belief that anyone can be a teacher, without even realizing it. 
-            It's also built on the idea that learning should be free and social. Our goal is to get 
-            you out there sharing skills and making connections, not keeping you glued to a screen. 
-            With Marcopolo, you can learn anything for free while getting to know amazing people in 
-            your community. Discover the teacher in you and the friends you haven't met yet."
-            buttonText="Get Started"
+            It's also built on the idea that learning should be accessible and social. Our goal is to get 
+            you out there sharing skills and making connections, not keeping you glued to a screen."
+            buttonText="Find people"
             imageSrc="/test.jpeg"
             inputPlaceholder="Enter your location"
             onClick={() => console.log('CTA Button Clicked')}
@@ -25,9 +23,8 @@ const Home = () => {
 
         <CTA
             heading="Learn it, Share it, Make Friends!"
-            text="Share what you already know and learn something new in return. It's a fun, free way to grow 
-            your abilities and connect with like-minded people. Join our community today and turn your 
-            passion into an exciting exchange of skills, all while making new friends just around the corner!"
+            text="Our partner venues are ready to host you for a safe and worry-free meeting. 
+            You both pay upfront to show commitment."
             buttonText="Explore"
             imageSrc="/test3.jpeg"
             inputPlaceholder="Enter your location"

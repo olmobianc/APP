@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,11 +23,16 @@ const Header = () => {
         <div className="left-section">
           <a href="/mission" className="mission-link">Our Mission</a>
         </div>
-        <div className="logo">
-          <span>marcopolo</span>
-        </div>
+          <Link to="/" className="logo">
+            <span>marcopolo</span>
+          </Link>
         <div className="nav-buttons">
-          <button className="login-btn">Log In</button>
+          <Link 
+            to="/login" 
+            className="login-btn"
+          >
+            Login
+          </Link>
           <button className="signup-btn">Sign Up</button>
         </div>
       </div>

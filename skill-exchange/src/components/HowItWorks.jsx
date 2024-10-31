@@ -42,22 +42,22 @@ const HowItWorks = () => {
     {
       number: 'I',
       title: 'Discover Your Inner Teacher',
-      description: "Realize that everyone has something valuable to share. Whether it's a hobby, a skill, or a passion, you have knowledge worth passing on."
+      description: "Recognize that everyone has something valuable to share - be it a hobby, skill, or passion."
     },
     {
       number: 'II',
       title: 'Connect Locally',
-      description: "Find like-minded individuals in your community who are eager to learn what you know and share what they know. It's all about local, face-to-face connections."
+      description: "Connect with local, like-minded individuals eager to learn from each other through face-to-face interactions."
     },
     {
       number: 'III',
-      title: 'Share and Learn for Free',
-      description: "Engage in free, social learning experiences. Teach what you know and learn something new in return, all without any cost."
+      title: 'Ready, share, learn!',
+      description: "If it's a match, you skip the chat. For 9 dollars we'll organize your first meeting and take care of everything."
     },
     {
       number: 'IV',
       title: 'Grow Together',
-      description: "As you exchange skills and knowledge, you'll not only improve your abilities but also form meaningful friendships. Watch your community and yourself flourish."
+      description: "As you exchange skills and knowledge, you'll grow your abilities and build meaningful friendships, helping both yourself and your community thrive."
     }
   ];
 

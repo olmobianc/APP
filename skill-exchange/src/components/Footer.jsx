@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faXTwitter, faTiktok, faLinkedin } from '@fortawesome/free-brands-svg-icons'; // Import the brand icons
 
@@ -66,6 +67,7 @@ const Footer = () => {
             <h4 className="footer-section__title">Company</h4>
             <ul>
               <li><a href="/about">Our mission</a></li>
+              <li><Link to="/become-partner">Become a Partner</Link></li>
               <li><a href="/about">marcopolo Pro</a></li>
               <li><a href="/contact">Contact us</a></li>
             </ul>

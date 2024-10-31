@@ -1,0 +1,82 @@
+@import '../variables.scss';
+
+.become-partner {
+  max-width: 700px;
+  margin: $spacing-lg auto;
+  padding: $spacing-lg;
+  background-color: $white;
+  color: $color-text;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  
+  h1, h2, h3 {
+    font-family: $font-family-text;
+    color: $primary-color;
+    margin-bottom: $spacing-sm;
+  }
+  
+  .intro {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-md;
+  }
+  
+  .stats, .how-it-works, .benefits {
+    margin-bottom: $spacing-lg;
+    h2, h3 {
+      color: darken($primary-color, 10%);
+    }
+    p, ol, ul {
+      font-size: $font-size-medium;
+      margin-bottom: $spacing-md;
+    }
+  }
+  
+  ol, ul {
+    list-style-position: inside;
+    padding-left: $spacing-sm;
+  }
+  
+  .info-request-form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    margin-top: $spacing-lg;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: $font-size-small;
+      color: $color-text;
+
+      input {
+        padding: $spacing-sm;
+        border: 1px solid $color-border;
+        border-radius: $border-radius;
+        font-size: $font-size-medium;
+        margin-top: $spacing-xs;
+      }
+    }
+
+    button {
+      margin-top: $spacing-md;
+      padding: $spacing-sm $spacing-lg;
+      background-color: $primary-color;
+      color: $white;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($primary-color, 5%);
+      }
+    }
+
+    .agreement {
+      font-size: $font-size-small;
+      color: $color-text;
+      margin-top: $spacing-xs;
+      text-align: center;
+    }
+  }
+}
