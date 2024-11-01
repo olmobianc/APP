@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import BecomePartner from './pages/BecomePartner';
+import OurMission from './pages/OurMission';
 
 // import styles
 import './styles/App.scss';
@@ -14,6 +15,7 @@ import './styles/components/HowItWorks.scss';
 import './styles/components/Footer.scss';
 import './styles/pages/LoginPage.scss';
 import './styles/pages/BecomePartner.scss';
+import './styles/pages/OurMission.scss';
 
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -26,6 +28,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/become-partner" element={<BecomePartner />} />
+          <Route path="/mission" element={<OurMission />} />
         </Routes>
       </main>
       <Footer />

@@ -11,8 +11,8 @@
   
   h1, h2, h3 {
     font-family: $font-family-text;
-    color: $primary-color;
     margin-bottom: $spacing-sm;
+    margin-top: 0;
   }
   
   .intro {
@@ -61,6 +61,7 @@
       margin-top: $spacing-md;
       padding: $spacing-sm $spacing-lg;
       background-color: $primary-color;
+      width: fit-content;
       color: $white;
       border: none;
       border-radius: $border-radius;
@@ -68,7 +69,8 @@
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: darken($primary-color, 5%);
+        opacity: 95%;
+        background-color: $color-primary-dark;
       }
     }
 
