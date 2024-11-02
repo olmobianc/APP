@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const CTA = ({ heading, text, buttonText, imageSrc, inputPlaceholder }) => {
+const CTA = ({ heading, text, buttonText, imageSrc, inputPlaceholder, isSecondInstance }) => {
   const [location, setLocation] = useState('');
   const [skill, setSkill] = useState('');
   const [isVisible, setIsVisible] = useState(false);
@@ -44,25 +44,45 @@ const CTA = ({ heading, text, buttonText, imageSrc, inputPlaceholder }) => {
         <h2 className="cta-heading">{heading}</h2>
         <p className="cta-text">{text}</p>
 
-        <form onSubmit={handleSubmit} className="cta-form">
-          <input
-            type="text"
-            placeholder={inputPlaceholder}
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Enter the skill you want to learn"
-            value={skill}
-            onChange={(e) => setSkill(e.target.value)}
-            required
-          />
-          <button type="submit" className="cta-submit-btn">
-            {buttonText}
-          </button>
-        </form>
+        {isSecondInstance ? (
+          <div className="qr-code-container">
+            <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" fill="#e0e0e0" />
+              <text
+                x="50%"
+                y="50%"
+                dominant-baseline="middle"
+                text-anchor="middle"
+                fill="#888888"
+                font-family="Arial, sans-serif"
+                font-size="10"
+              >
+                QR Code
+              </text>
+            </svg>
+            <h3>Scan to download the app</h3>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="cta-form">
+            <input
+              type="text"
+              placeholder={inputPlaceholder}
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Enter the skill you want to learn"
+              value={skill}
+              onChange={(e) => setSkill(e.target.value)}
+              required
+            />
+            <button type="submit" className="cta-submit-btn">
+              {buttonText}
+            </button>
+          </form>
+        )}
       </div>
       <div className="cta-image">
         <img src={imageSrc} alt="Call to action visual" />

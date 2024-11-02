@@ -9,16 +9,26 @@
   color: $white; // Ensure this variable is defined
   padding: $spacing-lg; // Ensure this variable is defined
 
-  h1 {
-    font-size: $font-size-xxl; // Ensure this variable is defined
-    margin-bottom: $spacing-md; // Ensure this variable is defined
-    text-align: center;
+  &--main-container {
+    max-width: 800px;
+    h1 {
+      font-size: $font-size-xxl; // Ensure this variable is defined
+      margin-bottom: $spacing-md; // Ensure this variable is defined
+      text-align: center;
+    }
+    h3 {
+      margin-top: $spacing-xxl;
+      font-size: $font-size-xxl;
+    }
+    p {
+      margin-bottom: $spacing-lg; // Ensure this variable is defined
+      line-height: 1.6; // Adjust for readability
+      text-align: center;
+      font-size: $font-size-medium;
+    }
   }
-
-  p {
-    max-width: 800px; // Adjust as needed
-    margin-bottom: $spacing-lg; // Ensure this variable is defined
-    line-height: 1.6; // Adjust for readability
-    text-align: center;
+  .how-it-works {
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-lg;
   }
 } 

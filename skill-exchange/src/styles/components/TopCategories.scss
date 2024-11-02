@@ -21,6 +21,7 @@
   }
 
   .category-item {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,12 +30,34 @@
     background-color: $color-card-background;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
-      transform: translateY(-5px);
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Slightly enhanced shadow on hover
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background-color: $color-hover;
+        transition: bottom 0.4s ease;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background-color: $color-hover;
+      transition: bottom 0.4s ease;
     }
   }
 
@@ -42,6 +65,7 @@
     font-size: 3rem;
     color: $primary-color;
     margin-bottom: $spacing-sm;
+    transition: color 0.3s ease;
   }
 
   .category-name {

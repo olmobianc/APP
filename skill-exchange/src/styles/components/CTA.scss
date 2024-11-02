@@ -116,3 +116,16 @@
     }
   }
 }
+
+.qr-code-container {
+  display: flex;
+  align-items: center;
+  margin-top: $spacing-lg; // Adjust as needed
+  gap: $spacing-md;
+
+  .qr-code {
+    width: 50px; // Adjust size as needed
+    height: auto; // Maintain aspect ratio
+    margin-top: $spacing-md; // Space between text and QR code
+  }
+}

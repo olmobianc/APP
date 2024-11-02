@@ -5,11 +5,12 @@ import ShareOptions from '../components/ShareOptions';
 import TopCategories from '../components/TopCategories';
 
 const Home = () => {
+
   return (
     <>
      <div className='cta-wrapper'>
         <CTA
-            heading="Share What You Know, Learn What You Love."
+            heading="The skill-sharing app designed for real connections."
             text="Marcopolo is built on the belief that anyone can be a teacher, without even realizing it. 
             It's also built on the idea that learning should be accessible and social. Our goal is to get 
             you out there sharing skills and making connections, not keeping you glued to a screen."
@@ -19,16 +20,18 @@ const Home = () => {
             onClick={() => console.log('CTA Button Clicked')}
         />
 
-        <HowItWorks />
+        <HowItWorks type="home" />
 
         <CTA
             heading="Learn it, Share it, Make Friends!"
-            text="Our partner venues are ready to host you for a safe and worry-free meeting. 
-            You both pay upfront to show commitment."
+            text="Meet new friends and grow your skills in a welcoming space. 
+            We partner with trusted local venues to give you a safe, enjoyable first meeting. 
+            Both participants contribute a small upfront fee to show commitment."
             buttonText="Explore"
             imageSrc="/test3.jpeg"
             inputPlaceholder="Enter your location"
             onClick={() => console.log('CTA Button Clicked')}
+            isSecondInstance={true}
         />
 
     </div>
