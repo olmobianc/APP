@@ -6,7 +6,13 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); // Change this value as needed
+      // Use a debounce approach to limit the frequency of state updates
+      const scrollY = window.scrollY;
+      if (scrollY > 50 && !isScrolled) {
+        setIsScrolled(true);
+      } else if (scrollY <= 50 && isScrolled) {
+        setIsScrolled(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -15,7 +21,7 @@ const Header = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isScrolled]); // Add isScrolled as a dependency
 
   return (
     <header className={`header ${isScrolled ? 'shrink' : ''}`}>
@@ -23,16 +29,11 @@ const Header = () => {
         <div className="left-section">
           <a href="/mission" className="mission-link">Our Mission</a>
         </div>
-          <Link to="/" className="logo">
-            <span>marcopolo</span>
-          </Link>
+        <Link to="/" className="logo">
+          <span>marcopolo</span>
+        </Link>
         <div className="nav-buttons">
-          <Link 
-            to="/login" 
-            className="login-btn"
-          >
-            Login
-          </Link>
+          <Link to="/login" className="login-btn">Login</Link>
           <button className="signup-btn">Sign Up</button>
         </div>
       </div>

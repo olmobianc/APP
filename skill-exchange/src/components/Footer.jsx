@@ -66,7 +66,7 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="footer-section__title">Company</h4>
             <ul>
-              <li><a href="/about">Our mission</a></li>
+            <li><Link to="/mission">Our Mission</Link></li>
               <li><Link to="/become-partner">Become a Partner</Link></li>
               <li><a href="/about">marcopolo Pro</a></li>
               <li><a href="/contact">Contact us</a></li>

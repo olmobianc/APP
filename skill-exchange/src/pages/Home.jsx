@@ -15,7 +15,7 @@ const Home = () => {
             It's also built on the idea that learning should be accessible and social. Our goal is to get 
             you out there sharing skills and making connections, not keeping you glued to a screen."
             buttonText="Find people"
-            imageSrc="/test.jpeg"
+            imageSrc="/cooking.avif"
             inputPlaceholder="Enter your location"
             onClick={() => console.log('CTA Button Clicked')}
         />
@@ -28,7 +28,7 @@ const Home = () => {
             We partner with trusted local venues to give you a safe, enjoyable first meeting. 
             Both participants contribute a small upfront fee to show commitment."
             buttonText="Explore"
-            imageSrc="/test3.jpeg"
+            imageSrc="/surf.jpeg"
             inputPlaceholder="Enter your location"
             onClick={() => console.log('CTA Button Clicked')}
             isSecondInstance={true}

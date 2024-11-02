@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const CTA = ({ heading, text, buttonText, imageSrc, inputPlaceholder, isSecondInstance }) => {
+const CTA = ({ heading, text, buttonText, imageSrc, inputPlaceholder, isSecondInstance, noInputs }) => {
   const [location, setLocation] = useState('');
   const [skill, setSkill] = useState('');
   const [isVisible, setIsVisible] = useState(false);
@@ -61,6 +61,12 @@ const CTA = ({ heading, text, buttonText, imageSrc, inputPlaceholder, isSecondIn
               </text>
             </svg>
             <h3>Scan to download the app</h3>
+          </div>
+        ) : noInputs ? (
+          <div className='partner-container'>
+            <button type="submit" className="cta-submit-btn">
+              {buttonText}
+            </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="cta-form">

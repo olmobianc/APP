@@ -129,3 +129,20 @@
     margin-top: $spacing-md; // Space between text and QR code
   }
 }
+
+.partner-container {
+  .cta-submit-btn {
+    background-color: $primary-color;
+    color: $white;
+    font-weight: 600;
+    padding: $get-started-padding;
+    border: none;
+    border-radius: $get-started-border-radius;
+    cursor: pointer;
+    transition: background-color $transition-speed;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+}

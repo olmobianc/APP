@@ -51,7 +51,7 @@ const HowItWorks = ({ type }) => {
       },
       {
         title: 'Growth',
-        description: 'Cultivate personal and collective development through enriching interactions, transforming experiences into opportunities for learning and advancement.'
+        description: 'Cultivate personal and collective development through enriching interactions, transforming experiences into opportunities for yourself and others.'
       }
     ]
   };
