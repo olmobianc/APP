@@ -1,30 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faPaintBrush, 
-  faLaptopCode, 
-  faGuitar, 
-  faUtensils, 
-  faDumbbell, 
-  faLanguage,
-  faCamera,
-  faChalkboardTeacher,
-  faSailboat,
-  faLeaf
-} from '@fortawesome/free-solid-svg-icons';
+import icons from '../utils/icons.js';
 import '../styles/components/TopCategories.scss';
 
 const categories = [
-  { name: 'Languages', icon: faLanguage },
-  { name: 'Arts and Crafts', icon: faPaintBrush },
-  { name: 'Music', icon: faGuitar },
-  { name: 'Cooking', icon: faUtensils },
-  { name: 'Fitness', icon: faDumbbell },
-  { name: 'Technology', icon: faLaptopCode },
-  { name: 'Photography', icon: faCamera },
-  { name: 'Academic Tutoring', icon: faChalkboardTeacher },
-  { name: 'Sailing', icon: faSailboat },
-  { name: 'Gardening', icon: faLeaf }
+  { name: 'Languages', icon: icons.language },
+  { name: 'Arts and Crafts', icon: icons.paintBrush },
+  { name: 'Music', icon: icons.guitar },
+  { name: 'Cooking', icon: icons.utensils },
+  { name: 'Fitness', icon: icons.dumbbell },
+  { name: 'Technology', icon: icons.laptopCode },
+  { name: 'Photography', icon: icons.camera },
+  { name: 'Academic Tutoring', icon: icons.chalkboardTeacher },
+  { name: 'Sailing', icon: icons.sailboat },
+  { name: 'Gardening', icon: icons.leaf }
 ];
 
 const TopCategories = () => {

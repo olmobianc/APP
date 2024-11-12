@@ -6,7 +6,7 @@ const OurMission = () => {
   return (
     <div className="our-mission-page">
       <div className='our-mission-page--main-container'>
-      <h1>Why We Do What We Do</h1>
+      <h1>Why we do what we do</h1>
       <p>
             In today’s digital landscape, many popular apps offer little more than a rehash of the same formula: 
             swipe through countless profiles, connect over shared interests, and engage in endless chats. 

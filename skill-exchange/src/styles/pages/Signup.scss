@@ -1,0 +1,105 @@
+@import '../variables.scss';
+
+.signup-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 80vh; // Full viewport height
+  background-color: $white; // Background color
+  color: $color-text; // Text color
+  padding: $spacing-md;
+
+  &--next-step {
+    color: yelow;
+  }
+
+  .progress-bar {
+    width: 50%;
+    background-color: $color-border; // Background for the progress bar
+    border-radius: $border-radius;
+    margin-bottom: $spacing-md;
+
+    .progress {
+      height: 10px; // Height of the progress bar
+      border-radius: $border-radius;
+      background-color: $primary-color; // Color of the progress
+      transition: width 0.3s ease; // Smooth transition for progress
+    }
+  }
+
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: $spacing-md;
+
+    .icon-circle {
+      width: 80px; // Size of the circle
+      height: 80px; // Size of the circle
+      border-radius: 50%; // Make it circular
+      background-color: $color-background; // Background color for the circle
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: $box-shadow; // Add shadow for depth
+      margin-bottom: $spacing-md;
+
+      span {
+        font-size: 2rem; // Size of the icon
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: $font-size-large; // Font size for the comment
+      margin: 0; // Remove default margin
+    }
+  }
+
+  .continue-button {
+    padding: $spacing-sm $spacing-lg; // Button padding
+    background-color: $primary-color; // Button background color
+    color: $white; // Button text color
+    border: none; // No border
+    border-radius: $border-radius; // Rounded corners
+    cursor: pointer; // Pointer cursor on hover
+    transition: background-color 0.3s ease; // Smooth transition
+
+    &:hover {
+      background-color: $color-primary-dark; // Darker background on hover
+    }
+  }
+
+}
+
+.next {
+  display: flex; // Set display to flex
+  flex-direction: column; // Arrange buttons in a column
+  align-items: center; // Center align buttons
+  justify-content: flex-start; // Align to the start
+
+  .skills-list {
+    &--btn {
+      display: flex; // Make button a flex container
+      width: 600px;
+      align-items: center; // Center icon and text vertically
+      justify-content: flex-start; // Center icon and text horizontally
+      padding: $spacing-sm $spacing-md; // Button padding
+      background-color: transparent;
+      gap: $spacing-sm;
+      border: 2px solid $color-border; // Light border for login button
+      border-radius: $border-radius; // Rounded corners
+      cursor: pointer; // Pointer cursor on hover
+      margin: $spacing-sm 0; // Space between buttons
+      transition: background-color 0.3s ease; // Smooth transition
+
+      h3 {
+        font-weight: 400;
+      }
+    }
+    &--btn:hover {
+      border: 2px solid $black;
+    }
+  }
+}

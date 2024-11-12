@@ -71,7 +71,7 @@ const BecomePartner = () => {
         onClick={() => console.log('CTA Button Clicked')}
         noInputs={true}
       />
-      
+
       <div className="stats">
         <h2>Join Over 250,000 Successful Events Hosted by Our Partners!</h2>
         <p>We specialize in connecting people with memorable venues and experiences. Once matched, guests are eager to visit your location—whether it's a cozy café, lively club, or any other venue.</p>
