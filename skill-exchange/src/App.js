@@ -3,11 +3,13 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import LoginPage from './pages/LoginPage';
-import Signup from './pages/Signup';
-import NextStep from './pages/NextStep';
-import BecomePartner from './pages/BecomePartner';
-import OurMission from './pages/OurMission';
+import LoginPage from './pages/login/LoginPage';
+import Signup from './pages/account creation/Signup';
+import FirstStep from './pages/account creation/FirstStep';
+import SecondStep from './pages/account creation/SecondStep';
+import FinalStep from './pages/account creation/FinalStep'
+import BecomePartner from './pages/landing pages/BecomePartner';
+import OurMission from './pages/landing pages/OurMission';
 
 // import styles
 import './styles/App.scss';
@@ -24,7 +26,9 @@ import 'font-awesome/css/font-awesome.min.css';
 
 const App = () => {
   const location = useLocation();
-  const excludeRoutes = ['/signup', '/next-step']; // Add routes where Header and Footer should not appear
+  const excludeRoutes = [
+    '/signup', '/first-step', '/second-step', '/final-step'
+  ];
   const shouldRenderHeaderFooter = !excludeRoutes.includes(location.pathname);
 
   return (
@@ -35,7 +39,9 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/next-step" element={<NextStep />} />
+          <Route path="/first-step" element={<FirstStep />} />
+          <Route path="/second-step" element={<SecondStep />} />
+          <Route path="/final-step" element={<FinalStep />} />
           <Route path="/become-partner" element={<BecomePartner />} />
           <Route path="/mission" element={<OurMission />} />
         </Routes>

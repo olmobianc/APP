@@ -10,10 +10,6 @@
   color: $color-text; // Text color
   padding: $spacing-md;
 
-  &--next-step {
-    color: yelow;
-  }
-
   .progress-bar {
     width: 50%;
     background-color: $color-border; // Background for the progress bar
@@ -32,7 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-sm;
 
     .icon-circle {
       width: 80px; // Size of the circle
@@ -73,7 +69,8 @@
 
 }
 
-.next {
+// first step
+.first-step {
   display: flex; // Set display to flex
   flex-direction: column; // Arrange buttons in a column
   align-items: center; // Center align buttons
@@ -87,6 +84,7 @@
       justify-content: flex-start; // Center icon and text horizontally
       padding: $spacing-sm $spacing-md; // Button padding
       background-color: transparent;
+      font-size: $font-size-small;
       gap: $spacing-sm;
       border: 2px solid $color-border; // Light border for login button
       border-radius: $border-radius; // Rounded corners
@@ -101,5 +99,45 @@
     &--btn:hover {
       border: 2px solid $black;
     }
+  }
+}
+
+// final step
+.final-step {
+  background-color: $dark;
+  height: 100vh;
+  box-sizing: border-box;
+  justify-content: space-between;
+  padding-bottom: $spacing-lg;
+  .icon-container {
+    flex-direction: column;
+    margin-top: $spacing-lg;
+    justify-content: flex-start;
+    gap: $spacing-md;
+
+    h2 {
+      text-align: left;
+      font-size: $font-size-heading;
+    }
+
+    .icon-circle{
+      width: 400px;
+      background-color: transparent;
+      box-shadow: none;
+      .image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .review-container {
+    width: 460px;
+    color: $white;
+    margin-top: $spacing-sm;
+    margin-bottom: $spacing-lg;
+  }
+
+  .continue-button {
+    margin-top: $spacing-xxl;
   }
 }

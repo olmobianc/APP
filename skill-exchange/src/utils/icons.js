@@ -8,7 +8,9 @@ import {
     faCamera,
     faChalkboardTeacher,
     faSailboat,
-    faLeaf
+    faLeaf,
+    faBomb,
+    faBasketball
 } from '@fortawesome/free-solid-svg-icons';
   
 const icons = {
@@ -22,6 +24,8 @@ const icons = {
     chalkboardTeacher: faChalkboardTeacher,
     sailboat: faSailboat,
     leaf: faLeaf,
+    bomb: faBomb,
+    basketball: faBasketball
 };
   
 export default icons;  
