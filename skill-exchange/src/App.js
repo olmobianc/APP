@@ -8,6 +8,7 @@ import Signup from './pages/account creation/Signup';
 import FirstStep from './pages/account creation/FirstStep';
 import SecondStep from './pages/account creation/SecondStep';
 import FinalStep from './pages/account creation/FinalStep'
+import Welcome from './pages/account creation/Welcome'
 import BecomePartner from './pages/landing pages/BecomePartner';
 import OurMission from './pages/landing pages/OurMission';
 
@@ -19,6 +20,7 @@ import './styles/components/HowItWorks.scss';
 import './styles/components/Footer.scss';
 import './styles/pages/LoginPage.scss';
 import './styles/pages/Signup.scss';
+import './styles/pages/Welcome.scss';
 import './styles/pages/BecomePartner.scss';
 import './styles/pages/OurMission.scss';
 
@@ -27,7 +29,7 @@ import 'font-awesome/css/font-awesome.min.css';
 const App = () => {
   const location = useLocation();
   const excludeRoutes = [
-    '/signup', '/first-step', '/second-step', '/final-step'
+    '/signup', '/first-step', '/second-step', '/final-step', '/welcome'
   ];
   const shouldRenderHeaderFooter = !excludeRoutes.includes(location.pathname);
 
@@ -42,6 +44,7 @@ const App = () => {
           <Route path="/first-step" element={<FirstStep />} />
           <Route path="/second-step" element={<SecondStep />} />
           <Route path="/final-step" element={<FinalStep />} />
+          <Route path="/welcome" element={<Welcome />} />
           <Route path="/become-partner" element={<BecomePartner />} />
           <Route path="/mission" element={<OurMission />} />
         </Routes>

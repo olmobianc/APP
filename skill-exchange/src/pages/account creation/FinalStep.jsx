@@ -17,7 +17,7 @@ const FinalStep = () => {
   const navigate = useNavigate(); // Initialize history for navigation
 
   const handleContinueClick = () => {
-    navigate('/third-step'); // Navigate to the NextStep page
+    navigate('/welcome'); // Navigate to the NextStep page
   };
 
   return (
@@ -152,7 +152,7 @@ const FinalStep = () => {
 
           <div className='review-container'>
                 <h2>You are all set now!</h2>
-                <p>IIf you’re excited about meeting new people, sharing your unique skills, 
+                <p>If you’re excited about meeting new people, sharing your unique skills, 
                     and learning from others, this app will be a perfect fit for you.
                 </p>
             </div>
