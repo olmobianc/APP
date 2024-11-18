@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
-const Welcome = ({ isModal, onClose }) => {
+
+const Welcome = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -1498,6 +1501,22 @@ fill: "#0c4ca9d4",
         <h1 className="welcome__heading">Your learning path is ready. 
           Create a free account to start building connections.
         </h1>
+
+        <div className="social-login-buttons">
+          <button className="login-button google-button">
+          <FontAwesomeIcon icon={faGoogle} className="input-icon" />
+            Login with Google
+          </button>
+          <button className="login-button facebook-button">
+          <FontAwesomeIcon icon={faFacebook} className="input-icon" />
+            Login with Facebook
+          </button>
+        </div>
+
+        <div className="or-divider">
+          <span>OR</span>
+        </div>
+
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
             <FontAwesomeIcon icon={faEnvelope} className="input-icon" />

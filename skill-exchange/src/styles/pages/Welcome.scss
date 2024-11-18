@@ -140,4 +140,85 @@
       }
     }
   }
+
+  .social-login-buttons {
+    display: flex;
+    margin-bottom: $spacing-md;
+    gap: 1rem;
+
+    .login-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      &.google-button {
+        font-weight: 600;
+        background-color: $color-card-background;
+        border: 2px solid $color-border; 
+
+        &:hover {
+          border: 2px solid $black;
+        }
+      }
+
+      &.facebook-button {
+        font-weight: 600;
+        background-color: $color-card-background;
+        border: 2px solid $color-border; 
+
+        &:hover {
+          border: 2px solid $black;
+        }
+      }
+    }
+  }
+
+}
+
+.or-divider {
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  border-top: 1px solid #ccc;
+}
+
+.or-divider::before {
+  left: 0;
+}
+
+.or-divider::after {
+  right: 0;
+}
+
+.or-divider span {
+  background: white;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  z-index: 1;
 }

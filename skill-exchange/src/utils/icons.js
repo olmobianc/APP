@@ -10,7 +10,9 @@ import {
     faSailboat,
     faLeaf,
     faBomb,
-    faBasketball
+    faBasketball,
+    faGoogle
+    
 } from '@fortawesome/free-solid-svg-icons';
   
 const icons = {
@@ -25,7 +27,7 @@ const icons = {
     sailboat: faSailboat,
     leaf: faLeaf,
     bomb: faBomb,
-    basketball: faBasketball
+    basketball: faBasketball,
 };
   
 export default icons;  

@@ -1,16 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import icons from '../../utils/icons.js';
-
-const skills = [
-  { name: 'Languages', icon: icons.language },
-  { name: 'Arts and Crafts', icon: icons.paintBrush },
-  { name: 'Music', icon: icons.guitar },
-  { name: 'Cooking', icon: icons.utensils },
-  { name: 'Sports', icon: icons.basketball },
-  { name: 'Something else', icon: icons.bomb },
-];
 
 const FinalStep = () => {
 
