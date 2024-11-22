@@ -1,0 +1,78 @@
+@import '../variables.scss';
+
+.home {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $spacing-md;
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: $primary-color; // Use your primary color
+        }
+
+        .nav {
+            display: flex;
+            gap: $spacing-lg;
+
+            .nav-link {
+                text-decoration: none;
+                color: $color-text; // Use your text color
+                font-size: $font-size-medium;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .premium {
+            .premium-link {
+                text-decoration: none;
+                color: $primary-color; // Use your primary color
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+        }
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 60px; // Adjust based on your header height
+        right: 20px; // Adjust as needed
+        background-color: $white; // Define your dropdown background color
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: $border-radius; // Use your border radius variable
+        z-index: 1000; // Ensure it appears above other content
+
+        .dropdown-item {
+            padding: $spacing-sm;
+            text-decoration: none;
+            color: $color-text; // Use your text color
+            display: block;
+
+            &:hover {
+                background-color: $color-hover; // Define hover color in variables.scss
+            }
+        }
+    }
+
+    .main-content {
+        padding: $spacing-lg;
+        text-align: center;
+
+        h1 {
+            font-size: 32px;
+            color: $black; // Use your black color variable
+        }
+    }
+}

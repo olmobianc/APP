@@ -7,9 +7,13 @@
   padding: $spacing-xxl;
   padding-bottom: $spacing-lg;
 
+  &.reduced-padding {
+    padding: $spacing-lg; // Reduced padding when additional fields are shown
+  }
+
   &__image {
     flex: 1;
-    max-width: 40%;
+    max-width: 450px;
     padding-right: $spacing-md;
 
     &-img {
@@ -19,7 +23,7 @@
 
   &__content {
     flex: 1;
-    max-width: 40%;
+    max-width: 450px;
     font-family: $font-family-text;
   }
 
@@ -33,13 +37,13 @@
   &__text {
     font-size: $font-size-medium;
     color: $color-text;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-sm;
   }
 
   .login-form {
     .form-group {
       position: relative;
-      margin-bottom: $spacing-md; // Ensure $spacing-md is defined
+      margin-bottom: $spacing-sm; // Ensure $spacing-md is defined
 
       .input-icon {
         position: absolute;
@@ -64,6 +68,11 @@
           border-color: $primary-color; // Ensure $primary-color is defined
         }
       }
+    }
+
+    .half-width {
+      display: inline-flex;
+      gap: $spacing-md;
     }
 
     .form-options {
@@ -100,6 +109,7 @@
           text-decoration: underline;
         }
       }
+
     }
 
     .login-button {

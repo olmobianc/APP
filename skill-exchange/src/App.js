@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,6 +9,7 @@ import FirstStep from './pages/account creation/FirstStep';
 import SecondStep from './pages/account creation/SecondStep';
 import FinalStep from './pages/account creation/FinalStep'
 import Welcome from './pages/account creation/Welcome'
+import Casa from './pages/loggedInPages/Home'
 import BecomePartner from './pages/landing pages/BecomePartner';
 import OurMission from './pages/landing pages/OurMission';
 
@@ -23,13 +24,19 @@ import './styles/pages/Signup.scss';
 import './styles/pages/Welcome.scss';
 import './styles/pages/BecomePartner.scss';
 import './styles/pages/OurMission.scss';
+import './styles/loggedInPages/home.scss';
 
 import 'font-awesome/css/font-awesome.min.css';
 
 const App = () => {
   const location = useLocation();
   const excludeRoutes = [
-    '/signup', '/first-step', '/second-step', '/final-step', '/welcome'
+    '/signup', 
+    '/first-step', 
+    '/second-step', 
+    '/final-step', 
+    '/welcome',
+    '/home'
   ];
   const shouldRenderHeaderFooter = !excludeRoutes.includes(location.pathname);
 
@@ -45,6 +52,7 @@ const App = () => {
           <Route path="/second-step" element={<SecondStep />} />
           <Route path="/final-step" element={<FinalStep />} />
           <Route path="/welcome" element={<Welcome />} />
+          <Route path="/home" element={<Casa />} />
           <Route path="/become-partner" element={<BecomePartner />} />
           <Route path="/mission" element={<OurMission />} />
         </Routes>
