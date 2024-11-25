@@ -9,7 +9,8 @@ import FirstStep from './pages/account creation/FirstStep';
 import SecondStep from './pages/account creation/SecondStep';
 import FinalStep from './pages/account creation/FinalStep'
 import Welcome from './pages/account creation/Welcome'
-import Casa from './pages/loggedInPages/Home'
+import Dashboard from './pages/loggedInPages/Dashboard'
+import Categories from './pages/loggedInPages/Categories';
 import BecomePartner from './pages/landing pages/BecomePartner';
 import OurMission from './pages/landing pages/OurMission';
 
@@ -19,12 +20,14 @@ import './styles/components/Header.scss';
 import './styles/components/CTA.scss';
 import './styles/components/HowItWorks.scss';
 import './styles/components/Footer.scss';
+import './styles/components/MacroCategory.scss';
 import './styles/pages/LoginPage.scss';
 import './styles/pages/Signup.scss';
 import './styles/pages/Welcome.scss';
 import './styles/pages/BecomePartner.scss';
 import './styles/pages/OurMission.scss';
-import './styles/loggedInPages/home.scss';
+import './styles/loggedInPages/Dashboard.scss';
+import './styles/components/Calendar.scss';
 
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -36,7 +39,8 @@ const App = () => {
     '/second-step', 
     '/final-step', 
     '/welcome',
-    '/home'
+    '/home',
+    '/categories',
   ];
   const shouldRenderHeaderFooter = !excludeRoutes.includes(location.pathname);
 
@@ -52,7 +56,10 @@ const App = () => {
           <Route path="/second-step" element={<SecondStep />} />
           <Route path="/final-step" element={<FinalStep />} />
           <Route path="/welcome" element={<Welcome />} />
-          <Route path="/home" element={<Casa />} />
+          {/* Logged In Pages */}
+          <Route path="/home" element={<Dashboard />} />
+          <Route path="/categories" element={<Categories />} />
+          {/* Landing Pages */}
           <Route path="/become-partner" element={<BecomePartner />} />
           <Route path="/mission" element={<OurMission />} />
         </Routes>

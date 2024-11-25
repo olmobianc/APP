@@ -7,9 +7,9 @@ const skills = [
   { name: 'Languages', icon: icons.language },
   { name: 'Arts and Crafts', icon: icons.paintBrush },
   { name: 'Music', icon: icons.guitar },
-  { name: 'Cooking', icon: icons.utensils },
-  { name: 'Sports', icon: icons.basketball },
-  { name: 'Something else', icon: icons.bomb },
+  { name: 'Cooking and Baking', icon: icons.utensils },
+  { name: 'Sports and Fitness', icon: icons.basketball },
+  { name: 'Gardering', icon: icons.leaf },
 ];
 
 const SecondStep = () => {

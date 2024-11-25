@@ -1,0 +1,106 @@
+@import '../variables.scss';
+
+.macrocategory {
+    background-color: $color-border;
+    padding: $spacing-lg;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    text-align: center;
+  
+    .macrocategory-header {
+      margin-bottom: $spacing-lg;
+  
+      .macrocategory-heading {
+        font-family: $font-family-heading;
+        font-size: $font-size-xxl;
+        color: $primary-color;
+        margin-bottom: $spacing-sm;
+      }
+  
+      .macrocategory-description {
+        font-family: $font-family-text;
+        font-size: $font-size-medium;
+        color: $color-text;
+        margin-bottom: $spacing-md;
+      }
+  
+      .macrocategory-button {
+        font-family: $font-family-text;
+        font-size: $font-size-medium;
+        color: $white;
+        background-color: $primary-color;
+        border: none;
+        padding: $spacing-sm $spacing-md;
+        border-radius: $border-radius;
+        cursor: pointer;
+        transition: background-color $transition-speed;
+  
+        &:hover {
+          background-color: $color-hover;
+        }
+      }
+    }
+  
+    .macrocategory-carousel {
+      display: flex;
+      align-items: center;
+      position: relative;
+  
+      .carousel-arrow {
+        background-color: $white;
+        border: 1px solid $color-border;
+        color: $color-text;
+        padding: $spacing-sm;
+        font-size: $font-size-large;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color $transition-speed;
+  
+        &:hover {
+          background-color: $color-hover;
+          color: $white;
+        }
+  
+        &.left-arrow {
+          margin-right: $spacing-sm;
+        }
+  
+        &.right-arrow {
+          margin-left: $spacing-sm;
+        }
+      }
+  
+      .carousel-track {
+        display: flex;
+        overflow-x: auto;
+        gap: $spacing-md;
+        padding: $spacing-sm 0;
+        scroll-behavior: smooth;
+  
+        .carousel-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: $color-background;
+          border: 1px solid $color-border;
+          border-radius: $border-radius;
+          padding: $spacing-md;
+          min-width: 120px;
+          box-shadow: $box-shadow;
+          text-align: center;
+  
+          .card-icon {
+            font-size: $font-size-xxl;
+            margin-bottom: $spacing-sm;
+          }
+  
+          .card-label {
+            font-family: $font-family-text;
+            font-size: $font-size-medium;
+            color: $font-color;
+          }
+        }
+      }
+    }
+  }
+  

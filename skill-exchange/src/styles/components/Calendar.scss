@@ -1,0 +1,49 @@
+@import '../variables.scss';
+
+.calendar {
+    position: sticky;
+    top: 0; // Dynamically adjusted in JSX based on header height
+    bottom: 0; // Ensures it doesn't overlap the footer
+    width: 100%;
+    max-width: 500px; // Increased width for larger grid
+    background-color: $color-card-background;
+    box-shadow: $box-shadow;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    padding: $spacing-md;
+    margin-top: $spacing-lg;
+  
+    .calendar-days {
+      display: flex;
+      justify-content: space-between;
+      gap: $spacing-sm;
+  
+      .calendar-day {
+        font-family: $font-family-text;
+        font-size: $font-size-large; // Larger font for visibility
+        color: $font-color;
+        padding: $spacing-sm $spacing-md;
+        text-align: center;
+        background-color: $color-background;
+        border-radius: $border-radius;
+        flex: 1 1 auto; // Ensure equal spacing between days
+        box-sizing: border-box;
+  
+        &:hover {
+          background-color: $color-hover;
+          color: $white;
+          transition: background-color $transition-speed;
+        }
+      }
+    }
+  
+    .calendar-description {
+      margin-top: $spacing-md;
+      font-family: $font-family-text;
+      font-size: $font-size-medium;
+      color: $color-text;
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
+  
