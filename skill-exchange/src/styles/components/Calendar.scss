@@ -1,11 +1,8 @@
 @import '../variables.scss';
 
 .calendar {
-    position: sticky;
-    top: 0; // Dynamically adjusted in JSX based on header height
-    bottom: 0; // Ensures it doesn't overlap the footer
+    flex: 0 0 40%;
     width: 100%;
-    max-width: 500px; // Increased width for larger grid
     background-color: $color-card-background;
     box-shadow: $box-shadow;
     border: 1px solid $color-border;

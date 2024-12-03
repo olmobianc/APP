@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icons from '../../utils/icons.js';
 
 import Calendar from '../../components/Calendar.jsx';
+import Map from '../../components/Map.jsx';
 
 const Dashboard = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
-    const location = useLocation(); // Access the current URL
+    const address = useLocation(); // Access the current URL
+    const [location, setLocation] = useState('');
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -21,6 +23,12 @@ const Dashboard = () => {
     const toggleModal = () => {
         setModalOpen(!modalOpen);
     };
+
+    const handleSubmit = (e) => {
+        console.log(`Location: ${location}`);
+      };
+
+    const searchIcon = icons.search 
 
     const filters = [
         { icon: icons.water, label: 'On the Water' },
@@ -55,14 +63,14 @@ const Dashboard = () => {
                         <FontAwesomeIcon icon={icons.house} className="input-icon" />
                         <Link 
                             to="/home" 
-                            className={`nav-link ${location.pathname === '/home' ? 'nav-link--active' : ''}`}
+                            className={`nav-link ${address.pathname === '/home' ? 'nav-link--active' : ''}`}
                         >
                             Home
                         </Link>
                         <FontAwesomeIcon icon={icons.compass} className="input-icon" />
                         <Link 
                             to="/categories" 
-                            className={`nav-link ${location.pathname === '/categories' ? 'nav-link--active' : ''}`}
+                            className={`nav-link ${address.pathname === '/categories' ? 'nav-link--active' : ''}`}
                         >
                             Categories
                         </Link>
@@ -81,6 +89,16 @@ const Dashboard = () => {
 
             <div className="filters">
                 <div className="filter-buttons">
+                    <div style={{position:"relative"}}>
+                        <FontAwesomeIcon icon={icons.search} className="search-icon" />
+                        <input
+                            type="text"
+                            placeholder="Sydney, New South Wales"
+                            value={location}
+                            onChange={(e) => handleSubmit(e.target.value)}
+                            required
+                        />
+                    </div>
                     {filters.map((filter, index) => (
                         <button key={index} className="filter-button">
                             <FontAwesomeIcon icon={filter.icon} />
@@ -105,8 +123,11 @@ const Dashboard = () => {
             )}
 
             <main className="main-content">
-                <h3>Welcome, Olmo</h3>
-                <Calendar />
+                {/* <h3>Welcome, Olmo</h3> */}
+                <div className='main-content--box'>
+                    <Calendar />
+                    <Map />
+                </div>
             </main>
 
             {modalOpen && (

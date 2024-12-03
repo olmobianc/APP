@@ -87,11 +87,11 @@
     }
 
     .main-content {
-        padding: $spacing-lg $spacing-xxl $spacing-xxl;
-
-        h1 {
-            font-size: 32px;
-            color: $black; // Use your black color variable
+        padding: 0 0 $spacing-xxl $spacing-md;
+        &--box {
+            display: flex;  
+            justify-content: space-between;
+            gap: $spacing-sm;
         }
     }
 
@@ -127,6 +127,21 @@
                 pointer-events: none; // Ensure it doesn't block interaction with the scrollable content
             }
 
+            input {
+                padding: $spacing-sm;
+                padding-left: $spacing-lg;
+                border: 2px solid $color-border;
+                border-radius: $border-radius;
+                font-size: $font-size-small;
+                font-family: $font-family-text;
+                min-width: 200px;
+
+                &:focus {
+                  border-color: $primary-color;
+                  outline: none;
+                }
+              }
+
             .filter-button {
                 display: flex;
                 flex-direction: column;
@@ -159,13 +174,20 @@
                 border-radius: $border-radius; // Use your border radius variable
                 background-color: $color-card-background; // Background color for login button
                 border: 2px solid $color-border; // Light border for login button
-                position: fixed;
+                position: absolute;
                 right: 20px;
 
                 &:hover {
                     border: 2px solid $black;
                     color: $black;
                 }
+            }
+
+            .search-icon {
+                position: absolute;
+                top: 12px;
+                margin-left: 20px;
+                color: $color-input;
             }
         }
     }

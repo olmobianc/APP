@@ -1,0 +1,86 @@
+@import '../variables.scss';
+
+.card {
+    background-color: $color-card-background;
+    border: 1px solid $color-border;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    padding: $spacing-md;
+    margin: $spacing-sm;
+    transition: box-shadow $transition-speed;
+    font-family: $font-family-text;
+    color: $color-text;
+    display: flex;
+    flex-direction: column;
+  
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px $primary-color;
+    }
+  
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .card__name {
+        font-size: $font-size-heading;
+        font-family: $font-family-heading;
+        color: $primary-color;
+        margin: 0;
+      }
+  
+      .card__age {
+        font-size: $font-size-medium;
+        color: $color-primary-dark;
+      }
+    }
+  
+    &__location {
+      font-size: $font-size-medium;
+      font-family: $font-family-text;
+      color: $color-primary;
+      margin-bottom: $spacing-sm;
+    }
+  
+    &__skills {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+  
+      &-section {
+        background-color: $color-background;
+        border: 1px solid $color-border;
+        border-radius: $border-radius;
+        padding: $spacing-sm;
+  
+        .card__skills-title {
+          font-size: $font-size-large;
+          color: $secondary-color;
+          margin-bottom: $spacing-xs;
+        }
+  
+        .card__skills-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+  
+          li {
+            font-size: $font-size-medium;
+            color: $color-text;
+            padding: $spacing-xs 0;
+  
+            &:not(:last-child) {
+              border-bottom: 1px solid $color-border;
+            }
+          }
+        }
+      }
+    }
+  }

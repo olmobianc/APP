@@ -34,7 +34,8 @@ import {
     faBookOpen,
     faHammer,
     faBrain,
-    faRunning
+    faRunning,
+    faSearch
 } from '@fortawesome/free-solid-svg-icons';
   
 const icons = {
@@ -73,7 +74,8 @@ const icons = {
     skillDevelopment: faBookOpen, // Skill Development
     make: faHammer, // Make Something
     learn: faBrain, // Learn Something
-    active: faRunning // Stay Active
+    active: faRunning, // Stay Active
+    search: faSearch
 };
   
 export default icons;

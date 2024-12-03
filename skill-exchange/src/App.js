@@ -27,6 +27,7 @@ import './styles/pages/Welcome.scss';
 import './styles/pages/BecomePartner.scss';
 import './styles/pages/OurMission.scss';
 import './styles/loggedInPages/Dashboard.scss';
+import './styles/components/Map.scss';
 import './styles/components/Calendar.scss';
 
 import 'font-awesome/css/font-awesome.min.css';
