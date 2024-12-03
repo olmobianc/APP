@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icons from '../../utils/icons.js';
 
@@ -7,6 +7,7 @@ import Macrocategory from '../../components/MacroCategory.jsx';
 
 const Categories = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation(); // Access the current URL
 
     const sportsCategories = [
         { name: "Tennis", icon: "🎾" },
@@ -77,9 +78,19 @@ const Categories = () => {
                     <div className="logo">Marcopolo</div>
                     <nav className="nav">
                         <FontAwesomeIcon icon={icons.house} className="input-icon" />
-                        <Link to="/home" className="nav-link">Home</Link>
+                        <Link 
+                            to="/home" 
+                            className={`nav-link ${location.pathname === '/home' ? 'nav-link--active' : ''}`}
+                        >
+                            Home
+                        </Link>
                         <FontAwesomeIcon icon={icons.compass} className="input-icon" />
-                        <Link to="/categories" className="nav-link">Categories</Link>
+                        <Link 
+                            to="/categories" 
+                            className={`nav-link ${location.pathname === '/categories' ? 'nav-link--active' : ''}`}
+                        >
+                            Categories
+                        </Link>
                     </nav>
                 </div>
                 

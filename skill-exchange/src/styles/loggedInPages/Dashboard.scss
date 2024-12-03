@@ -2,6 +2,8 @@
 
 .logged-in {
     .header {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 6px 0px;
+        border: 2px solid $color-border;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -34,9 +36,17 @@
                 text-decoration: none;
                 color: $color-text; // Use your text color
                 font-size: $font-size-medium;
+                border-bottom: 2px solid transparent;
 
                 &:hover {
-                    text-decoration: underline;
+                    border-bottom: 2px solid $color-border;
+                }
+            }
+
+            .nav-link--active {
+                border-bottom: 2px solid $color-text;
+                &:hover {
+                    border-bottom: 2px solid $color-text; // Keep the active color on hover
                 }
             }
         }
@@ -46,10 +56,6 @@
                 text-decoration: none;
                 color: $color-primary-dark; // Use your primary color
                 font-weight: bold;
-
-                &:hover {
-                    text-decoration: underline;
-                }
             }
         }
 
@@ -90,26 +96,44 @@
     }
 
     .filters {
-        border-bottom: 1px solid $color-border;
-
-        h2 {
-            width: 100%; // Make headings full width
-            margin-top: $spacing-lg; // Add margin for spacing
-        }
+        border-bottom: 2px solid $color-border;
+        position: relative;
 
         .filter-buttons {
             display: flex;
             overflow-x: auto; // Enable horizontal scrolling
             white-space: nowrap;
+            align-items: center;
+            padding: 0 $spacing-sm;
+            width: 90%;
+            scroll-behavior: smooth;
+
+            // Hide scrollbar
+            scrollbar-width: none; // Firefox
+            -ms-overflow-style: none; // IE and Edge
+            &::-webkit-scrollbar {
+                display: none; // Chrome, Safari, and newer Edge
+            }
+
+            // Fade effect
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 8%;
+                height: 100%;
+                width: 50px; // Adjust width for fade effect size
+                background: linear-gradient(to left, White, transparent); // Fading from background color to transparent
+                pointer-events: none; // Ensure it doesn't block interaction with the scrollable content
+            }
 
             .filter-button {
-                min-width: 110px; // Set a minimum width for buttons
-                margin-right: $spacing-sm; // Add margin between buttons
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 background: none; // No backgr
-                padding: $spacing-md;
+                padding: $spacing-md 0;
+                margin: 0 $spacing-sm;
                 border: none; // No border
                 gap: $spacing-sm;
                 cursor: pointer;
@@ -126,17 +150,24 @@
                     font-size: $font-size-small; // Adjust font size as needed
                 }
             }
-        }
-    }
 
-    .view-all-button {
-        margin-top: $spacing-lg; // Add margin for spacing
-        cursor: pointer;
-        background-color: $color-primary; // Example background color
-        color: $white; // Example text color
-        border: none;
-        padding: $spacing-sm;
-        border-radius: $border-radius; // Use your border radius variable
+            .view-all-button {
+                cursor: pointer;
+                color: $black; // Example text color
+                height: 50px;
+                padding: $spacing-sm;
+                border-radius: $border-radius; // Use your border radius variable
+                background-color: $color-card-background; // Background color for login button
+                border: 2px solid $color-border; // Light border for login button
+                position: fixed;
+                right: 20px;
+
+                &:hover {
+                    border: 2px solid $black;
+                    color: $black;
+                }
+            }
+        }
     }
 
     .modal {
