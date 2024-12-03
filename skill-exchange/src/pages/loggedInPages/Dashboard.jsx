@@ -7,15 +7,43 @@ import Calendar from '../../components/Calendar.jsx';
 
 const Dashboard = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
     const handleLogout = () => {
-        // Handle logout logic here
         console.log('User logged out');
     };
+
+    const toggleModal = () => {
+        setModalOpen(!modalOpen);
+    };
+
+    const filters = [
+        { icon: icons.water, label: 'On the Water' },
+        { icon: icons.indoor, label: 'Indoor' },
+        { icon: icons.outdoor, label: 'Outdoor' },
+        { icon: icons.city, label: 'Urban Settings' },
+        { icon: icons.nature, label: 'Natural Settings' },
+        { icon: icons.solo, label: 'Solo Activities' },
+        { icon: icons.group, label: 'Group Activities' },
+        { icon: icons.family, label: 'Family-Friendly' },
+        { icon: icons.beginner, label: 'Beginner-Friendly' },
+        { icon: icons.intermediate, label: 'Intermediate' },
+        { icon: icons.expert, label: 'Expert' },
+        { icon: icons.quick, label: 'Quick Activities' },
+        { icon: icons.moderate, label: 'Moderate Time' },
+        { icon: icons.longTerm, label: 'Long-Term Projects' },
+        { icon: icons.creative, label: 'Creative' },
+        { icon: icons.physical, label: 'Physical' },
+        { icon: icons.relaxing, label: 'Relaxing' },
+        { icon: icons.skillDevelopment, label: 'Skill Development' },
+        { icon: icons.make, label: 'Make Something' },
+        { icon: icons.learn, label: 'Learn Something' },
+        { icon: icons.active, label: 'Stay Active' },
+    ];
 
     return (
         <div className="home logged-in">
@@ -40,6 +68,21 @@ const Dashboard = () => {
                 </div>
             </header>
 
+            <div className="filters">
+                <div className="filter-buttons">
+                    {filters.map((filter, index) => (
+                        <button key={index} className="filter-button">
+                            <FontAwesomeIcon icon={filter.icon} />
+                            <div>{filter.label}</div>
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            <button className="view-all-button" onClick={toggleModal}>
+                View All Filters
+            </button>
+
             {menuOpen && (
                 <div className="dropdown-menu">
                     <Link to="/account" className="dropdown-item">Account</Link>
@@ -52,6 +95,13 @@ const Dashboard = () => {
                 <h3>Welcome, Olmo</h3>
                 <Calendar />
             </main>
+
+            {modalOpen && (
+                <div className="modal">
+                    {/* Modal content for all filters */}
+                    <button onClick={toggleModal}>Close</button>
+                </div>
+            )}
         </div>
     );
 };

@@ -13,8 +13,28 @@ import {
     faBasketball,
     faHouse,
     faCompass,
-    faBars
-    
+    faBars,
+    faWater,
+    faDoorOpen,
+    faHiking,
+    faCity,
+    faTree,
+    faUser,
+    faUsers,
+    faChild,
+    faStar,
+    faGraduationCap,
+    faTrophy,
+    faClock,
+    faHourglassHalf,
+    faProjectDiagram,
+    faPalette,
+    faHeartbeat,
+    faSpa,
+    faBookOpen,
+    faHammer,
+    faBrain,
+    faRunning
 } from '@fortawesome/free-solid-svg-icons';
   
 const icons = {
@@ -32,7 +52,28 @@ const icons = {
     basketball: faBasketball,
     house: faHouse,
     compass: faCompass,
-    bars: faBars
+    bars: faBars,
+    water: faWater, // On the Water
+    indoor: faDoorOpen, // Indoor
+    outdoor: faHiking, // Outdoor
+    city: faCity, // Urban Settings
+    nature: faTree, // Natural Settings
+    solo: faUser, // Solo Activities
+    group: faUsers, // Group Activities
+    family: faChild, // Family-Friendly
+    beginner: faStar, // Beginner-Friendly
+    intermediate: faGraduationCap, // Intermediate
+    expert: faTrophy, // Expert
+    quick: faClock, // Quick Activities
+    moderate: faHourglassHalf, // Moderate Time
+    longTerm: faProjectDiagram, // Long-Term Projects
+    creative: faPalette, // Creative
+    physical: faHeartbeat, // Physical
+    relaxing: faSpa, // Relaxing
+    skillDevelopment: faBookOpen, // Skill Development
+    make: faHammer, // Make Something
+    learn: faBrain, // Learn Something
+    active: faRunning // Stay Active
 };
   
-export default icons;  
+export default icons;

@@ -5,7 +5,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: $spacing-md $spacing-xxl;
+        padding: $spacing-md $spacing-lg;
         .logo {
             font-size: 24px;
             font-weight: bold;
@@ -87,5 +87,66 @@
             font-size: 32px;
             color: $black; // Use your black color variable
         }
+    }
+
+    .filters {
+        border-bottom: 1px solid $color-border;
+
+        h2 {
+            width: 100%; // Make headings full width
+            margin-top: $spacing-lg; // Add margin for spacing
+        }
+
+        .filter-buttons {
+            display: flex;
+            overflow-x: auto; // Enable horizontal scrolling
+            white-space: nowrap;
+
+            .filter-button {
+                min-width: 110px; // Set a minimum width for buttons
+                margin-right: $spacing-sm; // Add margin between buttons
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: none; // No backgr
+                padding: $spacing-md;
+                border: none; // No border
+                gap: $spacing-sm;
+                cursor: pointer;
+                color: $color-text; // Use your text color
+                text-align: center;
+                border-bottom: 2px solid transparent;
+
+                &:hover {
+                    color: $black; // Change color on hover
+                    border-bottom: 2px solid $color-text;
+                }
+
+                div {
+                    font-size: $font-size-small; // Adjust font size as needed
+                }
+            }
+        }
+    }
+
+    .view-all-button {
+        margin-top: $spacing-lg; // Add margin for spacing
+        cursor: pointer;
+        background-color: $color-primary; // Example background color
+        color: $white; // Example text color
+        border: none;
+        padding: $spacing-sm;
+        border-radius: $border-radius; // Use your border radius variable
+    }
+
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $white; // Modal background color
+        padding: $spacing-lg;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 2000; // Ensure it appears above other content
     }
 }
