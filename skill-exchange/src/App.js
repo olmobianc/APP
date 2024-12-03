@@ -29,6 +29,7 @@ import './styles/pages/OurMission.scss';
 import './styles/loggedInPages/Dashboard.scss';
 import './styles/components/Map.scss';
 import './styles/components/Calendar.scss';
+import './styles/components/Card.scss';
 
 import 'font-awesome/css/font-awesome.min.css';
 

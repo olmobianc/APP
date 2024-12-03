@@ -5,6 +5,7 @@ import icons from '../../utils/icons.js';
 
 import Calendar from '../../components/Calendar.jsx';
 import Map from '../../components/Map.jsx';
+import Card from '../../components/Card.jsx';
 
 const Dashboard = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -123,10 +124,31 @@ const Dashboard = () => {
             )}
 
             <main className="main-content">
-                {/* <h3>Welcome, Olmo</h3> */}
                 <div className='main-content--box'>
-                    <Calendar />
+                    <div style={{width:"100%"}}>
+                        <h3>2 results</h3>
+                        <div className='card-container'>
+                            <Card
+                                imageSrc="/DSC_0114 1.JPG"
+                                name="Marco"
+                                age={29}
+                                location="Edinburgh, Scotland"
+                                offerSkills={["Coding", "Italian Language"]}
+                                receiveSkills={["Cooking", "Japanese Language"]}
+                            />
+                            <Card
+                                imageSrc="/DSC_0177.JPG"
+                                name="Gianluca"
+                                age={28}
+                                location="Milan, Italy"
+                                offerSkills={["Guitar"]}
+                                receiveSkills={["Yoga", "Pilates"]}
+                            />
+                        </div>
+                    </div>
+                    
                     <Map />
+
                 </div>
             </main>
 

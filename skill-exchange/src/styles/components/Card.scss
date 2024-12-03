@@ -1,86 +1,93 @@
 @import '../variables.scss';
 
-.card {
-    background-color: $color-card-background;
-    border: 1px solid $color-border;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    padding: $spacing-md;
-    margin: $spacing-sm;
-    transition: box-shadow $transition-speed;
-    font-family: $font-family-text;
-    color: $color-text;
-    display: flex;
-    flex-direction: column;
-  
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 5px $primary-color;
-    }
-  
-    &__content {
+.card-container {
+    width: 100%;
+    .card {
+      margin-top: $spacing-md;
+      border: 1px solid $color-border;
+      border-radius: $border-radius;
+      height: fit-content;
+      color: $color-text;
       display: flex;
       flex-direction: column;
-      gap: $spacing-sm;
-    }
   
-    &__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-  
-      .card__name {
-        font-size: $font-size-heading;
-        font-family: $font-family-heading;
-        color: $primary-color;
-        margin: 0;
+      &:hover {
+        outline: none;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, .15);
+        cursor: pointer;
       }
   
-      .card__age {
-        font-size: $font-size-medium;
-        color: $color-primary-dark;
+      &__content {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs; // Smaller gap between elements
       }
-    }
   
-    &__location {
-      font-size: $font-size-medium;
-      font-family: $font-family-text;
-      color: $color-primary;
-      margin-bottom: $spacing-sm;
-    }
+      &__image {
+        width: 100%;
+        height: auto;
   
-    &__skills {
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-sm;
+        img {
+          width: 100%;
+          max-height: 250px; // Reduced max height for compact design
+          object-fit: cover;
+          object-position: center;
+        }
+      }
   
-      &-section {
-        background-color: $color-background;
-        border: 1px solid $color-border;
-        border-radius: $border-radius;
-        padding: $spacing-sm;
+      &__header {
+        padding: $spacing-sm; // Reduce padding to save space
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
   
-        .card__skills-title {
-          font-size: $font-size-large;
-          color: $secondary-color;
-          margin-bottom: $spacing-xs;
+        .card__name {
+          font-size: $font-size-large; // Smaller font size
+          color: $color-primary-dark;
+          margin: 0;
         }
   
-        .card__skills-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
+        .card__age {
+          font-size: $font-size-small; // Smaller age text
+        }
+      }
   
-          li {
-            font-size: $font-size-medium;
-            color: $color-text;
-            padding: $spacing-xs 0;
+      &__location {
+        padding: 0 $spacing-sm; // Reduce padding to save space
+        font-size: $font-size-small; // Compact location text
+      }
   
-            &:not(:last-child) {
-              border-bottom: 1px solid $color-border;
+      &__skills {
+        padding: 0 $spacing-sm; // Reduce padding to save space
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs; // Smaller gap between skill sections
+  
+        &-section {
+          border-bottom: 1px solid $color-border;   
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+  
+          .card__skills-title {
+            font-size: $font-size-small; // Smaller title font
+            margin: 0;
+          }
+  
+          .card__skills-list {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+  
+            li {
+              font-size: $font-size-small; // Smaller skill text
+              padding: $spacing-sm;
+              padding-left: 0;
             }
           }
         }
       }
     }
   }
+  

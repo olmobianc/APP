@@ -91,7 +91,7 @@
         &--box {
             display: flex;  
             justify-content: space-between;
-            gap: $spacing-sm;
+            gap: $spacing-lg;
         }
     }
 
@@ -137,7 +137,7 @@
                 min-width: 200px;
 
                 &:focus {
-                  border-color: $primary-color;
+                  border-color: $color-primary-dark;
                   outline: none;
                 }
               }
