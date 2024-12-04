@@ -10,6 +10,7 @@ import SecondStep from './pages/account creation/SecondStep';
 import FinalStep from './pages/account creation/FinalStep'
 import Welcome from './pages/account creation/Welcome'
 import Dashboard from './pages/loggedInPages/Dashboard'
+import Profile from './pages/loggedInPages/Profile'
 import Categories from './pages/loggedInPages/Categories';
 import BecomePartner from './pages/landing pages/BecomePartner';
 import OurMission from './pages/landing pages/OurMission';
@@ -27,6 +28,7 @@ import './styles/pages/Welcome.scss';
 import './styles/pages/BecomePartner.scss';
 import './styles/pages/OurMission.scss';
 import './styles/loggedInPages/Dashboard.scss';
+import './styles/loggedInPages/Profile.scss';
 import './styles/components/Map.scss';
 import './styles/components/Calendar.scss';
 import './styles/components/Card.scss';
@@ -42,6 +44,7 @@ const App = () => {
     '/final-step', 
     '/welcome',
     '/home',
+    '/profile',
     '/categories',
   ];
   const shouldRenderHeaderFooter = !excludeRoutes.includes(location.pathname);
@@ -60,6 +63,7 @@ const App = () => {
           <Route path="/welcome" element={<Welcome />} />
           {/* Logged In Pages */}
           <Route path="/home" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/categories" element={<Categories />} />
           {/* Landing Pages */}
           <Route path="/become-partner" element={<BecomePartner />} />

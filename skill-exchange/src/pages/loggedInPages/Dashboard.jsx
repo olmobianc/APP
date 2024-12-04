@@ -12,6 +12,7 @@ const Dashboard = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const address = useLocation(); // Access the current URL
     const [location, setLocation] = useState('');
+    const [skill, setSkill] = useState('');
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -25,9 +26,13 @@ const Dashboard = () => {
         setModalOpen(!modalOpen);
     };
 
-    const handleSubmit = (e) => {
+    const handleLocationSubmit = (e) => {
         console.log(`Location: ${location}`);
       };
+
+      const handleSkillSubmit = (e) => {
+        console.log(`Skill: ${skill}`);
+      };  
 
     const searchIcon = icons.search 
 
@@ -90,15 +95,27 @@ const Dashboard = () => {
 
             <div className="filters">
                 <div className="filter-buttons">
-                    <div style={{position:"relative"}}>
+                    <div className="filter-buttons--searches-fields">
+                        <div>
+                            <FontAwesomeIcon icon={icons.search} className="search-icon" />
+                            <input
+                                type="text"
+                                placeholder="Sydney, New South Wales"
+                                value={location}
+                                onChange={(e) => handleLocationSubmit(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
                         <FontAwesomeIcon icon={icons.search} className="search-icon" />
-                        <input
-                            type="text"
-                            placeholder="Sydney, New South Wales"
-                            value={location}
-                            onChange={(e) => handleSubmit(e.target.value)}
-                            required
-                        />
+                            <input
+                                type="text"
+                                placeholder="What Skill are you looking for"
+                                value={skill}
+                                onChange={(e) => handleSkillSubmit(e.target.value)}
+                                required
+                            />
+                        </div>
                     </div>
                     {filters.map((filter, index) => (
                         <button key={index} className="filter-button">

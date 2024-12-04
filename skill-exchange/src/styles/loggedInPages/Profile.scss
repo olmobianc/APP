@@ -1,0 +1,82 @@
+@import '../variables.scss';
+
+.profile {
+  background-color: $color-background;
+  color: $color-text;
+  font-family: $font-family-text;
+  padding: $spacing-lg;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-md;
+
+    .profile__image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: $spacing-md;
+      border: 2px solid $color-border;
+    }
+
+    .profile__info {
+      h1 {
+        font-size: $font-size-heading;
+        font-family: $font-family-heading;
+        margin: 0;
+        color: $dark;
+      }
+
+      .profile__location {
+        font-size: $font-size-medium;
+        color: $color-input;
+      }
+
+      .profile__join-date {
+        font-size: $font-size-small;
+        color: $color-input;
+      }
+    }
+  }
+
+  &__skills {
+    section {
+      margin-bottom: $spacing-md;
+
+      h2 {
+        font-size: $font-size-large;
+        font-family: $font-family-logo;
+        color: $primary-color;
+        margin-bottom: $spacing-sm;
+      }
+
+      p {
+        font-size: $font-size-medium;
+        line-height: 1.6;
+      }
+    }
+
+    &__details {
+      display: flex;
+      gap: $spacing-lg;
+
+      > div {
+        flex: 1;
+
+        h3 {
+          font-size: $font-size-medium;
+          color: $color-primary-dark;
+          margin-bottom: $spacing-xs;
+        }
+
+        p {
+          font-size: $font-size-small;
+          color: $color-text;
+        }
+      }
+    }
+  }
+}

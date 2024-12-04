@@ -127,6 +127,12 @@
                 pointer-events: none; // Ensure it doesn't block interaction with the scrollable content
             }
 
+            &--searches-fields {
+                position: relative;
+                display: flex;
+                gap: $spacing-sm;
+            }
+
             input {
                 padding: $spacing-sm;
                 padding-left: $spacing-lg;
