@@ -32,45 +32,67 @@ import './styles/loggedInPages/Profile.scss';
 import './styles/components/Map.scss';
 import './styles/components/Calendar.scss';
 import './styles/components/Card.scss';
+import './styles/components/ImageCarousel.scss';
+import './styles/components/ScheduleMeetingForm.scss';
 
 import 'font-awesome/css/font-awesome.min.css';
 
+
 const App = () => {
   const location = useLocation();
-  const excludeRoutes = [
-    '/signup', 
-    '/first-step', 
-    '/second-step', 
-    '/final-step', 
+
+  // Define routes for sign-up flow (no header and no footer)
+  const signUpPages = [
+    '/login',
+    '/signup',
+    '/first-step',
+    '/second-step',
+    '/final-step',
     '/welcome',
-    '/home',
-    '/profile',
-    '/categories',
   ];
-  const shouldRenderHeaderFooter = !excludeRoutes.includes(location.pathname);
+
+  // Define routes for logged-in pages (no header but footer)
+  const loggedInPages = ['/home', '/profile', '/categories'];
+
+  // Check if the current route is a sign-up page
+  const isSignUpPage = signUpPages.includes(location.pathname);
+
+  // Check if the current route is a logged-in page
+  const isLoggedInPage = loggedInPages.includes(location.pathname);
+
+  // Check if the current route is not a sign-up page and should have a footer
+  const shouldRenderFooter = !isSignUpPage;
 
   return (
     <div>
-      {shouldRenderHeaderFooter && <Header />}
+      {/* Show the header only if not a sign-up or logged-in page */}
+      {!isSignUpPage && !isLoggedInPage && <Header />}
+      
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          
+          {/* Sign Up Pages */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/first-step" element={<FirstStep />} />
           <Route path="/second-step" element={<SecondStep />} />
           <Route path="/final-step" element={<FinalStep />} />
           <Route path="/welcome" element={<Welcome />} />
+
           {/* Logged In Pages */}
           <Route path="/home" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/categories" element={<Categories />} />
+
           {/* Landing Pages */}
           <Route path="/become-partner" element={<BecomePartner />} />
           <Route path="/mission" element={<OurMission />} />
         </Routes>
       </main>
-      {shouldRenderHeaderFooter && <Footer />}
+
+      {/* Footer is shown everywhere except for sign-up pages */}
+      {shouldRenderFooter && <Footer />}
     </div>
   );
 };

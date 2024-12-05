@@ -1,0 +1,30 @@
+@import '../variables.scss';
+
+.schedule-meeting-form {
+    padding: $spacing-lg;
+    background-color: $background-color;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  
+    .form-scheduling {
+      margin-bottom: $spacing-lg;
+  
+      label {
+        display: block;
+        font-size: $font-size-medium;
+        font-weight: 600;
+        margin-bottom: $spacing-lg;
+      }
+  
+      input[type="date"],
+      input[type="time"] {
+        width: 100%;
+        padding: $spacing-sm;
+        font-size: $font-size-small;
+        margin-bottom: $spacing-md;
+        border-radius: $border-radius;
+        border: 2px solid $color-border;
+      }
+    }
+  }
+  

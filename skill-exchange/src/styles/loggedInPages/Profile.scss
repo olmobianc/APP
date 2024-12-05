@@ -1,82 +1,260 @@
 @import '../variables.scss';
 
-.profile {
-  background-color: $color-background;
-  color: $color-text;
-  font-family: $font-family-text;
-  padding: $spacing-lg;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-
-  &__header {
-    display: flex;
-    align-items: center;
-    margin-bottom: $spacing-md;
-
-    .profile__image {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: $spacing-md;
+.profile-grid {
+    display: grid;
+    grid-template-areas:
+      "top-left top-right contact"
+      "bottom-left bottom-right contact"
+      "gallery gallery contact"
+      "calendar calendar contact"
+      "reviews reviews contact";
+    grid-template-columns: 1fr 1fr 1fr; // Fixed first column, flexible second
+    gap: $spacing-lg;
+    padding: $spacing-lg $spacing-xxl $spacing-xxl;
+    border-radius: $border-radius;
+  
+    &__top-left {
+      grid-area: top-left;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: $spacing-lg;
       border: 2px solid $color-border;
-    }
-
-    .profile__info {
-      h1 {
-        font-size: $font-size-heading;
-        font-family: $font-family-heading;
-        margin: 0;
-        color: $dark;
-      }
-
-      .profile__location {
-        font-size: $font-size-medium;
-        color: $color-input;
-      }
-
-      .profile__join-date {
-        font-size: $font-size-small;
-        color: $color-input;
-      }
-    }
-  }
-
-  &__skills {
-    section {
-      margin-bottom: $spacing-md;
-
-      h2 {
-        font-size: $font-size-large;
-        font-family: $font-family-logo;
-        color: $primary-color;
+      border-radius: $border-radius;
+      padding: $spacing-lg $spacing-md;
+  
+      .profile__image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
         margin-bottom: $spacing-sm;
       }
+  
+      .profile-header {
+        text-align: left;
+        font-size: $font-size-heading;
+        margin: $spacing-sm 0;
+      }
 
+      .age {
+        font-size: $font-size-small;
+      }
+  
+      p {
+        font-size: $font-size-small;
+        margin: $spacing-xs 0;
+      }
+    }
+  
+    &__bottom-left {
+      grid-area: bottom-left;
+      border: 2px solid $color-border;
+      border-radius: $border-radius;
+      padding: $spacing-lg;
+  
+      .profile-header {
+        font-size: $font-size-large;
+        margin: $spacing-sm 0;
+      }
+  
       p {
         font-size: $font-size-medium;
-        line-height: 1.6;
+      }
+    }
+  
+    &__top-right {
+      grid-area: top-right;
+      padding-bottom: $spacing-lg;
+  
+      .profile-header {
+        font-size: $font-size-heading;
+        margin: $spacing-sm 0;
+      }
+  
+      p {
+        font-size: $font-size-medium;
+        margin-bottom: $spacing-xs;
+      }
+    }
+  
+    &__bottom-right {
+      grid-area: bottom-right;
+  
+      .profile-header {
+        font-size: $font-size-heading;
+        margin: $spacing-sm 0;
+      }
+  
+      .flex-container {
+        display: flex;
+        gap: $spacing-lg;
+  
+        ul {
+          list-style-type: none;
+          padding-left: 0;
+  
+          li {
+            border-bottom: 2px solid $color-primary-dark;
+            font-size: $font-size-medium;
+            margin-bottom: $spacing-xs;
+            width: fit-content;
+          }
+        }
+      }
+  
+      p {
+        font-size: $font-size-medium;
       }
     }
 
-    &__details {
-      display: flex;
-      gap: $spacing-lg;
-
-      > div {
-        flex: 1;
-
-        h3 {
-          font-size: $font-size-medium;
-          color: $color-primary-dark;
-          margin-bottom: $spacing-xs;
+    .schedule-meeting-form {
+        padding: $spacing-lg;
+        grid-area: contact;
+        background-color: $background-color;
+        height: fit-content;
+        position: sticky;
+        top: $spacing-lg;
+        z-index: 10;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+        .form-question {
+          margin-bottom: $spacing-lg;
+  
+          p {
+            font-size: $font-size-medium;
+            font-weight: 600;
+            margin: 0;
+          }
         }
+  
+        .form-options {
+          margin-bottom: $spacing-lg;
+  
+          label {
+            display: block;
+            font-size: $font-size-small;
+            margin-bottom: $spacing-sm;
+  
+            input {
+              margin-right: $spacing-xs;
+            }
+          }
+        }
+  
+        .form-disclaimer {
+          margin-bottom: $spacing-lg;
+  
+          p {
+            font-size: $font-size-small;
+  
+            a {
+              color: $color-input;
+              text-decoration: none;
+  
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+  
+        .form-submit {
+          text-align: center;
+  
+          .btn-primary {
+            padding: $spacing-md $spacing-lg;
+            font-weight: 600;
+            background-color: $color-primary-dark; // Background color for signup button
+            color: $white; // White text for signup button
+            border: 2px solid transparent; // Border color matching background
+            cursor: pointer;
+            border-radius: $border-radius;
+  
+            &:hover {
+              opacity: 95%;
+            }
+          }
+        }
+      }
+  
+    &__gallery {
+      grid-area: gallery;
+  
+      .profile-header {
+        font-size: $font-size-heading;
+        margin: $spacing-lg 0;
+      }
+  
+      p {
+        font-size: $font-size-medium;
+      }
+    }
 
+    &__calendar {
+        grid-area: calendar;
+    
+        .profile-header {
+          font-size: $font-size-heading;
+          margin: $spacing-lg 0;
+        }
+    
         p {
-          font-size: $font-size-small;
-          color: $color-text;
+          font-size: $font-size-medium;
         }
+      }
+  
+    &__reviews {
+      grid-area: reviews;
+  
+      .profile-header {
+        font-size: $font-size-heading;
+        margin: $spacing-lg 0;
+      }
+
+      .profile-reviews-count {
+        text-decoration: underline;
+        margin-bottom: $spacing-lg;
+      }
+  
+      .review-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-sm; // Adjust spacing between cards
+        justify-content: space-between;
+      }
+
+      .review-card-container {
+        display: flex;
+        gap: $spacing-sm;
+        width: 100%;
+      }
+
+      .review-card {
+        padding: $spacing-md;
+        width: 300px;
+        border: 1px solid $color-border;
+        border-radius: $border-radius;
+
+        .review-author {
+          font-weight: bold;
+          margin: 0;
+        }
+
+        .review-date {
+          margin: 0;
+          font-size: 0.875rem;
+          color: #777;
+        }
+
+        blockquote.review-text {
+            font-size: 16px; /* Set the font size for review text */
+            color: #333; /* Dark color for readability */
+            line-height: 1.5; /* Set line height for better readability */
+            position: relative; /* Positioning for the quotation marks */
+            font-style: italic; /* Italicize the review text */
+          }
       }
     }
   }
-}
+  
