@@ -36,7 +36,8 @@ import {
     faBrain,
     faRunning,
     faSearch,
-    faCircleChevronRight
+    faCircleChevronRight,
+    faRightLeft
 } from '@fortawesome/free-solid-svg-icons';
   
 const icons = {
@@ -77,7 +78,8 @@ const icons = {
     learn: faBrain, // Learn Something
     active: faRunning, // Stay Active
     search: faSearch,
-    chevronRight: faCircleChevronRight
+    chevronRight: faCircleChevronRight,
+    exchange: faRightLeft
 };
   
 export default icons;

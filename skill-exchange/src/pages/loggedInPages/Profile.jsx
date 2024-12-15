@@ -12,6 +12,8 @@ const Profile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [meetingChoice, setMeetingChoice] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false); // Track form submission
+  const [formData, setFormData] = useState({ date: '', time: '' });
+
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -24,17 +26,28 @@ const Profile = () => {
     offerSkills = [],
     receiveSkills = [],
     imageSrc = '',
-    languages = [],
-    description = 'No description provided',
+    languages = ['Italian', 'English'],
+    description = 'From Venice, working in IT. Love to surf, tennis, travel and discover new cultures.',
     email = 'N/A',
     phone = 'N/A',
     identityConfirmed = false,
   } = location.state || {};
 
-  // Handle form submission
   const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setFormSubmitted(true);  // Mark form as submitted
+    const meetingData = {
+      interestedUser: {
+        name,
+        email,
+        phone,
+        skillsToOffer: offerSkills,
+        skillsToReceive: receiveSkills,
+        identityConfirmed,
+      },
+      selectedDate: formData.date,
+      selectedTime: formData.time,
+    };
+    console.log('Meeting Data:', meetingData); // Log data to console
+    setFormSubmitted(true);
   };
 
   return (
@@ -106,6 +119,9 @@ const Profile = () => {
                 </ul>
               </div>
               <div>
+              <FontAwesomeIcon icon={icons.exchange} className="input-icon" />
+              </div>
+              <div>
                 <h3>In return For</h3>
                 <ul>
                   {receiveSkills.length ? receiveSkills.map((skill, index) => <li key={index}>{skill}</li>) : <p>No skills to receive</p>}
@@ -125,7 +141,7 @@ const Profile = () => {
           <h2 className='profile-header'>Check {name}'s availability</h2>
           <p>Check {name}'s availability and stay on top of scheduling.
             The highlighted days are the only available slots for scheduling a meeting.
-            Plan ahead and choose a suitable time!</p>
+            Plan ahead and choose a suitable time for both of you.</p>
           <Calendar />
         </div>
 
@@ -204,7 +220,16 @@ const Profile = () => {
           </form>
         )}
 
-        {meetingChoice === 'yes' && formSubmitted && <ScheduleMeetingForm />}
+        {meetingChoice === 'yes' && formSubmitted && (
+            <ScheduleMeetingForm
+              formData={formData}
+              setFormData={setFormData}
+              onFormSubmit={(e) => {
+                e.preventDefault();
+                handleFormSubmit(e); // Use existing logic to handle the form submission
+              }}
+            />
+          )}
       </div>
     </div>
   );

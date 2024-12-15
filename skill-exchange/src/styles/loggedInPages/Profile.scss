@@ -8,7 +8,7 @@
       "gallery gallery contact"
       "calendar calendar contact"
       "reviews reviews contact";
-    grid-template-columns: 1fr 1fr 1fr; // Fixed first column, flexible second
+    grid-template-columns: 0.8fr 1.2fr 1fr; // Fixed first column, flexible second
     gap: $spacing-lg;
     padding: $spacing-lg $spacing-xxl $spacing-xxl;
     border-radius: $border-radius;
@@ -82,20 +82,21 @@
       grid-area: bottom-right;
   
       .profile-header {
-        font-size: $font-size-heading;
+        font-size: $font-size-large;
         margin: $spacing-sm 0;
       }
   
       .flex-container {
         display: flex;
-        gap: $spacing-lg;
+        gap: $spacing-md;
+        align-items: center;
+        justify-content: space-around;
   
         ul {
           list-style-type: none;
           padding-left: 0;
   
           li {
-            border-bottom: 2px solid $color-primary-dark;
             font-size: $font-size-medium;
             margin-bottom: $spacing-xs;
             width: fit-content;
@@ -200,6 +201,7 @@
         }
     
         p {
+          width: 86%;    
           font-size: $font-size-medium;
         }
       }
