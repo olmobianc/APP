@@ -12,7 +12,7 @@ const Profile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [meetingChoice, setMeetingChoice] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false); // Track form submission
-  const [formData, setFormData] = useState({ date: '', time: '' });
+  const [formData, setFormData] = useState({ date: '', time: ''});
 
 
   const toggleMenu = () => {
@@ -222,6 +222,7 @@ const Profile = () => {
 
         {meetingChoice === 'yes' && formSubmitted && (
             <ScheduleMeetingForm
+              name={name}
               formData={formData}
               setFormData={setFormData}
               onFormSubmit={(e) => {
