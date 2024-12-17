@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icons from '../../utils/icons.js';
@@ -8,46 +8,66 @@ import ScheduleMeetingForm from '../../components/ScheduleMeetingForm.jsx';
 
 const Profile = () => {
   const location = useLocation();
-  const address = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [meetingChoice, setMeetingChoice] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false); // Track form submission
-  const [formData, setFormData] = useState({ date: '', time: ''});
+  const [formData, setFormData] = useState({ date: '', time: '' });
 
+  const [profileData, setProfileData] = useState({
+    name: 'N/A',
+    age: 'N/A',
+    userLocation: 'N/A',
+    offerSkills: [],
+    receiveSkills: [],
+    imageSrc: '',
+    languages: ['Italian', 'English'],
+    description: 'From Venice, working in IT. Love to surf, tennis, travel and discover new cultures.',
+    email: 'N/A',
+    phone: 'N/A',
+    identityConfirmed: false,
+  });
+
+  useEffect(() => {
+    if (location.state) {
+      const { name, age, userLocation, offerSkills, receiveSkills, imageSrc, languages, description, email, phone, identityConfirmed } = location.state;
+
+      setProfileData(prevState => ({
+        ...prevState,
+        name: name || 'N/A',
+        age: age || 'N/A',
+        userLocation: userLocation || 'N/A',
+        offerSkills: offerSkills || [],
+        receiveSkills: receiveSkills || [],
+        imageSrc: imageSrc || '',
+        languages: languages || ['Italian', 'English'],
+        description: description || 'From Venice, working in IT. Love to surf, tennis, travel and discover new cultures.',
+        email: email || 'N/A',
+        phone: phone || 'N/A',
+        identityConfirmed: identityConfirmed || false,
+      }));
+    }
+  }, [location.state]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const {
-    name = 'N/A',
-    age = 'N/A',
-    location: userLocation = 'N/A',
-    offerSkills = [],
-    receiveSkills = [],
-    imageSrc = '',
-    languages = ['Italian', 'English'],
-    description = 'From Venice, working in IT. Love to surf, tennis, travel and discover new cultures.',
-    email = 'N/A',
-    phone = 'N/A',
-    identityConfirmed = false,
-  } = location.state || {};
-
   const handleFormSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
     const meetingData = {
       interestedUser: {
-        name,
-        email,
-        phone,
-        skillsToOffer: offerSkills,
-        skillsToReceive: receiveSkills,
-        identityConfirmed,
+        name: profileData.name,
+        email: profileData.email,
+        phone: profileData.phone,
+        skillsToOffer: profileData.offerSkills,
+        skillsToReceive: profileData.receiveSkills,
+        identityConfirmed: profileData.identityConfirmed,
       },
       selectedDate: formData.date,
       selectedTime: formData.time,
     };
     console.log('Meeting Data:', meetingData); // Log data to console
-    setFormSubmitted(true);
+    setFormSubmitted(true); // Mark form as submitted
   };
 
   return (
@@ -59,14 +79,14 @@ const Profile = () => {
             <FontAwesomeIcon icon={icons.house} className="input-icon" />
             <Link
               to="/home"
-              className={`nav-link ${address.pathname === '/home' ? 'nav-link--active' : ''}`}
+              className={`nav-link ${location.pathname === '/home' ? 'nav-link--active' : ''}`}
             >
               Home
             </Link>
             <FontAwesomeIcon icon={icons.compass} className="input-icon" />
             <Link
               to="/categories"
-              className={`nav-link ${address.pathname === '/categories' ? 'nav-link--active' : ''}`}
+              className={`nav-link ${location.pathname === '/categories' ? 'nav-link--active' : ''}`}
             >
               Categories
             </Link>
@@ -85,61 +105,61 @@ const Profile = () => {
       <div className="profile-grid">
         {/* Top Left */}
         <div className="profile-grid__top-left">
-          <img src={imageSrc} alt={`${name}'s profile`} className="profile__image" />
+          <img src={profileData.imageSrc} alt={`${profileData.name}'s profile`} className="profile__image" />
           <div>
-              <h2 className='profile-header'>{name}</h2>
-              <p className='age'>{age} years old</p>
-              <p>{userLocation}</p>
+            <h2 className='profile-header'>{profileData.name}</h2>
+            <p className='age'>{profileData.age} years old</p>
+            <p>{profileData.userLocation}</p>
           </div>
         </div>
 
         {/* Bottom Left */}
         <div className="profile-grid__bottom-left">
           <h2 className='profile-header'>Confirmed informations</h2>
-          <p>Email: {email}</p>
-          <p>Phone: {phone}</p>
-          <p>Identity: {identityConfirmed ? 'Confirmed' : 'Not Confirmed'}</p>
+          <p>Email: {profileData.email}</p>
+          <p>Phone: {profileData.phone}</p>
+          <p>Identity: {profileData.identityConfirmed ? 'Confirmed' : 'Not Confirmed'}</p>
         </div>
 
         {/* Top Right */}
         <div className="profile-grid__top-right">
-          <h2 className='profile-header'>About {name}</h2>
-          <p><strong>Languages spoken:</strong> {languages.join(', ') || 'None'}</p>
-          <p>{description}</p>
+          <h2 className='profile-header'>About {profileData.name}</h2>
+          <p><strong>Languages spoken:</strong> {profileData.languages.join(', ') || 'None'}</p>
+          <p>{profileData.description}</p>
         </div>
 
         {/* Bottom Right */}
         <div className="profile-grid__bottom-right">
-          <h2 className='profile-header'>About {name}'s skills</h2>
+          <h2 className='profile-header'>About {profileData.name}'s skills</h2>
           <div className='flex-container'>
-              <div>
-                <h3>Skills to Offer</h3>
-                <ul>
-                  {offerSkills.length ? offerSkills.map((skill, index) => <li key={index}>{skill}</li>) : <p>No skills to offer</p>}
-                </ul>
-              </div>
-              <div>
+            <div>
+              <h3>Skills to Offer</h3>
+              <ul>
+                {profileData.offerSkills.length ? profileData.offerSkills.map((skill, index) => <li key={index}>{skill}</li>) : <p>No skills to offer</p>}
+              </ul>
+            </div>
+            <div>
               <FontAwesomeIcon icon={icons.exchange} className="input-icon" />
-              </div>
-              <div>
-                <h3>In return For</h3>
-                <ul>
-                  {receiveSkills.length ? receiveSkills.map((skill, index) => <li key={index}>{skill}</li>) : <p>No skills to receive</p>}
-                </ul>
-              </div>
+            </div>
+            <div>
+              <h3>In return For</h3>
+              <ul>
+                {profileData.receiveSkills.length ? profileData.receiveSkills.map((skill, index) => <li key={index}>{skill}</li>) : <p>No skills to receive</p>}
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Gallery Section */}
         <div className="profile-grid__gallery">
-          <h2 className='profile-header'>View {name}'s photos capturing his activities</h2>
+          <h2 className='profile-header'>View {profileData.name}'s photos capturing his activities</h2>
           <ImageCarousel images={['DSC_0619.JPG', 'DSC_0665.JPG', 'DSC_0772 1.JPG']} />
         </div>
 
         {/* Calendar Section */}
         <div className="profile-grid__calendar">
-          <h2 className='profile-header'>Check {name}'s availability</h2>
-          <p>Check {name}'s availability and stay on top of scheduling.
+          <h2 className='profile-header'>Check {profileData.name}'s availability</h2>
+          <p>Check {profileData.name}'s availability and stay on top of scheduling.
             The highlighted days are the only available slots for scheduling a meeting.
             Plan ahead and choose a suitable time for both of you.</p>
           <Calendar />
@@ -147,7 +167,7 @@ const Profile = () => {
 
         {/* Review Section */}
         <div className="profile-grid__reviews">
-          <h2 className='profile-header'>What people are saying about {name}</h2>
+          <h2 className='profile-header'>What people are saying about {profileData.name}</h2>
           <p className='profile-reviews-count'>4 reviews</p>
           <div className="review-cards">
             <div className="review-card-container">
@@ -177,11 +197,11 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Review Section */}
+        {/* Meeting Scheduling Form */}
         {!formSubmitted && (
           <form className="schedule-meeting-form" onSubmit={handleFormSubmit}>
             <div className="form-question">
-              <p>Would you like to book a skill exchange with <strong>{name}</strong>?</p>
+              <p>Would you like to book a skill exchange with <strong>{profileData.name}</strong>?</p>
             </div>
 
             <div className="form-options">
@@ -220,17 +240,20 @@ const Profile = () => {
           </form>
         )}
 
+        {/* Schedule Meeting Form Rendered After Submission */}
         {meetingChoice === 'yes' && formSubmitted && (
-            <ScheduleMeetingForm
-              name={name}
-              formData={formData}
-              setFormData={setFormData}
-              onFormSubmit={(e) => {
-                e.preventDefault();
-                handleFormSubmit(e); // Use existing logic to handle the form submission
-              }}
-            />
-          )}
+          <ScheduleMeetingForm
+            name={profileData.name}
+            skillsToOffer={profileData.offerSkills}
+            skillsToReceive={profileData.receiveSkills}
+            formData={formData}
+            setFormData={setFormData}
+            onFormSubmit={(e) => {
+              e.preventDefault();
+              handleFormSubmit(e); // Use existing logic to handle the form submission
+            }}
+          />
+        )}
       </div>
     </div>
   );

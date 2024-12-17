@@ -128,6 +128,26 @@
             margin: 0;
           }
         }
+
+        label {
+          margin-bottom: $spacing-sm;
+        }
+
+        select {
+          padding: $spacing-sm;
+          margin-bottom: $spacing-lg;
+          border: 2px solid $color-border;
+          border-radius: $border-radius;
+          font-size: $font-size-small;
+          font-family: $font-family-text;
+          width: 90%;
+          transition: border-color $transition-speed;
+
+          &:focus {
+            border-color: $color-primary-dark;
+            outline: none;
+          }
+        }
   
         .form-options {
           margin-bottom: $spacing-lg;
@@ -291,7 +311,7 @@
       }
     }
     .btn-submitted-text {
-      margin-right: $spacing-md;
+      margin-right: $spacing-sm;
     }
     
   }
