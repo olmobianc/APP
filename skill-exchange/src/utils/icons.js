@@ -1,5 +1,8 @@
 import { 
-    faPaintBrush, 
+    faPaintBrush,
+    faTableTennisPaddleBall,
+    faFutbol,
+    faGolfBallTee,
     faLaptopCode, 
     faGuitar, 
     faUtensils, 
@@ -43,6 +46,9 @@ import {
   
 const icons = {
     language: faLanguage,
+    tennis: faTableTennisPaddleBall,
+    soccer: faFutbol,
+    golf: faGolfBallTee,
     paintBrush: faPaintBrush,
     guitar: faGuitar,
     utensils: faUtensils,

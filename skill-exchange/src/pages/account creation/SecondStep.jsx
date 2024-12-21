@@ -9,7 +9,7 @@ const skills = [
   { name: 'Music', icon: icons.guitar },
   { name: 'Cooking and Baking', icon: icons.utensils },
   { name: 'Sports and Fitness', icon: icons.basketball },
-  { name: 'Gardering', icon: icons.leaf },
+  { name: 'Coding', icon: icons.laptopCode },
 ];
 
 const SecondStep = () => {

@@ -1,15 +1,21 @@
 import React from "react";
 
-const Macrocategory = ({ title, categories }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const Macrocategory = ({ title, icon, description, categories }) => {
   return (
     <section className="macrocategory">
-      <div className="macrocategory-header">
-        <h2 className="macrocategory-heading">{title}</h2>
-        <p className="macrocategory-description">
-          Connect with people sharing the same passion for different activities.
-        </p>
+      <div className="macrocategory--container">
+        <div className="macrocategory-header">
+          <div> 
+            <h2 className="macrocategory-heading">{title}</h2>
+            <FontAwesomeIcon icon={icon} className="input-icon macrocategory-heading__icon" />
+          </div>
+          {description && <p className="macrocategory-description">{description}</p>}
+        </div>
         <button className="macrocategory-button">Find People</button>
       </div>
+    
       <div className="macrocategory-carousel">
         <button className="carousel-arrow left-arrow">←</button>
         <div className="carousel-track">

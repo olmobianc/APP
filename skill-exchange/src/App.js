@@ -29,6 +29,7 @@ import './styles/pages/BecomePartner.scss';
 import './styles/pages/OurMission.scss';
 import './styles/loggedInPages/Dashboard.scss';
 import './styles/loggedInPages/Profile.scss';
+import './styles/loggedInPages/Categories.scss';
 import './styles/components/Map.scss';
 import './styles/components/Calendar.scss';
 import './styles/components/Card.scss';
