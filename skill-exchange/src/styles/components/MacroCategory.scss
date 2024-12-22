@@ -28,11 +28,35 @@
       margin: 0;
       margin-right: $spacing-md;
       flex: 1;
-      color: $color-primary-dark;
 
       &__icon {
         font-size: $font-size-large
       }
+
+    }
+
+    .color--red {
+      color: $icon-red;
+    }
+
+    .color--blue {
+      color: $icon-blue;
+    }
+
+    .color--green {
+      color: $icon-green;
+    }
+
+    .color--yellow {
+      color: $icon-yellow;
+    }
+
+    .color--purple {
+      color: $icon-purple;
+    }
+
+    .color--orange {
+      color: $icon-orange;
     }
 
     .macrocategory-description {
@@ -116,6 +140,36 @@
           font-size: $font-size-large;
           margin-bottom: $spacing-sm;
           color: $primary-color;
+
+          &--red {
+            color: $icon-red;
+          }
+
+          &--blue {
+            color: $icon-blue;
+          }
+
+          &--green {
+            color: $icon-green;
+          }
+
+          &--yellow {
+            color: $icon-yellow;
+          }
+
+          &--purple {
+            color: $icon-purple;
+          }
+
+          &--orange {
+            color: $icon-orange;
+          }
+
+          svg {
+            height: auto;
+            width: 40px;
+          }
+
         }
 
         .card-label {

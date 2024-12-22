@@ -3,64 +3,149 @@ import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icons from '../../utils/icons.js';
 
+import { ReactComponent as AcousticGuitarIcon } from '../../utils/svgs/acoustic-guitar.svg';
+import { ReactComponent as BasketballIcon } from '../../utils/svgs/basketball.svg';
+import { ReactComponent as BicycleIcon } from '../../utils/svgs/bicycle.svg';
+import { ReactComponent as BonsaiIcon } from '../../utils/svgs/bonsai.svg';
+import { ReactComponent as CakeIcon } from '../../utils/svgs/cake.svg';
+import { ReactComponent as Paintbrush } from '../../utils/svgs/paintbrush.svg';
+import { ReactComponent as CocktailIcon } from '../../utils/svgs/cocktail.svg';
+import { ReactComponent as CoffeeIcon } from '../../utils/svgs/coffee.svg';
+import { ReactComponent as CricketIcon } from '../../utils/svgs/cricket.svg';
+import { ReactComponent as Css3Icon } from '../../utils/svgs/css-3.svg';
+import { ReactComponent as DiscIcon } from '../../utils/svgs/disc.svg';
+import { ReactComponent as DrumsIcon } from '../../utils/svgs/drums.svg';
+import { ReactComponent as DumbbellIcon } from '../../utils/svgs/dumbbell.svg';
+import { ReactComponent as FisherIcon } from '../../utils/svgs/fisher.svg';
+import { ReactComponent as FlagChinaIcon } from '../../utils/svgs/flag-china.svg';
+import { ReactComponent as FlagEsIcon } from '../../utils/svgs/flag-es.svg';
+import { ReactComponent as FlagGbIcon } from '../../utils/svgs/flag-gb.svg';
+import { ReactComponent as FlagItIcon } from '../../utils/svgs/flag-it.svg';
+import { ReactComponent as FlagJpIcon } from '../../utils/svgs/flag-jp.svg';
+import { ReactComponent as FlagKrIcon } from '../../utils/svgs/flag-kr.svg';
+import { ReactComponent as RunningIcon } from '../../utils/svgs/running-shoe.svg';
+import { ReactComponent as FlagPtIcon } from '../../utils/svgs/flag-pt.svg';
+import { ReactComponent as FolkMandolinIcon } from '../../utils/svgs/folk-mandolin.svg';
+import { ReactComponent as FootballIcon } from '../../utils/svgs/football.svg';
+import { ReactComponent as FruitIcon } from '../../utils/svgs/fruit.svg';
+import { ReactComponent as GolfIcon } from '../../utils/svgs/golf.svg';
+import { ReactComponent as Html5Icon } from '../../utils/svgs/html-5.svg';
+import { ReactComponent as JavaIcon } from '../../utils/svgs/java.svg';
+import { ReactComponent as YogaIcon } from '../../utils/svgs/yoga.svg';
+import { ReactComponent as JavascriptIcon } from '../../utils/svgs/javascript.svg';
+import { ReactComponent as JazzIcon } from '../../utils/svgs/jazz.svg';
+import { ReactComponent as NoodleHouseIcon } from '../../utils/svgs/noodle-house.svg';
+import { ReactComponent as OrigamiIcon } from '../../utils/svgs/origami.svg';
+import { ReactComponent as PianoIcon } from '../../utils/svgs/piano.svg';
+import { ReactComponent as PingPongIcon } from '../../utils/svgs/ping-pong.svg';
+import { ReactComponent as PokerIcon } from '../../utils/svgs/poker.svg';
+import { ReactComponent as PotteryIcon } from '../../utils/svgs/pottery.svg';
+import { ReactComponent as PythonIcon } from '../../utils/svgs/python.svg';
+import { ReactComponent as RockAndRollIcon } from '../../utils/svgs/rock-and-roll.svg';
+import { ReactComponent as ShuttlecockIcon } from '../../utils/svgs/shuttlecock.svg';
+import { ReactComponent as SnorkelIcon } from '../../utils/svgs/snorkel.svg';
+import { ReactComponent as SurfIcon } from '../../utils/svgs/surf.svg';
+import { ReactComponent as SwimmingIcon } from '../../utils/svgs/swimming.svg';
+import { ReactComponent as TennisIcon } from '../../utils/svgs/tennis.svg';
+import { ReactComponent as VioloncelloIcon } from '../../utils/svgs/violoncello.svg';
+
+
 import Macrocategory from '../../components/MacroCategory.jsx';
+
 
 const Categories = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation(); // Access the current URL
+    
+const sportsCategories = {
+    colorClass: "blue",
+    items: [
+      { name: "Tennis", icon: <TennisIcon /> },
+      { name: "Surf", icon: <SurfIcon /> },
+      { name: "Golf", icon: <GolfIcon /> },
+      { name: "Fitness", icon: <DumbbellIcon /> },
+      { name: "Yoga", icon: <YogaIcon /> },
+      { name: "Running", icon: <RunningIcon /> },
+      { name: "Cricket", icon: <CricketIcon /> },
+      { name: "Soccer", icon: <FootballIcon /> },
+      { name: "Basketball", icon: <BasketballIcon /> },
+      { name: "Ping Pong", icon: <PingPongIcon /> },
+      { name: "Ciclying", icon: <BicycleIcon /> },
+      
+    ],
+};
 
-    const sportsCategories = [
-        { name: "Tennis", icon: <FontAwesomeIcon icon={icons.tennis} /> },
-        { name: "Basketball", icon: <FontAwesomeIcon icon={icons.basketball} /> },
-        { name: "Soccer", icon: <FontAwesomeIcon icon={icons.soccer} /> },
-        { name: "Surf", icon: <FontAwesomeIcon icon={icons.water} /> },
-        { name: "Golf", icon: <FontAwesomeIcon icon={icons.golf} /> },
-      ];
+const languageCategories = {
+    colorClass: "red",
+    items: [
+      { name: "English", icon: <FlagGbIcon /> },
+      { name: "Japanese", icon: <FlagJpIcon /> },
+      { name: "Korean", icon: <FlagKrIcon /> },
+      { name: "Italian", icon: <FlagItIcon /> },
+      { name: "Chinese", icon: <FlagChinaIcon /> },
+      { name: "Spanish", icon: <FlagEsIcon /> },
+      { name: "Portuguese", icon: <FlagPtIcon /> },
+    ],
+};
 
-      // Languages Categories
-      const languageCategories = [
-        { name: "Spanish", icon: <FontAwesomeIcon icon={icons.language} /> },
-        { name: "French", icon: <FontAwesomeIcon icon={icons.language} /> },
-        { name: "German", icon: <FontAwesomeIcon icon={icons.language} /> },
-        { name: "Mandarin", icon: <FontAwesomeIcon icon={icons.language} /> },
-        { name: "Japanese", icon: <FontAwesomeIcon icon={icons.language} /> },
-      ];
+const artsCategories = {
+    colorClass: "yellow",
+    items: [
+      { name: "Painting", icon: <Paintbrush /> },
+      { name: "Pottery", icon: <PotteryIcon /> },
+      { name: "Origami", icon: <OrigamiIcon /> },
+      { name: "Bonsai", icon: <BonsaiIcon /> },
+    ],
+};
 
-      // Arts and Crafts Categories
-      const artsCategories = [
-        { name: "Painting", icon: <FontAwesomeIcon icon={icons.paintBrush} /> },
-        { name: "Sculpture", icon: <FontAwesomeIcon icon={icons.hammer} /> },
-        { name: "Knitting", icon: <FontAwesomeIcon icon={icons.leaf} /> },
-        { name: "Pottery", icon: <FontAwesomeIcon icon={icons.palette} /> },
-        { name: "Photography", icon: <FontAwesomeIcon icon={icons.camera} /> },
-      ];
+const musicCategories = {
+    colorClass: "orange",
+    items: [
+      { name: "Acoustic Guitar", icon: <AcousticGuitarIcon /> },
+      { name: "Eletric Guitar", icon: <RockAndRollIcon /> },
+      { name: "Piano", icon: <PianoIcon /> },
+      { name: "Drums", icon: <DrumsIcon /> },
+      { name: "Saxophone", icon: <JazzIcon /> },
+      { name: "Violoncello", icon: <VioloncelloIcon /> },
+      { name: "Folk Mandolin", icon: <FolkMandolinIcon /> },
+    ],
+};
 
-      // Music Categories
-      const musicCategories = [
-        { name: "Guitar", icon: <FontAwesomeIcon icon={icons.guitar} /> },
-        { name: "Piano", icon: <FontAwesomeIcon icon={icons.chevronRight} /> },
-        { name: "Drums", icon: <FontAwesomeIcon icon={icons.chevronRight} /> },
-        { name: "Violin", icon: <FontAwesomeIcon icon={icons.chevronRight} /> },
-        { name: "Flute", icon: <FontAwesomeIcon icon={icons.chevronRight} /> },
-      ];
+const cookingCategories = {
+    colorClass: "green",
+    items: [
 
-      // Cooking and Baking Categories
-      const cookingCategories = [
-        { name: "Baking", icon: <FontAwesomeIcon icon={icons.utensils} /> },
-        { name: "Cooking", icon: <FontAwesomeIcon icon={icons.utensils} /> },
-        { name: "Grilling", icon: <FontAwesomeIcon icon={icons.hiking} /> },
-        { name: "Vegetarian", icon: <FontAwesomeIcon icon={icons.leaf} /> },
-        { name: "Vegan", icon: <FontAwesomeIcon icon={icons.leaf} /> },
-      ];
+      { name: "Cooking", icon: <NoodleHouseIcon /> },
+      { name: "Baking", icon: <CakeIcon /> },
+      { name: "Cocktail making", icon: <CocktailIcon /> },
+      { name: "Latte Art", icon: <CoffeeIcon /> },
+      { name: "Vegeterian", icon: <FruitIcon /> },
+    ],
+};
 
-      // Coding Categories
-      const codingCategories = [
-        { name: "HTML and CSS", icon: <FontAwesomeIcon icon={icons.laptopCode} /> },
-        { name: "JavaScript", icon: <FontAwesomeIcon icon={icons.laptopCode} /> },
-        { name: "Python", icon: <FontAwesomeIcon icon={icons.python} /> },
-        { name: "Java", icon: <FontAwesomeIcon icon={icons.brain} /> },
-        { name: "C++", icon: <FontAwesomeIcon icon={icons.brain} /> },
-      ];
+const codingCategories = {
+    colorClass: "purple",
+    items: [
+      { name: "HTML", icon: <Html5Icon /> },   
+      { name: "CSS", icon: <Css3Icon /> },   
+      { name: "Javascript", icon: <JavascriptIcon /> },   
+      { name: "Python", icon: <PythonIcon /> },
+      { name: "Java", icon: <JavaIcon /> },
+    ],
+};
+
+const leisureCategories = {
+    colorClass: "pink",
+    items: [
+      { name: "Poker", icon: <PokerIcon /> },
+      { name: "Disc", icon: <DiscIcon /> },
+      { name: "Shuttlecock", icon: <ShuttlecockIcon /> },
+      { name: "Snorkel", icon: <SnorkelIcon /> },
+      { name: "Swimming", icon: <SwimmingIcon /> },
+      { name: "Fishing", icon: <FisherIcon /> },
+    ],
+};
+
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
