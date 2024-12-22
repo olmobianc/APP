@@ -12,6 +12,7 @@ import Welcome from './pages/account creation/Welcome'
 import Dashboard from './pages/loggedInPages/Dashboard'
 import Profile from './pages/loggedInPages/Profile'
 import Categories from './pages/loggedInPages/Categories';
+import SubCategory from './pages/loggedInPages/SubCategory';
 import BecomePartner from './pages/landing pages/BecomePartner';
 import OurMission from './pages/landing pages/OurMission';
 
@@ -30,6 +31,7 @@ import './styles/pages/OurMission.scss';
 import './styles/loggedInPages/Dashboard.scss';
 import './styles/loggedInPages/Profile.scss';
 import './styles/loggedInPages/Categories.scss';
+import './styles/loggedInPages/SubCategory.scss';
 import './styles/components/Map.scss';
 import './styles/components/Calendar.scss';
 import './styles/components/Card.scss';
@@ -59,7 +61,11 @@ const App = () => {
   const isSignUpPage = signUpPages.includes(location.pathname);
 
   // Check if the current route is a logged-in page
-  const isLoggedInPage = loggedInPages.includes(location.pathname);
+  const isLoggedInPage =
+  ['/home', '/profile', '/categories'].some(path =>
+    location.pathname.startsWith(path)
+  );
+
 
   // Check if the current route is not a sign-up page and should have a footer
   const shouldRenderFooter = !isSignUpPage;
@@ -85,6 +91,7 @@ const App = () => {
           <Route path="/home" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:title/:subcategory" element={<SubCategory />} />
 
           {/* Landing Pages */}
           <Route path="/become-partner" element={<BecomePartner />} />

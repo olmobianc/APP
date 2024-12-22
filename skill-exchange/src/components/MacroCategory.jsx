@@ -27,7 +27,7 @@ const Macrocategory = ({ title, icon, description, categories }) => {
           {items.map((category, index) => (
             <Link 
               key={index} 
-              to={`/categories/${encodeURIComponent(title)}/${encodeURIComponent(category.name)}`} // Include /categories in the path
+              to={`/categories/${title.replace(/\s+/g, '-').toLowerCase()}/${category.name.replace(/\s+/g, '-').toLowerCase()}`}
               className="carousel-card"
             >
               <span

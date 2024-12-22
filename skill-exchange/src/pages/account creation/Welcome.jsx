@@ -6,7 +6,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
-import { SVGSignup } from './../../utils/svgs/SVGSignup'
+import { SVGSignup } from '../../utils/svgs/SVGSignup'
 
 const Welcome = () => {
   const [formData, setFormData] = useState({
