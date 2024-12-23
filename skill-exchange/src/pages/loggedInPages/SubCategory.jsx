@@ -3,11 +3,17 @@ import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icons from '../../utils/icons.js';
 import { useParams } from 'react-router-dom';
-
-import { ReactComponent as TennisIcon } from '../../utils/svgs/sports-and-fitness/golf.svg';
+import { ReactComponent as Stuff } from '../../utils/svgs/violoncello.svg'; // Import Stuff SVG component
 
 const SubCategory = () => {
+
+  const imagesMap = {
+    'violoncello': Stuff, // Map the string to the actual React component
+    // Add other mappings if needed
+  };
+
   const location = useLocation();
+  const { image } = location.state || {};
   const [menuOpen, setMenuOpen] = useState(false);
   const { title, subcategory } = useParams();
   const [SvgIcon, setSvgIcon] = useState(null);
@@ -19,27 +25,34 @@ const SubCategory = () => {
   const handleLogout = () => {
     console.log('User logged out');
   };
+  
+  console.log("image", {image})
 
   // Dynamically load SVG based on subcategory
-  useEffect(() => {
-    const loadSvgIcon = async () => {
-      try {
-        // Adjust the path to match your folder structure
-        const svgPath = `../../utils/svgs/${title.toLowerCase().replace(/\s+/g, '-')}/${subcategory}.svg`;
-        console.log('Attempting to load SVG from path:', svgPath); // Log the full path
-        const Icon = (await import(`${svgPath}`)).default;
-        console.log("Icon", Icon)
-        setSvgIcon(() => Icon);
-      } catch (error) {
-        console.error('Error loading SVG:', error);
-        setSvgIcon(null); // Fallback to null if SVG fails to load
-      }
-    };
+  // useEffect(() => {
+  //   const loadSvgIcon = async () => {
+  //     try {
+  //       const sanitizedTitle = title?.toLowerCase().replace(/\s+/g, '-');
+  //       const sanitizedSubcategory = subcategory?.toLowerCase().replace(/\s+/g, '-');
+  //       const svgPath = `../../utils/svgs/${sanitizedTitle}/${sanitizedSubcategory}.svg`;
 
-    if (subcategory) {
-      loadSvgIcon();
-    }
-  }, [subcategory, title]); // Only runs when subcategory or title changes
+  //       console.log('Attempting to load SVG from path:', svgPath);
+
+  //       // Use dynamic import with ReactComponent
+  //       const { ReactComponent: Icon } = await import(`../../utils/svgs/${sanitizedTitle}/${sanitizedSubcategory}.svg`);
+
+  //       console.log('Icon loaded successfully:', Icon);
+  //       setSvgIcon(() => Icon);
+  //     } catch (error) {
+  //       console.error('Error loading SVG:', error);
+  //       setSvgIcon(null);
+  //     }
+  //   };
+
+  //   if (subcategory && title) {
+  //     loadSvgIcon();
+  //   }
+  // }, [subcategory, title]);
 
   return (
     <div className="home logged-in categories-page">
@@ -81,11 +94,9 @@ const SubCategory = () => {
         </div>
       )}
 
-      <TennisIcon />
-
       <div className="subcategory-icon-container">
-        {SvgIcon ? (
-          <SvgIcon />
+        {image ? (
+          React.createElement(imagesMap[image])
         ) : (
           <p>Loading icon...</p>  // Show this until the SVG is loaded
         )}

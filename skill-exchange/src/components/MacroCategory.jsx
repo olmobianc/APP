@@ -8,6 +8,8 @@ const Macrocategory = ({ title, icon, description, categories }) => {
 
   const { colorClass, items } = categories;  // Destructure to get colorClass and items
 
+  console.log("items", items)
+
   return (
     <section className="macrocategory">
       <div className="macrocategory--container">
@@ -24,20 +26,25 @@ const Macrocategory = ({ title, icon, description, categories }) => {
       <div className="macrocategory-carousel">
         <button className="carousel-arrow left-arrow">←</button>
         <div className="carousel-track">
-          {items.map((category, index) => (
-            <Link 
-              key={index} 
-              to={`/categories/${title.replace(/\s+/g, '-').toLowerCase()}/${category.name.replace(/\s+/g, '-').toLowerCase()}`}
-              className="carousel-card"
-            >
-              <span
-                className={`card-icon card-icon--${colorClass}`}
+          {items.map((category, index) => {
+            console.log("category", category.image); // Logs each category object
+
+            return (
+              <Link 
+                key={index} 
+                to={`/categories/${title.replace(/\s+/g, '-').toLowerCase()}/${category.name.replace(/\s+/g, '-').toLowerCase()}`}
+                className="carousel-card"
+                state={{ image: category.image }}
               >
-                {category.icon}
-              </span>
-              <p className="card-label">{category.name}</p>
-            </Link>
-          ))}
+                <span
+                  className={`card-icon card-icon--${colorClass}`}
+                >
+                  {category.icon}
+                </span>
+                <p className="card-label">{category.name}</p>
+              </Link>
+            );
+          })}
         </div>
         <button className="carousel-arrow right-arrow">→</button>
       </div>

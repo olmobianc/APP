@@ -49,6 +49,8 @@ import { ReactComponent as SwimmingIcon } from '../../utils/svgs/swimming.svg';
 import { ReactComponent as TennisIcon } from '../../utils/svgs/tennis.svg';
 import { ReactComponent as VioloncelloIcon } from '../../utils/svgs/violoncello.svg';
 
+import {ReactComponent as Stuff} from "../../utils/svgs/violoncello.svg"
+
 
 import Macrocategory from '../../components/MacroCategory.jsx';
 
@@ -60,7 +62,7 @@ const Categories = () => {
 const sportsCategories = {
     colorClass: "blue",
     items: [
-      { name: "Tennis", icon: <TennisIcon /> },
+      { name: "Tennis", icon: <TennisIcon />, image: 'violoncello' },
       { name: "Surf", icon: <SurfIcon /> },
       { name: "Golf", icon: <GolfIcon /> },
       { name: "Fitness", icon: <DumbbellIcon /> },
