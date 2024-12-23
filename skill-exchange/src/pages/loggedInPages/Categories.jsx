@@ -36,6 +36,8 @@ import { ReactComponent as JavascriptIcon } from '../../utils/svgs/javascript.sv
 import { ReactComponent as JazzIcon } from '../../utils/svgs/jazz.svg';
 import { ReactComponent as NoodleHouseIcon } from '../../utils/svgs/noodle-house.svg';
 import { ReactComponent as OrigamiIcon } from '../../utils/svgs/origami.svg';
+import { ReactComponent as PhotographyIcon } from '../../utils/svgs/photography.svg';
+import { ReactComponent as KnittingIcon } from '../../utils/svgs/knitting.svg';
 import { ReactComponent as PianoIcon } from '../../utils/svgs/piano.svg';
 import { ReactComponent as PingPongIcon } from '../../utils/svgs/ping-pong.svg';
 import { ReactComponent as PokerIcon } from '../../utils/svgs/poker.svg';
@@ -84,7 +86,7 @@ const sportsCategories = {
       { name: "Hiking", icon: <HikingIcon />, image: 'hiking' },
       { name: "Fishing", icon: <FishingIcon />, image: 'fishing' },
       { name: "Climbing", icon: <ClimbingIcon />, image: 'climbing' },
-      { name: "Kayak", icon: <KayakIcon />, image: 'canoening' },
+      { name: "Kayak", icon: <KayakIcon />, image: 'kayak' },
       { name: "Badminton", icon: <BadmingtonIcon />, image: 'badminton' },
       
     ],
@@ -106,10 +108,12 @@ const languageCategories = {
 const artsCategories = {
     colorClass: "yellow",
     items: [
-      { name: "Painting", icon: <Paintbrush /> },
-      { name: "Pottery", icon: <PotteryIcon /> },
-      { name: "Origami", icon: <OrigamiIcon /> },
-      { name: "Bonsai", icon: <BonsaiIcon /> },
+      { name: "Painting", icon: <Paintbrush />, image: 'painting' },
+      { name: "Pottery", icon: <PotteryIcon />, image: 'pottery' },
+      { name: "Origami", icon: <OrigamiIcon />, image: 'origami' },
+      { name: "Photography", icon: <PhotographyIcon />, image: 'photography' },
+      { name: "Knitting", icon: <KnittingIcon />, image: 'knitting' },
+      { name: "Gardering", icon: <BonsaiIcon />, image: 'gardering' },
     ],
 };
 

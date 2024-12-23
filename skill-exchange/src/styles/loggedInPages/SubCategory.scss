@@ -1,11 +1,48 @@
 @import '../variables.scss';
 
-.hero-banner {
-    margin: 0 auto;
-    text-align: center;
+.subCategory-landing {
+    display: flex;
+    position: relative; /* Add this to enable absolute positioning of child elements */
+    padding-right: $spacing-lg;
 
-    img {
-        width: 60%;
+    &--heading {
+        position: absolute;
+        width: 30%;
+        top: 50%; /* Position the heading at 50% of the container's height */
+        left: 60%; /* Align it to the right of the hero banner */
+        transform: translateY(-50%); /* Adjust to center the heading vertically from the 50% mark */
+        text-align: left;
+
+        &__title {
+            font-size: $font-size-xxl;
+            text-align: left;
+
+            .color-blue {
+                color: $icon-blue;
+              }
+        }
+
+        &__skill {
+            margin-right: $spacing-sm;
+            text-decoration: underline;
+        }
+
+
+        &__text {
+            font-size: $font-size-medium;
+            text-align: left;
+        }
     }
-    
+
+    &--hero-banner {
+        width: 50%;
+
+        img {
+            border: 2px solid transparent;
+            border-top-right-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
 }
