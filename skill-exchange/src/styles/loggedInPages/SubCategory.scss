@@ -2,31 +2,50 @@
 
 .subCategory-landing {
     display: flex;
-    position: relative; /* Add this to enable absolute positioning of child elements */
+    position: relative; /* Ensure the parent container is positioned */
     padding-right: $spacing-lg;
+    overflow: hidden; /* Prevent overflow beyond the container */
 
     &--heading {
         position: absolute;
-        width: 30%;
-        top: 50%; /* Position the heading at 50% of the container's height */
-        left: 60%; /* Align it to the right of the hero banner */
-        transform: translateY(-50%); /* Adjust to center the heading vertically from the 50% mark */
+        width: 40%; /* Restrict width to prevent overflow */
+        max-width: 500px; /* Set a maximum width for better control */
+        top: 50%; 
+        left: 55%; 
+        transform: translateY(-50%);
         text-align: left;
+        overflow: hidden; /* Prevent text overflow */
+        word-wrap: break-word; /* Break long words to fit within the container */
 
         &__title {
             font-size: $font-size-xxl;
             text-align: left;
 
+            .color-red {
+                color: $icon-red;
+            }
             .color-blue {
                 color: $icon-blue;
-              }
+            }
+            .color-green {
+                color: $icon-green;
+            }
+            .color-yellow {
+                color: $icon-yellow;
+            }
+            .color-purple {
+                color: $icon-purple;
+            }
+            .color-orange {
+                color: $icon-orange;
+            }
         }
 
         &__skill {
             margin-right: $spacing-sm;
             text-decoration: underline;
+            white-space: nowrap; /* Prevent skill name from breaking into a new line */
         }
-
 
         &__text {
             font-size: $font-size-medium;
@@ -36,7 +55,6 @@
 
     &--hero-banner {
         width: 50%;
-
         img {
             border: 2px solid transparent;
             border-top-right-radius: $border-radius;

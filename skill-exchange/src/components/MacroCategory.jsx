@@ -14,7 +14,7 @@ const Macrocategory = ({ title, icon, description, categories }) => {
         <div className="macrocategory-header">
           <div> 
             <h2 className={`macrocategory-heading`}>{title}</h2>
-            <FontAwesomeIcon icon={icon} className="input-icon macrocategory-heading__icon" />
+            <FontAwesomeIcon icon={icon} className={`input-icon macrocategory-heading__icon color--${colorClass}`} />
           </div>
           {description && <p className="macrocategory-description">{description}</p>}
         </div>
@@ -24,25 +24,24 @@ const Macrocategory = ({ title, icon, description, categories }) => {
       <div className="macrocategory-carousel">
         <button className="carousel-arrow left-arrow">←</button>
         <div className="carousel-track">
-          {items.map((category, index) => {
-
-
+          {items.map((item, index) => {
             return (
               <Link 
                 key={index} 
-                to={`/categories/${title.replace(/\s+/g, '-').toLowerCase()}/${category.name.replace(/\s+/g, '-').toLowerCase()}`}
+                to={`/categories/${title.replace(/\s+/g, '-').toLowerCase()}/${item.name.replace(/\s+/g, '-').toLowerCase()}`}
                 className="carousel-card"
                 state={{ 
-                  image: category.image, 
+                  skill: item.skill, 
+                  category: item.category,
                   colorClass: colorClass 
                 }}
               >
                 <span
                   className={`card-icon card-icon--${colorClass}`}
                 >
-                  {category.icon}
+                  {item.icon}
                 </span>
-                <p className="card-label">{category.name}</p>
+                <p className="card-label">{item.name}</p>
               </Link>
             );
           })}

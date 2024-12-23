@@ -6,16 +6,16 @@ import icons from '../../utils/icons.js';
 const SubCategory = () => {
   const location = useLocation();
   console.log("location", location)
-  const { image, colorClass } = location.state || {}; // Retrieve the image name from state
+  const { skill, category, colorClass } = location.state || {};
   const [imageSrc, setImageSrc] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const loadImage = async () => {
-      if (image) {
+      if (skill) {
         try {
           // Dynamically import the image based on the name
-          const img = await import(`../../utils/svgs/sports-and-fitness/${image}.svg`);
+          const img = await import(`../../utils/svgs/${category}/${skill}.svg`);
           setImageSrc(img.default); // Set the imported image source
         } catch (error) {
           console.error('Error loading image:', error);
@@ -25,7 +25,7 @@ const SubCategory = () => {
     };
 
     loadImage();
-  }, [image]); // Use image as a dependency
+  }, [skill]); // Use image as a dependency
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -80,20 +80,20 @@ const SubCategory = () => {
 
       <div className='subCategory-landing'>
         <div className="subCategory-landing--hero-banner">
-          {imageSrc ? <img src={imageSrc} alt={image} /> : <p>Loading image...</p>} {/* Render the image */}
+          {imageSrc ? <img src={imageSrc} alt={skill} /> : <p>Loading image...</p>}
         </div>
         <div className='subCategory-landing--heading'>
 
           <div className='breadcrumbs'>
-            <span className='breadcrumbs__item'>sports-and-fitness</span>
+            <span className='breadcrumbs__item'>{category}</span>
             <span className='breadcrumbs__separator'> &gt; </span>
-            <span className={`breadcrumbs__item color-${colorClass}`}>{image}</span>
+            <span className={`breadcrumbs__item color-${colorClass}`}>{skill}</span>
           </div>
 
-          <h1 className='subCategory-landing--heading__title'>Connect with <span className={`subCategory-landing--heading__skill color-${colorClass}`}>{image}</span> 
+          <h1 className='subCategory-landing--heading__title'>Connect with <span className={`subCategory-landing--heading__skill color-${colorClass}`}>{skill}</span> 
             Enthusiasts in Your Area</h1>
           <p className='subCategory-landing--heading__text'>
-          There are 15 skilled individuals near you who can teach you {image}. Start learning today!
+          There are 15 skilled individuals near you who can teach you {skill}. Start learning today!
           </p>
         </div>
       </div>
