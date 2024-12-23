@@ -48,9 +48,14 @@ import { ReactComponent as SurfIcon } from '../../utils/svgs/surf.svg';
 import { ReactComponent as SwimmingIcon } from '../../utils/svgs/swimming.svg';
 import { ReactComponent as TennisIcon } from '../../utils/svgs/tennis.svg';
 import { ReactComponent as VioloncelloIcon } from '../../utils/svgs/violoncello.svg';
-
-import {ReactComponent as Stuff} from "../../utils/svgs/violoncello.svg"
-
+import { ReactComponent as VolleyballIcon } from '../../utils/svgs/volleyball.svg';
+import { ReactComponent as SkateboardIcon } from '../../utils/svgs/skate.svg';
+import { ReactComponent as PilatesIcon } from '../../utils/svgs/pilates.svg';
+import { ReactComponent as HikingIcon } from '../../utils/svgs/hiking.svg';
+import { ReactComponent as FishingIcon } from '../../utils/svgs/fishing.svg';
+import { ReactComponent as ClimbingIcon } from '../../utils/svgs/climbing.svg';
+import { ReactComponent as KayakIcon } from '../../utils/svgs/canoening.svg';
+import { ReactComponent as BadmingtonIcon } from '../../utils/svgs/badmington.svg';
 
 import Macrocategory from '../../components/MacroCategory.jsx';
 
@@ -62,17 +67,25 @@ const Categories = () => {
 const sportsCategories = {
     colorClass: "blue",
     items: [
-      { name: "Tennis", icon: <TennisIcon />, image: 'violoncello' },
-      { name: "Surf", icon: <SurfIcon /> },
-      { name: "Golf", icon: <GolfIcon /> },
-      { name: "Fitness", icon: <DumbbellIcon /> },
-      { name: "Yoga", icon: <YogaIcon /> },
-      { name: "Running", icon: <RunningIcon /> },
-      { name: "Cricket", icon: <CricketIcon /> },
-      { name: "Soccer", icon: <FootballIcon /> },
-      { name: "Basketball", icon: <BasketballIcon /> },
-      { name: "Ping Pong", icon: <PingPongIcon /> },
-      { name: "Ciclying", icon: <BicycleIcon /> },
+      { name: "Tennis", icon: <TennisIcon />, image: 'tennis' },
+      { name: "Surf", icon: <SurfIcon />, image: 'surf' },
+      { name: "Golf", icon: <GolfIcon />, image: 'golf' },
+      { name: "Fitness", icon: <DumbbellIcon />, image: 'fitness' },
+      { name: "Yoga", icon: <YogaIcon />, image: 'yoga' },
+      { name: "Running", icon: <RunningIcon />, image: 'running' },
+      { name: "Soccer", icon: <FootballIcon />, image: 'soccer' },
+      { name: "Basketball", icon: <BasketballIcon />, image: 'basketball' },
+      { name: "Ping Pong", icon: <PingPongIcon />, image: 'table-tennis' },
+      { name: "Ciclying", icon: <BicycleIcon />, image: 'bicycle' },
+      { name: "Cricket", icon: <CricketIcon />, image: 'cricket' },
+      { name: "Volleyball", icon: <VolleyballIcon />, image: 'volleyball' },
+      { name: "Skateboard", icon: <SkateboardIcon />, image: 'skate' },
+      { name: "Pilates", icon: <PilatesIcon />, image: 'pilates' },
+      { name: "Hiking", icon: <HikingIcon />, image: 'hiking' },
+      { name: "Fishing", icon: <FishingIcon />, image: 'fishing' },
+      { name: "Climbing", icon: <ClimbingIcon />, image: 'climbing' },
+      { name: "Kayak", icon: <KayakIcon />, image: 'canoening' },
+      { name: "Badminton", icon: <BadmingtonIcon />, image: 'badminton' },
       
     ],
 };
