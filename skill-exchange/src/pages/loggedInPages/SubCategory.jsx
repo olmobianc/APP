@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icons from '../../utils/icons.js';
 
+import Card from '../../components/Card.jsx';
+
 const SubCategory = () => {
   const location = useLocation();
   console.log("location", location)
@@ -79,24 +81,66 @@ const SubCategory = () => {
 
 
       <div className='subCategory-landing'>
-        <div className="subCategory-landing--hero-banner">
-          {imageSrc ? <img src={imageSrc} alt={skill} /> : <p>Loading image...</p>}
-        </div>
-        <div className='subCategory-landing--heading'>
 
-          <div className='breadcrumbs'>
-            <span className='breadcrumbs__item'>{category}</span>
-            <span className='breadcrumbs__separator'> &gt; </span>
-            <span className={`breadcrumbs__item color-${colorClass}`}>{skill}</span>
+
+          <div className="subCategory-landing--hero-banner">
+            {imageSrc ? <img src={imageSrc} alt={skill} /> : <p>Loading image...</p>}
           </div>
 
-          <h1 className='subCategory-landing--heading__title'>Connect with <span className={`subCategory-landing--heading__skill color-${colorClass}`}>{skill}</span> 
-            Enthusiasts in Your Area</h1>
-          <p className='subCategory-landing--heading__text'>
-          There are 15 skilled individuals near you who can teach you {skill}. Start learning today!
-          </p>
-        </div>
+          <div className='subCategory-landing--heading'>
+            <div className='breadcrumbs'>
+              <span className='breadcrumbs__item'>{category}</span>
+              <span className='breadcrumbs__separator'> &gt; </span>
+              <span className={`breadcrumbs__item color-${colorClass}`}>{skill}</span>
+            </div>
+
+            <h1 className='subCategory-landing--heading__title'>Connect with <span className={`subCategory-landing--heading__skill color-${colorClass}`}>{skill}</span> enthusiasts in your area.</h1>
+            <p className='subCategory-landing--heading__text'>
+            There are 15 skilled individuals near you who can teach you {skill}. Start learning today!
+            </p>
+          </div>
+
       </div>
+
+      {/* <div className='subCategory-landing--main'>
+        <h3 className='subCategory-landing--main__heading'>Meet people like you, <br></br> near you.</h3>
+      </div>
+
+      <div className='card-container subCategory-landing--listing'>
+              <Card
+                  imageSrc="/DSC_0114 1.JPG"
+                  name="Marco"
+                  age={29}
+                  location="Edinburgh, Scotland"
+                  offerSkills={["Coding", "Italian Language"]}
+                  receiveSkills={["Cooking", "Japanese Language"]}
+              />
+              <Card
+                  imageSrc="/DSC_0177.JPG"
+                  name="Gianluca"
+                  age={28}
+                  location="Milan, Italy"
+                  offerSkills={["Guitar"]}
+                  receiveSkills={["Yoga", "Pilates"]}
+              />
+              <Card
+                  imageSrc="/DSC_0114 1.JPG"
+                  name="Marco"
+                  age={29}
+                  location="Edinburgh, Scotland"
+                  offerSkills={["Coding", "Italian Language"]}
+                  receiveSkills={["Cooking", "Japanese Language"]}
+              />
+              <Card
+                  imageSrc="/DSC_0177.JPG"
+                  name="Gianluca"
+                  age={28}
+                  location="Milan, Italy"
+                  offerSkills={["Guitar"]}
+                  receiveSkills={["Yoga", "Pilates"]}
+              />
+        </div> */}
+  
     </div>
   );
 };

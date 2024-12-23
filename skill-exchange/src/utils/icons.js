@@ -41,7 +41,9 @@ import {
     faSearch,
     faCircleChevronRight,
     faRightLeft,
-    faCheck
+    faCheck,
+    faChessKnight,
+    faUserGroup
 } from '@fortawesome/free-solid-svg-icons';
   
 const icons = {
@@ -87,7 +89,9 @@ const icons = {
     search: faSearch,
     chevronRight: faCircleChevronRight,
     exchange: faRightLeft,
-    check: faCheck
+    check: faCheck,
+    chess: faChessKnight,
+    userGroup: faUserGroup
 };
   
 export default icons;

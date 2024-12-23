@@ -65,7 +65,27 @@ import { ReactComponent as WebIcon } from '../../utils/svgs/web.svg';
 import { ReactComponent as AppIcon } from '../../utils/svgs/app.svg';
 import { ReactComponent as AiIcon } from '../../utils/svgs/ai.svg';
 import { ReactComponent as GamingIcon } from '../../utils/svgs/gaming.svg';
+import { ReactComponent as BlockchainIcon } from '../../utils/svgs/blockchain.svg';
 
+// On the Table
+import { ReactComponent as ChessIcon } from '../../utils/svgs/chess.svg';
+import { ReactComponent as PokerIcon } from '../../utils/svgs/poker.svg';
+import { ReactComponent as BoardGamesIcon } from '../../utils/svgs/board-game.svg';
+import { ReactComponent as DungeonsAndDragonsIcon } from '../../utils/svgs/dungeon-and-dragon.svg';
+
+// Let's Talk
+import { ReactComponent as AstronomyIcon } from '../../utils/svgs/astronomy.svg';
+import { ReactComponent as EconomicsIcon } from '../../utils/svgs/economics.svg';
+import { ReactComponent as PoliticsIcon } from '../../utils/svgs/politics.svg';
+import { ReactComponent as WorldHistoryIcon } from '../../utils/svgs/history.svg';
+import { ReactComponent as ComparativeReligionsIcon } from '../../utils/svgs/religions.svg';
+import { ReactComponent as BitcoinIcon } from '../../utils/svgs/bitcoin.svg';
+import { ReactComponent as MentalHealthIcon } from '../../utils/svgs/mental-health.svg';
+import { ReactComponent as FilmAnalysisIcon } from '../../utils/svgs/film.svg';
+import { ReactComponent as BookClubsIcon } from '../../utils/svgs/book.svg';
+import { ReactComponent as PhilosophyIcon } from '../../utils/svgs/philosophy.svg';
+import { ReactComponent as TravelStoriesIcon } from '../../utils/svgs/travel.svg';
+import { ReactComponent as RelationshipsIcon } from '../../utils/svgs/relationships.svg';
 
 import Macrocategory from '../../components/MacroCategory.jsx';
 
@@ -158,7 +178,36 @@ const codingCategories = {
       { name: "Web Development", icon: <WebIcon />, skill: 'web-development', category: 'coding' },
       { name: "Mobile App Development", icon: <AppIcon />, skill: 'app-development', category: 'coding' },
       { name: "Artificial Intelligence", icon: <AiIcon />, skill: 'artificial-intelligence', category: 'coding' },
-      { name: "Gaming", icon: <GamingIcon />, skill: 'gaming', category: 'coding' }
+      { name: "Gaming", icon: <GamingIcon />, skill: 'gaming', category: 'coding' },
+      { name: "Blockchain", icon: <BlockchainIcon />, skill: 'blockchain', category: 'coding' }
+    ],
+};
+
+const onTheTableCategories = {
+    colorClass: "brown",
+    items: [
+      { name: "Chess", icon: <ChessIcon />, skill: 'chess', category: 'on-the-table' },
+      { name: "Poker", icon: <PokerIcon />, skill: 'poker', category: 'on-the-table' },
+      { name: "Board Games", icon: <BoardGamesIcon />, skill: 'board-games', category: 'on-the-table' },
+      { name: "Dungeons & Dragons", icon: <DungeonsAndDragonsIcon />, skill: 'd&d', category: 'on-the-table' }
+    ],
+};
+
+const letsTalkCategories = {
+    colorClass: "black",
+    items: [
+      { name: "Astronomy", icon: <AstronomyIcon />, skill: 'astronomy', category: 'lets-talk' },
+      { name: "Economics", icon: <EconomicsIcon />, skill: 'economics', category: 'lets-talk' },
+      { name: "Politics", icon: <PoliticsIcon />, skill: 'politics', category: 'lets-talk' },
+      { name: "World History", icon: <WorldHistoryIcon />, skill: 'world-history', category: 'lets-talk' },
+      { name: "Comparative Religions", icon: <ComparativeReligionsIcon />, skill: 'comparative-religions', category: 'lets-talk' },
+      { name: "Cryptocurrency", icon: <BitcoinIcon />, skill: 'cryptocurrency', category: 'lets-talk' },
+      { name: "Mental Health", icon: <MentalHealthIcon />, skill: 'mental-health', category: 'lets-talk' },
+      { name: "Film Analysis", icon: <FilmAnalysisIcon />, skill: 'film-analysis', category: 'lets-talk' },
+      { name: "Book Clubs", icon: <BookClubsIcon />, skill: 'book-clubs', category: 'lets-talk' },
+      { name: "Philosophy", icon: <PhilosophyIcon />, skill: 'philosophy', category: 'lets-talk' },
+      { name: "Travel Stories", icon: <TravelStoriesIcon />, skill: 'travel-stories', category: 'lets-talk' },
+      { name: "Relationships", icon: <RelationshipsIcon />, skill: 'relationships', category: 'lets-talk' },
     ],
 };
 
@@ -253,6 +302,22 @@ const codingCategories = {
                     categories={codingCategories} 
                     description="Explore coding languages and improve your programming skills." 
                 />
+
+                <Macrocategory 
+                    title="On the Table" 
+                    icon={icons.chess} 
+                    categories={onTheTableCategories} 
+                    description="Immerse yourself in the world of strategy, skill, and fun with classic and modern games." 
+                />
+
+                <Macrocategory 
+                    title="Let's Talk!" 
+                    icon={icons.userGroup} 
+                    categories={letsTalkCategories} 
+                    description="Join the conversation and share your thoughts, ideas, and stories about anything and everything." 
+                />
+
+
             </main>
         </div>
     );
