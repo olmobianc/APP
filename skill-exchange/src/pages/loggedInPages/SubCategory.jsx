@@ -88,10 +88,28 @@ const SubCategory = () => {
           </div>
 
           <div className='subCategory-landing--heading'>
-            <div className='breadcrumbs'>
-              <span className='breadcrumbs__item'>{category}</span>
-              <span className='breadcrumbs__separator'> &gt; </span>
-              <span className={`breadcrumbs__item color-${colorClass}`}>{skill}</span>
+            <div className="breadcrumbs">
+              <a href="#" className="breadcrumbs__item">
+                Categories
+              </a>
+              <span className="breadcrumbs__separator">
+                <FontAwesomeIcon icon={icons.arrowRight} className="input-icon" />
+              </span>
+              <a href="#" className="breadcrumbs__item">
+                {category
+                  .split('-')
+                  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ')}
+              </a>
+              <span className="breadcrumbs__separator">
+                <FontAwesomeIcon icon={icons.arrowRight} className="input-icon" />
+              </span>
+              <a href="#" className={`breadcrumbs__item breadcrumbs__item--${colorClass}`}>
+                {skill
+                  .split('-')
+                  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(' ')}
+              </a>
             </div>
 
             <h1 className='subCategory-landing--heading__title'>Connect with <span className={`subCategory-landing--heading__skill color-${colorClass}`}>{skill}</span> enthusiasts in your area.</h1>

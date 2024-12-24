@@ -18,7 +18,15 @@ const Macrocategory = ({ title, icon, description, categories }) => {
           </div>
           {description && <p className="macrocategory-description">{description}</p>}
         </div>
-        <button className="macrocategory-button">Find People</button>
+        <Link 
+          to={`/categories/${title.replace(/\s+/g, '-').toLowerCase()}`}
+          state={{ 
+            categoryName: items[0].category,
+            colorClass: colorClass 
+          }}
+        >
+          <button className="macrocategory-button">Find People</button>
+        </Link>
       </div>
     
       <div className="macrocategory-carousel">

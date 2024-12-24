@@ -1,0 +1,162 @@
+@import '../variables.scss';
+
+.sub-categories-landing {
+    margin-bottom: $spacing-xxl;
+
+        &--banner {
+            min-height: 200px;
+            padding: $spacing-lg;
+            color: $white;
+            text-align: center;
+            font-family: $font-family-heading;
+            background-color: #46879f;
+
+            &__heading {
+                font-size: $font-size-xxl;
+            }
+        }
+        
+        &--main {
+            padding: $spacing-lg;
+
+            .breadcrumbs {
+                display: flex;
+                align-items: center;
+  
+                &__item {
+                  text-decoration: underline;
+                  text-transform: capitalize;
+                  color: inherit;
+                  cursor: pointer;
+  
+                }
+  
+                &__separator {
+                  margin: 0 0.5rem;
+                }
+  
+                &__item--color {
+                  font-weight: bold;
+                }
+            }
+
+              .card-container {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive grid layout
+                gap: $spacing-md;
+
+                .card {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%; // Ensures uniform height
+                    border-radius: $border-radius;
+                    overflow: hidden; // Prevent content overflow
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                    &:hover {
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // Stronger shadow on hover
+                        cursor: pointer;
+                    }
+
+                    &__image {
+                        flex: 3; // Still occupies most of the card height
+                        width: 100%;
+                        height: 100%; // Ensures the parent div takes the available height
+                        overflow: hidden;
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            aspect-ratio: 1; // Makes the image square
+                            max-height: 300px;
+                            object-fit: cover; // Ensures the image fills the space
+                            object-position: center; // Centers the image content
+                            transition: transform 0.3s ease;
+
+                            &:hover {
+                                transform: scale(1.10); // Slight zoom-in on hover
+                            }
+                        }
+                    }
+
+                    &__content {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between; // Space out header, location, and skills
+
+                        &__header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .card__name {
+                                font-size: $font-size-medium;
+                                font-weight: bold;
+                                color: $color-primary-dark;
+                            }
+
+                            .card__age {
+                                font-size: $font-size-small;
+                                color: $color-primary-dark;
+                            }
+                        }
+
+                        &__location {
+                            font-size: $font-size-small;
+                            color: $color-text;
+                            display: flex;
+                            align-items: center;
+
+                            .card__chevron {
+                                margin-left: auto;
+                                color: $color-primary-dark;
+                                font-size: 16px;
+                                opacity: 0;
+                                transition: opacity 0.3s ease;
+
+                                &.visible {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+
+                        &__skills {
+                            display: flex;
+                            flex-direction: column;
+                            gap: $spacing-sm;
+
+                            &-section {
+                                display: flex;
+                                align-items: baseline;
+                                gap: 4px;
+
+                                .card__skills-title {
+                                    font-size: $font-size-small;
+                                    font-weight: bold;
+                                }
+
+                                .card__skills-list {
+                                    list-style: none;
+                                    display: flex;
+                                    gap: $spacing-xs;
+                                    padding: 0;
+                                    margin: 0;
+
+                                    li {
+                                        font-size: $font-size-small;
+                                        padding: $spacing-xs $spacing-sm;
+                                        background-color: $color-background;
+                                        border-radius: $border-radius;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }  
+        }
+           
+}

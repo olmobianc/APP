@@ -12,6 +12,7 @@ import Welcome from './pages/account creation/Welcome'
 import Dashboard from './pages/loggedInPages/Dashboard'
 import Profile from './pages/loggedInPages/Profile'
 import Categories from './pages/loggedInPages/Categories';
+import SubCategories from './pages/loggedInPages/SubCategories';
 import SubCategory from './pages/loggedInPages/SubCategory';
 import BecomePartner from './pages/landing pages/BecomePartner';
 import OurMission from './pages/landing pages/OurMission';
@@ -31,6 +32,7 @@ import './styles/pages/OurMission.scss';
 import './styles/loggedInPages/Dashboard.scss';
 import './styles/loggedInPages/Profile.scss';
 import './styles/loggedInPages/Categories.scss';
+import './styles/loggedInPages/SubCategories.scss';
 import './styles/loggedInPages/SubCategory.scss';
 import './styles/components/Map.scss';
 import './styles/components/Calendar.scss';
@@ -39,6 +41,9 @@ import './styles/components/ImageCarousel.scss';
 import './styles/components/ScheduleMeetingForm.scss';
 
 import 'font-awesome/css/font-awesome.min.css';
+
+// Import the ScrollToTop component
+import ScrollToTop from './components/ScrollToTop';
 
 
 const App = () => {
@@ -76,6 +81,7 @@ const App = () => {
       {!isSignUpPage && !isLoggedInPage && <Header />}
       
       <main>
+        <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<Home />} />
           
@@ -91,6 +97,7 @@ const App = () => {
           <Route path="/home" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:title" element={<SubCategories />} />
           <Route path="/categories/:title/:subcategory" element={<SubCategory />} />
 
           {/* Landing Pages */}
