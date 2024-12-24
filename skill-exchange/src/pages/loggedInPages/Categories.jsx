@@ -189,12 +189,12 @@ const onTheTableCategories = {
       { name: "Chess", icon: <ChessIcon />, skill: 'chess', category: 'on-the-table' },
       { name: "Poker", icon: <PokerIcon />, skill: 'poker', category: 'on-the-table' },
       { name: "Board Games", icon: <BoardGamesIcon />, skill: 'board-games', category: 'on-the-table' },
-      { name: "Dungeons & Dragons", icon: <DungeonsAndDragonsIcon />, skill: 'd&d', category: 'on-the-table' }
+      { name: "Dungeons & Dragons", icon: <DungeonsAndDragonsIcon />, skill: 'dungeons-and-dragons', category: 'on-the-table' }
     ],
 };
 
 const letsTalkCategories = {
-    colorClass: "black",
+    colorClass: "dark-blue",
     items: [
       { name: "Astronomy", icon: <AstronomyIcon />, skill: 'astronomy', category: 'lets-talk' },
       { name: "Economics", icon: <EconomicsIcon />, skill: 'economics', category: 'lets-talk' },

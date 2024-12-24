@@ -62,6 +62,9 @@
     .color--brown {
       color: $icon-brown;
     }
+    .color--dark-blue {
+      color: $icon-dark-blue
+  }
 
     .macrocategory-description {
       flex: 1;
@@ -132,6 +135,7 @@
         border: 1px solid $color-border;
         border-radius: $border-radius;
         min-width: 120px;
+        max-width: 120px;
         box-shadow: 0px 4px 0px 1px $color-border;
         text-decoration: none;
         cursor: pointer;
