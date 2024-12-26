@@ -9,7 +9,7 @@
             color: $white;
             text-align: center;
             font-family: $font-family-heading;
-            background-color: #46879f;
+            background-color: $color-primary-dark;
 
             &__heading {
                 font-size: $font-size-xxl;
@@ -40,7 +40,16 @@
                 }
             }
 
-              .card-container {
+            .map-container {
+                height: 300px;
+                margin-bottom: $spacing-xxl;
+
+                #map {
+                    height: 100%;
+                }
+            }
+
+            .card-container {
                 width: 100%;
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive grid layout

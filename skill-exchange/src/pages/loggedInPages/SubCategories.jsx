@@ -5,9 +5,11 @@ import icons from '../../utils/icons.js';
 
 import Card from '../../components/Card.jsx';
 
+import Map from '../../components/Map.jsx';
+
 const SubCategories = () => {
   const location = useLocation();
-  const { categoryName, colorClass } = location.state || {};
+  const { categoryName = '', colorClass = '' } = location.state || {};
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -73,21 +75,33 @@ const SubCategories = () => {
             </div>
 
             <div className='sub-categories-landing--main'>
-            <div className="breadcrumbs">
-                  <a href="#" className="breadcrumbs__item">
+                <div className="breadcrumbs">
+                 <Link to="/categories" className="breadcrumbs__item">
                     Categories
-                  </a>
+                  </Link>
                   <span className="breadcrumbs__separator">
                     <FontAwesomeIcon icon={icons.arrowRight} className="input-icon" />
                   </span>
-                  <a href="#" className="breadcrumbs__item">
-                    {categoryName
-                      .split('-')
-                      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                      .join(' ')}
-                  </a>
+                  <Link 
+                        to={{
+                            pathname: `/categories/${categoryName?.replace(/\s+/g, '-').toLowerCase()}`,
+                            state: { categoryName: categoryName, colorClass: colorClass },
+                          }}
+                        className="breadcrumbs__item"
+                      >
+                        {categoryName
+                              .split('-')
+                              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                              .join(' ')}
+                      </Link>
                 </div>
-                <h3>2 results</h3>
+
+
+                <h3>32 Skill Buddies Nearby</h3>
+
+                <Map />
+
+
                 <div className='card-container'>
                     <Card
                         imageSrc="/DSC_0114 1.JPG"
