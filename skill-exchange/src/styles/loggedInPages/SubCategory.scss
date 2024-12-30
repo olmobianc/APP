@@ -37,7 +37,6 @@
               font-weight: bold;
             }
         }
-
         &__title {
             font-size: $font-size-xxl;
             text-align: left;
@@ -94,6 +93,18 @@
 
     &--listing {
         padding: $spacing-lg;
+
+        &__location-header {
+            padding-top: $spacing-lg;
+            font-size: $font-size-large;
+        }
+
+        &__results-header {
+            padding-top: $spacing-lg;
+            font-size: $font-size-large;
+        }
+
+        
         .card-container {
             width: 100%;
             display: grid;

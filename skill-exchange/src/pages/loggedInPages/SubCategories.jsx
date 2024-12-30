@@ -97,9 +97,11 @@ const SubCategories = () => {
                 </div>
 
 
-                <h3>32 Skill Buddies Nearby</h3>
+                <h3 className='subCategory-landing--listing__location-header'>Location</h3>
 
                 <Map />
+
+                <h3 className='subCategory-landing--listing__results-header'>32 Skill Buddies Nearby</h3>
 
 
                 <div className='card-container'>

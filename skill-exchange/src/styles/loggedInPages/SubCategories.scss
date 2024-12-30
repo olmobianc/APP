@@ -3,18 +3,31 @@
 .sub-categories-landing {
     margin-bottom: $spacing-xxl;
 
-        &--banner {
-            min-height: 200px;
-            padding: $spacing-lg;
-            color: $white;
-            text-align: center;
-            font-family: $font-family-heading;
-            background-color: $color-primary-dark;
+    &--banner {
+        display: flex; // Enables horizontal alignment
+        flex-direction: column;
+        justify-content: flex-start; // Aligns text to the left
+        min-height: 200px;
+        padding: $spacing-lg $spacing-xxl;
+        color: $white;
+        font-family: $font-family-heading;
+        background-color: $color-primary-dark;
+        background-image: url("../../../public/sports-and-fitness-banner.svg");
+        background-repeat: no-repeat;
+        background-position: calc(100% - 100px) center;
+        background-size: contain; // Ensures the image fits its container
 
-            &__heading {
-                font-size: $font-size-xxl;
-            }
+        h1, h3 {
+            flex: 1; // Allows text to take up space
+            text-align: left; // Aligns text to the left
         }
+
+        &__heading {
+            font-size: $font-size-xxl;
+            margin-top: $spacing-md;
+            max-width: 400px;
+        }
+    }
         
         &--main {
             padding: $spacing-lg;
@@ -39,6 +52,8 @@
                   font-weight: bold;
                 }
             }
+
+
 
             .map-container {
                 height: 300px;
