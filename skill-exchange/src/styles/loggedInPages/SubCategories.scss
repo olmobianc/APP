@@ -12,7 +12,6 @@
         color: $white;
         font-family: $font-family-heading;
         background-color: $color-primary-dark;
-        background-image: url("../../../public/sports-and-fitness-banner.svg");
         background-repeat: no-repeat;
         background-position: calc(100% - 100px) center;
         background-size: contain; // Ensures the image fits its container
@@ -27,6 +26,32 @@
             margin-top: $spacing-md;
             max-width: 400px;
         }
+    }
+
+    &--banner.color-blue {
+        background-image: url("../../../public/sports-and-fitness-banner.svg");
+        color: #80d2da;
+    }
+    &--banner.color-red {
+        background-image: url("../../../public/sports-and-fitness-banner.svg");
+    }
+    &--banner.color-yellow {
+        background-image: url("../../../public/arts-crafts-banner.svg");
+        color: #ffdf71;
+    }
+    &--banner.color-orange {
+        background-image: url("../../../public/music-instruments-banner.svg");
+        color: #f9ad66;
+    }
+    &--banner.color-green {
+        background-image: url("../../../public/cooking-banner.svg");
+        color: #4FBF75;
+    }
+    &--banner.color-purple {
+        background-image: url("../../../public/sports-and-fitness-banner.svg");
+    }
+    &--banner.color-dark-blue {
+        background-image: url("../../../public/sports-and-fitness-banner.svg");
     }
         
         &--main {
