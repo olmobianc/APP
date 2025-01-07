@@ -8,6 +8,10 @@
   
     .form-scheduling {
       margin-bottom: $spacing-lg;
+
+      .MuiFormControl-root{
+        width: 100%;
+      }
   
       label {
         display: block;
@@ -60,6 +64,9 @@
       .credit-card-form {
         margin-bottom: $spacing-lg;
         .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: $spacing-sm;
           position: relative;
           margin-bottom: $spacing-sm; // Ensure $spacing-md is defined
 

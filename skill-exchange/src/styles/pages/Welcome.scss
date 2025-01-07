@@ -225,10 +225,10 @@
 }
 
 .or-divider span {
-  background: white;
-  padding: 0 10px;
-  font-size: 16px;
-  color: #333;
+  background: transparent;
+  padding: 0 $spacing-md;
+  font-size: $font-size-medium;
+  color: $dark;
   font-weight: bold;
   z-index: 1;
 }

@@ -4,25 +4,44 @@ import { faGooglePay } from '@fortawesome/free-brands-svg-icons';
 import { faPaypal } from '@fortawesome/free-brands-svg-icons';
 import icons from '../utils/icons.js';
 
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
+
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import dayjs from 'dayjs';
+
 const ScheduleMeetingForm = ({ formData, setFormData, name, skillsToOffer, skillsToReceive }) => {
   console.log(skillsToOffer)
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [step, setStep] = useState(1); // Track the current step in the process
   
-  // Handlers for each step
+  const [openSkillToLearn, setOpenSkillToLearn] = React.useState(false);
+  const [openSkillToReceive, setOpenSkillToReceive] = React.useState(false);
+
   const handleSkillToLearnChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      skillToLearnSelected: e.target.value,
-    }));
+    setFormData({
+      ...formData,
+      skillToLearnSelected: e.target.value
+    });
   };
 
   const handleSkillToReceiveChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      skillToReceiveSelected: e.target.value,
-    }));
+    setFormData({
+      ...formData,
+      skillToReceiveSelected: e.target.value
+    });
   };
+
+  const handleCloseSkillToLearn = () => setOpenSkillToLearn(false);
+  const handleOpenSkillToLearn = () => setOpenSkillToLearn(true);
+  
+  const handleCloseSkillToReceive = () => setOpenSkillToReceive(false);
+  const handleOpenSkillToReceive = () => setOpenSkillToReceive(true);
 
   const handleDateChange = (e) => {
     setFormData((prevData) => ({
@@ -69,61 +88,68 @@ const ScheduleMeetingForm = ({ formData, setFormData, name, skillsToOffer, skill
     <>
       {!isSubmitted ? (
         <form className="schedule-meeting-form" onSubmit={handleFormSubmit}>
-          {/* Step 1: Select skills */}
+          
           {step === 1 && (
             <div className="form-scheduling">
-              <label htmlFor="skill-to-learn">Select a Skill to Learn:</label>
-              <select
-                id="skill-to-learn"
-                value={formData.skillToLearnSelected || ""}
-                onChange={handleSkillToLearnChange}
-                required
-              >
-                <option value="">Select a skill</option>
-                {skillsToOffer.map((skill, index) => (
-                  <option key={index} value={skill}>
-                    {skill}
-                  </option>
-                ))}
-              </select>
+              <h3>Select a Skill to Learn and to Give in Exchange</h3>
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel id="skill-to-learn-label">Skill to Learn</InputLabel>
+                <Select
+                  labelId="skill-to-learn-label"
+                  id="skill-to-learn"
+                  value={formData.skillToLearnSelected || ""}
+                  onChange={handleSkillToLearnChange}
+                  onOpen={handleOpenSkillToLearn}
+                  onClose={handleCloseSkillToLearn}
+                  label="Select a Skill to Learn"
+                  required
+                >
+                  {skillsToOffer.map((skill, index) => (
+                    <MenuItem key={index} value={skill}>
+                      {skill}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
 
-              <label htmlFor="skill-to-receive">Select a Skill to give back:</label>
-              <select
-                id="skill-to-receive"
-                value={formData.skillToReceiveSelected || ""}
-                onChange={handleSkillToReceiveChange}
-                required
-              >
-                <option value="">Select a skill</option>
-                {skillsToReceive.map((skill, index) => (
-                  <option key={index} value={skill}>
-                    {skill}
-                  </option>
-                ))}
-              </select>
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel id="skill-to-receive-label">Skill to Give Back</InputLabel>
+                <Select
+                  labelId="skill-to-receive-label"
+                  id="skill-to-receive"
+                  value={formData.skillToReceiveSelected || ""}
+                  onChange={handleSkillToReceiveChange}
+                  onOpen={handleOpenSkillToReceive}
+                  onClose={handleCloseSkillToReceive}
+                  label="Select a Skill to Give Back"
+                  required
+                >
+                  {skillsToReceive.map((skill, index) => (
+                    <MenuItem key={index} value={skill}>
+                      {skill}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </div>
           )}
 
           {/* Step 2: Select date and time */}
           {step === 2 && (
             <div className="form-scheduling">
-              <label htmlFor="meeting-date">Select a date:</label>
-              <input
-                type="date"
-                id="meeting-date"
-                value={formData.date}
-                onChange={handleDateChange}
-                required
-              />
-
-              <label htmlFor="meeting-time">Select a time:</label>
-              <input
-                type="time"
-                id="meeting-time"
-                value={formData.time}
-                onChange={handleTimeChange}
-                required
-              />
+              <h3>Select a Date & Time</h3>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  label="Date and Time"
+                  value={formData.dateTime ? dayjs(formData.dateTime) : null}
+                  onChange={(newValue) => {
+                    setFormData({
+                      ...formData,
+                      dateTime: newValue ? newValue.toISOString() : null,
+                    });
+                  }}
+                />
+              </LocalizationProvider>
             </div>
           )}
 
@@ -160,34 +186,23 @@ const ScheduleMeetingForm = ({ formData, setFormData, name, skillsToOffer, skill
               <form onSubmit={handlePaymentChange} className="credit-card-form">
                 <div className="form-group">
                   <input
-                    type="number"
+                    type="text"
                     name="card-number"
                     placeholder="Card Number"
                     value=""
                     required
                   />
-                </div>
-                <div className="form-group">
                   <input
                     type="text"
                     name="expiration-date"
-                    placeholder="Expiration Date"
+                    placeholder="MM/YY"
                     value=""
                     required
                   />
                   <input
                     type="text"
                     name="security-code"
-                    placeholder="Security Code"
-                    value=""
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="dropdown"
-                    name="country"
-                    placeholder="Country"
+                    placeholder="CVC"
                     value=""
                     required
                   />

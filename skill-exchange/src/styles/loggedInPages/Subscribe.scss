@@ -1,0 +1,101 @@
+@import '../variables.scss';
+
+.subscribe-container {
+    text-align: center;
+    background-color: $color-background;
+    padding: 40px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+  
+  .subscribe-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: $font-size-heading;
+    color: $primary-color;
+  }
+  
+  .subscribe-description {
+    font-family: 'Reddit Sans', sans-serif;
+    font-size: $font-size-medium;
+    color: $color-text;
+    margin-bottom: 30px;
+  }
+  
+  .subscription-plans {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .plan {
+    background-color: $color-card-background;
+    padding: 20px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .plan h2 {
+    font-size: 24px;
+    color: $primary-color;
+  }
+  
+  .price {
+    font-size: 28px;
+    color: $color-text;
+    margin: 20px 0;
+  }
+  
+  .subscribe-btn {
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: $border-radius;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    &:hover {
+      background-color: $color-primary;
+    }
+  }
+  
+  .features {
+    margin-top: 40px;
+  }
+  
+  .features h3 {
+    font-size: 24px;
+    color: $primary-color;
+  }
+  
+  .features ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .features li {
+    font-size: 18px;
+    color: $color-text;
+    margin: 10px 0;
+  }
+  
+  .cta {
+    margin-top: 40px;
+  }
+  
+  .get-started-btn {
+    background-color: $primary-color;
+    color: $white;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: $color-primary;
+    }
+  }
