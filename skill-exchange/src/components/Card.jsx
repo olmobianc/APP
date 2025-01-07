@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import icons from '../utils/icons.js'; // Adjust the path if necessary
+import icons from '../utils/icons.js'; 
 
 const Card = ({ name, age, location, offerSkills, receiveSkills, imageSrc }) => {
   const [isHovered, setIsHovered] = useState(false);

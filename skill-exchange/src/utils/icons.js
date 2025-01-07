@@ -41,6 +41,7 @@ import {
     faSearch,
     faCircleChevronRight,
     faChevronRight,
+    faChevronLeft,
     faRightLeft,
     faCheck,
     faChessKnight,
@@ -89,6 +90,7 @@ const icons = {
     active: faRunning, // Stay Active
     search: faSearch,
     chevronRight: faCircleChevronRight,
+    arrowLeft: faChevronLeft,
     arrowRight: faChevronRight,
     exchange: faRightLeft,
     check: faCheck,

@@ -99,23 +99,35 @@
     padding: $spacing-lg $spacing-md;
     background-color: $light-grey;
     border-radius: $border-radius;
+    position: relative;
 
     .carousel-arrow {
-      background: $get-started-bg;
+      background: $black;
+      color: white;
       border: none;
       border-radius: 50%;
-      width: 2rem;
-      height: 2rem;
+      width: 50px;
+      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: $font-family-text;
       cursor: pointer;
+      z-index: 999;
 
       &:hover {
-        background-color: $color-hover;
-        color: $white;
+        opacity: 80%;
       }
+    }
+
+    .carousel-arrow.left-arrow {
+      position: absolute;
+
+    }
+
+    .carousel-arrow.right-arrow {
+      position: absolute;
+      right: 0;
     }
 
     .carousel-track {

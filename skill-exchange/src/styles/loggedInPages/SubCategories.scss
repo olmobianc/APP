@@ -30,10 +30,11 @@
 
     &--banner.color-blue {
         background-image: url("../../../public/sports-and-fitness-banner.svg");
-        color: #80d2da;
+        color: #6ac5f5;
     }
     &--banner.color-red {
         background-image: url("../../../public/sports-and-fitness-banner.svg");
+        color: #ef8678;
     }
     &--banner.color-yellow {
         background-image: url("../../../public/arts-crafts-banner.svg");
@@ -45,13 +46,19 @@
     }
     &--banner.color-green {
         background-image: url("../../../public/cooking-banner.svg");
-        color: #4FBF75;
+        color: #37b762;
     }
     &--banner.color-purple {
         background-image: url("../../../public/sports-and-fitness-banner.svg");
+        color: #ae93f3;
+    }
+    &--banner.color-brown {
+        background-image: url("../../../public/sports-and-fitness-banner.svg");
+        color: #4d4040;
     }
     &--banner.color-dark-blue {
         background-image: url("../../../public/sports-and-fitness-banner.svg");
+        color: #0d2e61;
     }
         
         &--main {
