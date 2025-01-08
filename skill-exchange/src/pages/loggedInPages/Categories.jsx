@@ -246,7 +246,7 @@ const letsTalkCategories = {
                 
                 <div className='right'>
                     <div className="premium">
-                        <Link to="/premium" className="premium-link">Go Premium</Link>
+                        <Link to="/subscribe" className="premium-link">Go Premium</Link>
                     </div>
                     <div className="hamburger" onClick={toggleMenu}>
                         <FontAwesomeIcon icon={icons.bars} className="input-icon" />

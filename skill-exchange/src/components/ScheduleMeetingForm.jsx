@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGooglePay } from '@fortawesome/free-brands-svg-icons';
 import { faPaypal } from '@fortawesome/free-brands-svg-icons';
@@ -93,7 +94,7 @@ const ScheduleMeetingForm = ({ formData, setFormData, name, skillsToOffer, skill
             <div className="form-scheduling">
               <h3>Select a Skill to Learn and to Give in Exchange</h3>
               <FormControl sx={{ m: 1, minWidth: 120 }}>
-                <InputLabel id="skill-to-learn-label">Skill to Learn</InputLabel>
+                <InputLabel id="skill-to-learn-label">choose a Skill to Learn</InputLabel>
                 <Select
                   labelId="skill-to-learn-label"
                   id="skill-to-learn"
@@ -113,7 +114,7 @@ const ScheduleMeetingForm = ({ formData, setFormData, name, skillsToOffer, skill
               </FormControl>
 
               <FormControl sx={{ m: 1, minWidth: 120 }}>
-                <InputLabel id="skill-to-receive-label">Skill to Give Back</InputLabel>
+                <InputLabel id="skill-to-receive-label">choose a Skill to Teach</InputLabel>
                 <Select
                   labelId="skill-to-receive-label"
                   id="skill-to-receive"
@@ -140,7 +141,7 @@ const ScheduleMeetingForm = ({ formData, setFormData, name, skillsToOffer, skill
               <h3>Select a Date & Time</h3>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
-                  label="Date and Time"
+                  label="Schedule"
                   value={formData.dateTime ? dayjs(formData.dateTime) : null}
                   onChange={(newValue) => {
                     setFormData({
@@ -234,11 +235,15 @@ const ScheduleMeetingForm = ({ formData, setFormData, name, skillsToOffer, skill
         <div className="schedule-meeting-form">
           <h3>You are all set now!</h3>
           <p>{name} has received your proposal and will get back to you shortly.</p>
+          <p>In the meantime why not keep exploring. Check your homepage for more skill exchanges!</p>
           <div className="btn-submitted-container">
-            <button type="submit" className="btn-submitted">
-              <span className="btn-submitted-text">Done</span>
+          <Link 
+            to="/home"
+            className="btn-submitted"
+          >
+              <span className="btn-submitted-text">Back to Home</span>
               <FontAwesomeIcon icon={icons.check} className="input-icon" />
-            </button>
+          </Link>
           </div>
         </div>
       )}

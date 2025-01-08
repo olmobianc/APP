@@ -14,6 +14,7 @@ import Profile from './pages/loggedInPages/Profile'
 import Categories from './pages/loggedInPages/Categories';
 import SubCategories from './pages/loggedInPages/SubCategories';
 import SubCategory from './pages/loggedInPages/SubCategory';
+import Subscribe from './pages/loggedInPages/Subscribe';
 import BecomePartner from './pages/landing pages/BecomePartner';
 import OurMission from './pages/landing pages/OurMission';
 
@@ -34,6 +35,7 @@ import './styles/loggedInPages/Profile.scss';
 import './styles/loggedInPages/Categories.scss';
 import './styles/loggedInPages/SubCategories.scss';
 import './styles/loggedInPages/SubCategory.scss';
+import './styles/loggedInPages/Subscribe.scss';
 import './styles/components/Map.scss';
 import './styles/components/Calendar.scss';
 import './styles/components/Card.scss';
@@ -60,14 +62,14 @@ const App = () => {
   ];
 
   // Define routes for logged-in pages (no header but footer)
-  const loggedInPages = ['/home', '/profile', '/categories'];
+  const loggedInPages = ['/home', '/profile', '/categories', '/subscribe'];
 
   // Check if the current route is a sign-up page
   const isSignUpPage = signUpPages.includes(location.pathname);
 
   // Check if the current route is a logged-in page
   const isLoggedInPage =
-  ['/home', '/profile', '/categories'].some(path =>
+  ['/home', '/profile', '/categories', '/subscribe'].some(path =>
     location.pathname.startsWith(path)
   );
 
@@ -99,6 +101,7 @@ const App = () => {
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/:title" element={<SubCategories />} />
           <Route path="/categories/:title/:subcategory" element={<SubCategory />} />
+          <Route path="/subscribe" element={<Subscribe />} />
 
           {/* Landing Pages */}
           <Route path="/become-partner" element={<BecomePartner />} />

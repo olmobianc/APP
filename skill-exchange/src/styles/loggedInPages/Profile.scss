@@ -282,6 +282,7 @@
 
   .btn-submitted-container {
     text-align: center;
+    margin-top: $spacing-lg;
     @keyframes fadeInIcon {
       0% {
         opacity: 0;
@@ -295,6 +296,7 @@
 
     .btn-submitted {
       padding: $spacing-md;
+      text-decoration: none;
       min-width: 120px;
       font-weight: 600;
       text-align: center;

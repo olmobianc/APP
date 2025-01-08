@@ -85,7 +85,7 @@ const Dashboard = () => {
                 
                 <div className='right'>
                     <div className="premium">
-                        <Link to="/premium" className="premium-link">Go Premium</Link>
+                        <Link to="/subscribe" className="premium-link">Go Premium</Link>
                     </div>
                     <div className="hamburger" onClick={toggleMenu}>
                         <FontAwesomeIcon icon={icons.bars} className="input-icon" />
@@ -143,15 +143,31 @@ const Dashboard = () => {
             <main className="main-content">
                 <div className='main-content--box'>
                     <div style={{width:"100%"}}>
-                        <h3>2 results</h3>
+                        <h3>4 results</h3>
                         <div className='card-container'>
+                            <Card
+                                imageSrc="/DSC_1153.JPG"
+                                name="Sol"
+                                age={25}
+                                location="Sydney, Australia"
+                                offerSkills={["Baking", "Gardering"]}
+                                receiveSkills={["Chess", "Pilates"]}
+                            />
+                            <Card
+                                imageSrc="/DSC_1169.JPG"
+                                name="Olmo"
+                                age={29}
+                                location="Sydney, Australia"
+                                offerSkills={["Tennis", "Surfing", "Italian"]}
+                                receiveSkills={["Golf", "Pottery"]}
+                            />
                             <Card
                                 imageSrc="/DSC_0114 1.JPG"
                                 name="Marco"
                                 age={29}
                                 location="Edinburgh, Scotland"
-                                offerSkills={["Coding", "Italian Language"]}
-                                receiveSkills={["Cooking", "Japanese Language"]}
+                                offerSkills={["Coding", "Italian"]}
+                                receiveSkills={["Cooking", "Japanese"]}
                             />
                             <Card
                                 imageSrc="/DSC_0177.JPG"
