@@ -1,6 +1,39 @@
 @import '../variables.scss';
 
 .logged-in {
+    .suggestions-list {
+        position: absolute;
+        width: 48%;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 0;
+        padding: 0;
+        background-color: $white;
+        border: 1px solid $color-border;
+        border-radius: $border-radius;
+        max-height: 450px;
+        overflow-y: auto;
+        z-index: 999;
+        list-style-type: none;
+  
+        li {
+          padding: $spacing-sm $spacing-lg;
+          cursor: pointer;
+          text-decoration: none;
+          position: relative;;
+  
+          &:hover {
+            background-color: #f5f5f5;
+          }
+
+          .location-icon {
+            position: absolute;
+            left: $spacing-sm;
+            top: $spacing-sm;
+          }
+        }
+      }
     .header {
         position: relative;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 6px 0px;
@@ -109,6 +142,7 @@
             width: 90%;
             scroll-behavior: smooth;
             background-color: #ebf2ff;
+            overflow: visible;
 
             // Hide scrollbar
             scrollbar-width: none; // Firefox

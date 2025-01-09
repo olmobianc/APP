@@ -7,12 +7,28 @@ import Calendar from '../../components/Calendar.jsx';
 import Map from '../../components/Map.jsx';
 import Card from '../../components/Card.jsx';
 
+// Mock city data for autocomplete
+const cities = [
+  { name: 'Sydney, Australia', latitude: -33.8688, longitude: 151.2093 },
+  { name: 'Bondi, Australia', latitude: -33.8908, longitude: 151.2743 },
+  { name: 'Melbourne, Australia', latitude: -37.8136, longitude: 144.9631 },
+  { name: 'Brisbane, Australia', latitude: -27.4698, longitude: 153.0251 },
+  { name: 'Perth, Australia', latitude: -31.9505, longitude: 115.8605 },
+  { name: 'Adelaide, Australia', latitude: -34.9285, longitude: 138.6007 },
+  { name: 'Canberra, Australia', latitude: -35.2809, longitude: 149.1300 },
+  { name: 'Gold Coast, Australia', latitude: -28.0167, longitude: 153.4000 },
+  { name: 'Newcastle, Australia', latitude: -32.9283, longitude: 151.7817 },
+  { name: 'Wollongong, Australia', latitude: -34.4331, longitude: 150.8831 },
+  { name: 'Hobart, Australia', latitude: -42.8821, longitude: 147.3272 },
+];
+
 const Dashboard = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
-    const address = useLocation(); // Access the current URL
+    const address = useLocation();
     const [location, setLocation] = useState('');
-    const [skill, setSkill] = useState('');
+    const [suggestions, setSuggestions] = useState([]);
+    const [selectedCity, setSelectedCity] = useState(null);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -26,15 +42,24 @@ const Dashboard = () => {
         setModalOpen(!modalOpen);
     };
 
-    const handleLocationSubmit = (e) => {
-        console.log(`Location: ${location}`);
-      };
+    const handleLocationChange = (value) => {
+        setLocation(value);
 
-      const handleSkillSubmit = (e) => {
-        console.log(`Skill: ${skill}`);
-      };  
+        if (value) {
+            const filteredCities = cities.filter((city) =>
+                city.name.toLowerCase().includes(value.toLowerCase())
+            );
+            setSuggestions(filteredCities);
+        } else {
+            setSuggestions([]);
+        }
+    };
 
-    const searchIcon = icons.search 
+    const handleLocationSelect = (city) => {
+        setLocation(city.name);
+        setSelectedCity(city);
+        setSuggestions([]);
+    };
 
     const filters = [
         { icon: icons.water, label: 'On the Water' },
@@ -96,26 +121,38 @@ const Dashboard = () => {
             <div className="filters">
                 <div className="filter-buttons">
                     <div className="filter-buttons--searches-fields">
+                        <div className="autocomplete">
+                            <FontAwesomeIcon icon={icons.search} className="search-icon" />
+                            <input
+                                type="text"
+                                placeholder="Try 'Sydney' or 'Bondi'"
+                                value={location}
+                                onChange={(e) => handleLocationChange(e.target.value)}
+                                required
+                            />
+                            {suggestions.length > 0 && (
+                                <ul className="suggestions-list">
+                                    {suggestions.map((city, index) => (
+                                        <li
+                                            key={index}
+                                            onClick={() => handleLocationSelect(city)}
+                                        >
+                                            <FontAwesomeIcon icon={icons.location} className="location-icon" />
+                                            {city.name}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                        
                         <div>
                             <FontAwesomeIcon icon={icons.search} className="search-icon" />
                             <input
                                 type="text"
-                                placeholder="Sydney, New South Wales"
-                                value={location}
-                                onChange={(e) => handleLocationSubmit(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div>
-                        <FontAwesomeIcon icon={icons.search} className="search-icon" />
-                            <input
-                                type="text"
                                 placeholder="What Skill are you looking for"
-                                value={skill}
-                                onChange={(e) => handleSkillSubmit(e.target.value)}
-                                required
                             />
                         </div>
+
                     </div>
                     {filters.map((filter, index) => (
                         <button key={index} className="filter-button">
@@ -131,7 +168,6 @@ const Dashboard = () => {
                 </div>
 
             </div>
-
 
             {menuOpen && (
                 <div className="dropdown-menu">
@@ -180,14 +216,13 @@ const Dashboard = () => {
                         </div>
                     </div>
                     
-                    <Map />
+                    <Map selectedCity={selectedCity || { latitude: -33.8688, longitude: 151.2093 }} />
 
                 </div>
             </main>
 
             {modalOpen && (
                 <div className="modal">
-                    {/* Modal content for all filters */}
                     <button onClick={toggleModal}>Close</button>
                 </div>
             )}
@@ -195,4 +230,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard; 
+export default Dashboard;

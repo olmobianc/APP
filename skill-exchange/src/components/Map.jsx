@@ -1,56 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import ReactMapGL, { NavigationControl } from 'react-map-gl';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 
-const MAPBOX_TOKEN = 'pk.eyJ1Ijoib2xtbzk1IiwiYSI6ImNreGtqd3c3aTE3YzYycXViMW1xZ2NwNHcifQ.-6KPm5u6FHFcoCkl0UuLIw'; // your Mapbox token
+const MAPBOX_TOKEN = 'pk.eyJ1Ijoib2xtbzk1IiwiYSI6ImNreGtqd3c3aTE3YzYycXViMW1xZ2NwNHcifQ.-6KPm5u6FHFcoCkl0UuLIw';
 
-const Map = () => {
-  const [viewport, setViewport] = useState({
-    latitude: -33.8908,   // Default to Bondi Beach
-    longitude: 151.2742,
-    zoom: 13,
-  });
+const Map = ({ selectedCity }) => {
+  const [mapInstance, setMapInstance] = useState(null);
 
   useEffect(() => {
     // Initialize the map
     const map = new mapboxgl.Map({
-      container: 'map', // The ID of the container div
+      container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
       accessToken: MAPBOX_TOKEN,
-      center: [viewport.longitude, viewport.latitude],
-      zoom: viewport.zoom,
+      center: [151.2093, -33.8908], // Default to Sydney
+      zoom: 5,
     });
 
-    // Initialize the geocoder control
-    const geocoder = new MapboxGeocoder({
-      accessToken: MAPBOX_TOKEN,
-      mapboxgl: mapboxgl,
-      marker: true,
-      placeholder: 'Search for a place',
-      proximity: 'ip', // Proximity search based on IP
-    });
-
-    // Add the geocoder to the map
-    map.addControl(geocoder, 'top-left');
-
-    geocoder.on('result', (e) => {
-      const result = e.result.geometry;
-      setViewport({
-        latitude: -33.8908,   // Bondi Beach Latitude
-        longitude: 151.2742,  // Bondi Beach Longitude
-        zoom: 10,
-      });
-      map.flyTo({
-        center: [result.coordinates[0], result.coordinates[1]],
-        essential: true, // only animate if necessary
-      });
-    });
+    setMapInstance(map);
 
     return () => {
       map.remove();
     };
-  }, [viewport.latitude, viewport.longitude, viewport.zoom]);
+  }, []);
+
+  useEffect(() => {
+    if (
+      mapInstance &&
+      selectedCity &&
+      typeof selectedCity.latitude === 'number' &&
+      typeof selectedCity.longitude === 'number' &&
+      selectedCity.latitude >= -90 &&
+      selectedCity.latitude <= 90 &&
+      selectedCity.longitude >= -180 &&
+      selectedCity.longitude <= 180
+    ) {
+      // Fly to the selected location
+      mapInstance.flyTo({
+        center: [selectedCity.longitude, selectedCity.latitude],
+        zoom: 12,
+      });
+    } else if (selectedCity) {
+      console.warn('Invalid latitude or longitude values:', selectedCity);
+    }
+  }, [mapInstance, selectedCity]);
 
   return (
     <div className='map-container'>

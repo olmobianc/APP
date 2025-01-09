@@ -34,4 +34,25 @@
         color: $color-hover;
         transition: color $transition-speed;
       }
+
+      .mapboxgl-ctrl-bottom-right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+      .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+        background-color: hsla(0, 0%, 100%, .5);
+        margin: 0;
+        padding: 0 5px;
+      }
+
+      .mapboxgl-ctrl-attrib-button {
+        display: none;
+    }
+
+    .mapboxgl-ctrl-attrib a {
+      color: rgba(0, 0, 0, .75);
+      text-decoration: none;
+  }
 }   
