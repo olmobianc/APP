@@ -7,28 +7,50 @@ import Calendar from '../../components/Calendar.jsx';
 import Map from '../../components/Map.jsx';
 import Card from '../../components/Card.jsx';
 
-// Mock city data for autocomplete
-const cities = [
-  { name: 'Sydney, Australia', latitude: -33.8688, longitude: 151.2093 },
-  { name: 'Bondi, Australia', latitude: -33.8908, longitude: 151.2743 },
-  { name: 'Melbourne, Australia', latitude: -37.8136, longitude: 144.9631 },
-  { name: 'Brisbane, Australia', latitude: -27.4698, longitude: 153.0251 },
-  { name: 'Perth, Australia', latitude: -31.9505, longitude: 115.8605 },
-  { name: 'Adelaide, Australia', latitude: -34.9285, longitude: 138.6007 },
-  { name: 'Canberra, Australia', latitude: -35.2809, longitude: 149.1300 },
-  { name: 'Gold Coast, Australia', latitude: -28.0167, longitude: 153.4000 },
-  { name: 'Newcastle, Australia', latitude: -32.9283, longitude: 151.7817 },
-  { name: 'Wollongong, Australia', latitude: -34.4331, longitude: 150.8831 },
-  { name: 'Hobart, Australia', latitude: -42.8821, longitude: 147.3272 },
-];
+// Replace the cities array with this more organized structure
+const locations = {
+  cities: [
+    { name: 'Sydney, Australia', latitude: -33.8688, longitude: 151.2093 },
+    { name: 'Melbourne, Australia', latitude: -37.8136, longitude: 144.9631 },
+    { name: 'Brisbane, Australia', latitude: -27.4698, longitude: 153.0251 },
+    { name: 'Perth, Australia', latitude: -31.9505, longitude: 115.8605 },
+    { name: 'Adelaide, Australia', latitude: -34.9285, longitude: 138.6007 },
+    { name: 'Canberra, Australia', latitude: -35.2809, longitude: 149.1300 },
+  ],
+  neighborhoods: {
+    'Sydney, Australia': [
+      { name: 'Bondi', latitude: -33.8908, longitude: 151.2743 },
+      { name: 'Manly', latitude: -33.7969, longitude: 151.2855 },
+      { name: 'Surry Hills', latitude: -33.8858, longitude: 151.2111 },
+      { name: 'Newtown', latitude: -33.8960, longitude: 151.1797 },
+    ],
+    'Melbourne, Australia': [
+      { name: 'St Kilda', latitude: -37.8683, longitude: 144.9803 },
+      { name: 'Brunswick', latitude: -37.7667, longitude: 144.9667 },
+    ],
+  }
+};
+
+const allSkills = {
+    "Sports and Fitness": ["Tennis", "Golf", "Basketball"],
+    "Languages": ["English", "Spanish", "French"],
+    "Arts and Crafts": ["Painting", "Sculpting", "Knitting"],
+    "Music": ["Guitar", "Piano", "Singing"],
+    "Cooking and Baking": ["Baking Cakes", "Cooking Pasta", "Decorating"],
+    "Coding": ["JavaScript", "Python", "React"],
+    "On the Table": ["Chess", "Board Games", "Card Games"],
+    "Let's Talk": ["Public Speaking", "Debating", "Storytelling"],
+};
 
 const Dashboard = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const address = useLocation();
     const [location, setLocation] = useState('');
-    const [suggestions, setSuggestions] = useState([]);
+    const [suggestions, setSuggestions] = useState({ cities: [], neighborhoods: [] });
     const [selectedCity, setSelectedCity] = useState(null);
+    const [skill, setSkill] = useState('');
+    const [skillSuggestions, setSkillSuggestions] = useState([]);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -46,19 +68,66 @@ const Dashboard = () => {
         setLocation(value);
 
         if (value) {
-            const filteredCities = cities.filter((city) =>
-                city.name.toLowerCase().includes(value.toLowerCase())
+            const lowercaseValue = value.toLowerCase();
+            
+            // Search cities
+            const matchingCities = locations.cities.filter((city) =>
+                city.name.toLowerCase().includes(lowercaseValue)
             );
-            setSuggestions(filteredCities);
+
+            // Search neighborhoods and include neighborhoods of matching cities
+            const matchingNeighborhoods = [];
+            Object.entries(locations.neighborhoods).forEach(([city, neighborhoods]) => {
+                // Include neighborhoods if either:
+                // 1. The neighborhood name matches the search
+                // 2. The parent city name matches the search
+                const shouldIncludeAll = city.toLowerCase().includes(lowercaseValue);
+                const cityMatches = neighborhoods.filter((neighborhood) =>
+                    shouldIncludeAll || neighborhood.name.toLowerCase().includes(lowercaseValue)
+                ).map(neighborhood => ({
+                    ...neighborhood,
+                    name: `${neighborhood.name}, ${city.split(',')[0]}`,
+                    parentCity: city
+                }));
+                matchingNeighborhoods.push(...cityMatches);
+            });
+
+            // Combine results
+            setSuggestions({
+                cities: matchingCities,
+                neighborhoods: matchingNeighborhoods
+            });
         } else {
-            setSuggestions([]);
+            setSuggestions({ cities: [], neighborhoods: [] });
         }
     };
 
     const handleLocationSelect = (city) => {
         setLocation(city.name);
         setSelectedCity(city);
-        setSuggestions([]);
+        setSuggestions({ cities: [], neighborhoods: [] });
+    };
+
+    const handleSkillChange = (value) => {
+        setSkill(value);
+
+        if (value) {
+            // Create array of all skills from all categories
+            const allSkillsList = Object.values(allSkills).flat();
+            
+            // Filter skills that match the search term
+            const filteredSkills = allSkillsList.filter((skill) =>
+                skill.toLowerCase().includes(value.toLowerCase())
+            );
+            setSkillSuggestions(filteredSkills);
+        } else {
+            setSkillSuggestions([]);
+        }
+    };
+
+    const handleSkillSelect = (selectedSkill) => {
+        setSkill(selectedSkill);
+        setSkillSuggestions([]);
     };
 
     const filters = [
@@ -121,6 +190,8 @@ const Dashboard = () => {
             <div className="filters">
                 <div className="filter-buttons">
                     <div className="filter-buttons--searches-fields">
+
+                        {/* locations search */}
                         <div className="autocomplete">
                             <FontAwesomeIcon icon={icons.search} className="search-icon" />
                             <input
@@ -130,36 +201,96 @@ const Dashboard = () => {
                                 onChange={(e) => handleLocationChange(e.target.value)}
                                 required
                             />
-                            {suggestions.length > 0 && (
-                                <ul className="suggestions-list">
-                                    {suggestions.map((city, index) => (
-                                        <li
-                                            key={index}
-                                            onClick={() => handleLocationSelect(city)}
-                                        >
-                                            <FontAwesomeIcon icon={icons.location} className="location-icon" />
-                                            {city.name}
-                                        </li>
-                                    ))}
+                            {(suggestions.cities.length > 0 || suggestions.neighborhoods.length > 0) && (
+                                <ul className="autocomplete-list">
+                                    {suggestions.cities.length > 0 && (
+                                        <>
+                                            <span className="autocomplete-title">Cities</span>
+                                            {suggestions.cities.map((city, index) => (
+                                                <li
+                                                    key={`city-${index}`}
+                                                    onClick={() => handleLocationSelect(city)}
+                                                >
+                                                    <FontAwesomeIcon icon={icons.location} className="location-icon" />
+                                                    {city.name}
+                                                </li>
+                                            ))}
+                                        </>
+                                    )}
+                                    
+                                    {suggestions.neighborhoods.length > 0 && (
+                                        <>
+                                            <span className="autocomplete-title">Neighborhoods</span>
+                                            {suggestions.neighborhoods.map((neighborhood, index) => (
+                                                <li
+                                                    key={`neighborhood-${index}`}
+                                                    onClick={() => handleLocationSelect(neighborhood)}
+                                                >
+                                                    <FontAwesomeIcon icon={icons.location} className="location-icon" />
+                                                    {neighborhood.name}
+                                                </li>
+                                            ))}
+                                        </>
+                                    )}
                                 </ul>
                             )}
                         </div>
                         
-                        <div>
+                        {/* Skills search */}
+                        <div className="autocomplete">
                             <FontAwesomeIcon icon={icons.search} className="search-icon" />
                             <input
                                 type="text"
-                                placeholder="What Skill are you looking for"
+                                placeholder="Try 'Tennis' or 'Spanish'"
+                                value={skill}
+                                onChange={(e) => handleSkillChange(e.target.value)}
                             />
+                            {skillSuggestions.length > 0 && (
+                                <ul className="autocomplete-list skills-list">
+                                    {Object.entries(allSkills).map(([category, items], categoryIndex) => {
+                                        // Filter items in this category that match the search
+                                        const matchingItems = items.filter(item => 
+                                            skillSuggestions.includes(item)
+                                        );
+                                        
+                                        // Only render category if it has matching items
+                                        if (matchingItems.length > 0) {
+                                            return (
+                                                <li key={categoryIndex} className="category-item" style={{padding:0}}>
+                                                    <span className="autocomplete-title">{category}</span>
+                                                    <ul className="subcategory-list" style={{padding:0}}>
+                                                        {matchingItems.map((item, index) => (
+                                                            <li
+                                                                key={index}
+                                                                onClick={() => handleSkillSelect(item)}
+                                                            >
+                                                                <FontAwesomeIcon icon={icons.dumbbell} className="location-icon" />
+                                                                {item}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </li>
+                                            );
+                                        }
+                                        return null;
+                                    })}
+                                </ul>
+                            )}
                         </div>
 
+
+
                     </div>
-                    {filters.map((filter, index) => (
-                        <button key={index} className="filter-button">
-                            <FontAwesomeIcon icon={filter.icon} />
-                            <div>{filter.label}</div>
-                        </button>
-                    ))}
+
+                    <div className='filter-buttons--filter-fields'>
+                        {filters.map((filter, index) => (
+                            <button key={index} className="filter-button">
+                                <FontAwesomeIcon icon={filter.icon} />
+                                <div>{filter.label}</div>
+                            </button>
+                        ))}
+                    </div>
+                    
 
                     <button className="view-all-button" onClick={toggleModal}>
                         All Filters

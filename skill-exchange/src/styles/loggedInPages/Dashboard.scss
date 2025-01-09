@@ -1,14 +1,14 @@
 @import '../variables.scss';
 
 .logged-in {
-    .suggestions-list {
+    .autocomplete-list {
         position: absolute;
         width: 48%;
         top: 100%;
         left: 0;
         right: 0;
         margin-top: 0;
-        padding: 0;
+        padding: $spacing-sm 0;
         background-color: $white;
         border: 1px solid $color-border;
         border-radius: $border-radius;
@@ -16,6 +16,13 @@
         overflow-y: auto;
         z-index: 999;
         list-style-type: none;
+
+        .autocomplete-title {
+            padding: 0 $spacing-sm;
+            text-transform: uppercase;
+            color: $dark-grey;
+            display: block;
+        }
   
         li {
           padding: $spacing-sm $spacing-lg;
@@ -33,7 +40,12 @@
             top: $spacing-sm;
           }
         }
+        &.skills-list {
+            left: 52%;
+        }
       }
+
+
     .header {
         position: relative;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 6px 0px;
@@ -167,6 +179,11 @@
                 position: relative;
                 display: flex;
                 gap: $spacing-sm;
+            }
+
+            &--filter-fields {
+                display: flex;
+                overflow-x: auto;
             }
 
             input {
