@@ -46,7 +46,8 @@ import {
     faCheck,
     faChessKnight,
     faUserGroup,
-    faLocationDot
+    faLocationDot,
+    faKey
 } from '@fortawesome/free-solid-svg-icons';
   
 const icons = {
@@ -97,7 +98,8 @@ const icons = {
     check: faCheck,
     chess: faChessKnight,
     userGroup: faUserGroup,
-    location: faLocationDot
+    location: faLocationDot,
+    key: faKey
 };
   
 export default icons;

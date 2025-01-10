@@ -30,11 +30,13 @@
 
     &--banner.color-blue {
         background-image: url("../../../public/sports-and-fitness-banner.svg");
-        color: #6ac5f5;
+        // color: #6ac5f5;
+        color: #ffdf71;
     }
     &--banner.color-red {
         background-image: url("../../../public/languages-banner.svg");
-        color: #ef8678;
+        // color: #ef8678;
+        color: #ffdf71;
     }
     &--banner.color-yellow {
         background-image: url("../../../public/arts-crafts-banner.svg");
@@ -42,19 +44,23 @@
     }
     &--banner.color-orange {
         background-image: url("../../../public/music-instruments-banner.svg");
-        color: #f9ad66;
+        // color: #f9ad66;
+        color: #ffdf71;
     }
     &--banner.color-green {
         background-image: url("../../../public/cooking-banner.svg");
-        color: #37b762;
+        // color: #37b762;
+        color: #ffdf71;
     }
     &--banner.color-purple {
         background-image: url("../../../public/coding-banner.svg");
-        color: #ae93f3;
+        // color: #ae93f3;
+        color: #ffdf71;
     }
     &--banner.color-brown {
-        background-image: url("../../../public/sports-and-fitness-banner.svg");
-        color: #4d4040;
+        background-image: url("../../../public/on-table-banner.svg");
+        // color: #4d4040;
+        color: #ffdf71;
     }
     &--banner.color-dark-blue {
         background-image: url("../../../public/talking-banner.svg");

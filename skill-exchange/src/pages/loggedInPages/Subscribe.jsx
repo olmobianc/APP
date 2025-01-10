@@ -22,6 +22,12 @@ const Subscribe = () => {
     const toggleModal = () => {
         setModalOpen(!modalOpen);
     };
+
+    const [activePlan, setActivePlan] = useState('Yearly');
+
+    const handlePlanClick = (plan) => {
+      setActivePlan(plan);
+    };
     
 
 
@@ -59,38 +65,75 @@ const Subscribe = () => {
         </header>
 
         <div className="subscribe-container">
-          <h1 className="subscribe-heading">Unlock Your Potential with Brilliant</h1>
+          <FontAwesomeIcon icon={icons.key} className="subscribe-icon" />
+          <h1 className="subscribe-heading">Unlock Your Potential with Marcopolo Pro</h1>
           <p className="subscribe-description">
-            Access over 60 interactive courses and personalized learning paths today!
+            Premium gives you full access to every course - and more.
           </p>
 
           <div className="subscription-plans">
-            <div className="plan">
-              <h2>Monthly</h2>
-              <p className="price">$15/month</p>
-              <button className="subscribe-btn">Start Free Trial</button>
-            </div>
-            <div className="plan">
-              <h2>Yearly</h2>
-              <p className="price">$150/year</p>
-              <button className="subscribe-btn">Start Free Trial</button>
-            </div>
+          <div
+            className={`plan ${activePlan === 'Yearly' ? 'active' : ''}`}
+            onClick={() => handlePlanClick('Yearly')}
+          >
+            <h2>Yearly</h2>
+            <p className="price">AUD 9.99/month</p>
+          </div>
+          <div
+            className={`plan ${activePlan === 'Monthly' ? 'active' : ''}`}
+            onClick={() => handlePlanClick('Monthly')}
+          >
+            <h2>Monthly</h2>
+            <p className="price">AUD 14.99/month</p>
+          </div>
+        </div>
+
+          <div className="cta">
+            <button className="get-started-btn">Subscribe now</button>
+          </div>
+
+          <div className="disclaimer-price">
+            *Billed as one payment. Renews annually, cancel anytime. You can turn off auto-renew from your settings.
           </div>
 
           <div className="features">
-            <h3>What You Get</h3>
-            <ul>
-              <li>Access to over 60 interactive courses</li>
-              <li>Guided learning paths</li>
-              <li>Real-time feedback and analytics</li>
-              <li>No ads or interruptions</li>
-              <li>Accessible on desktop and mobile</li>
-            </ul>
+            <h2>No commitment, cancel anytime</h2>
+            <div className="comparison-table">
+                <h4>Unlock it all with Premium</h4>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Feature</th>
+                      <th>Free</th>
+                      <th>Premium</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ad-free experience</td>
+                      <td>❌</td>
+                      <td>✅</td>
+                    </tr>
+                    <tr>
+                      <td>Unlimited skips</td>
+                      <td>❌</td>
+                      <td>✅</td>
+                    </tr>
+                    <tr>
+                      <td>Offline access</td>
+                      <td>❌</td>
+                      <td>✅</td>
+                    </tr>
+                    <tr>
+                      <td>High-quality audio</td>
+                      <td>❌</td>
+                      <td>✅</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
           </div>
 
-          <div className="cta">
-            <button className="get-started-btn">Get Started</button>
-          </div>
         </div>
     </div>
 
