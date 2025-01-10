@@ -3,26 +3,28 @@
 .subscribe-container {
     text-align: center;
     background-color: $subscribe-color-background;
-    padding: $spacing-lg 0 0;
+    padding: $spacing-sm 0 0;
     box-shadow: $box-shadow;
     color: $white;
   }
 
-  .subscribe-icon {
-    font-size: $font-size-xxl;
-    color: $subscribe-color-heading;
+  .subscribe-image {
+    width: 16%;
   }
   
   .subscribe-heading {
     font-family: 'Playfair Display', serif;
     font-size: $font-size-xxl;
     color: $subscribe-color-heading;
+    margin-top: 0;
+    margin-bottom: $spacing-xs;
   }
   
   .subscribe-description {
     font-family: 'Reddit Sans', sans-serif;
     font-size: $font-size-medium;
-    margin-bottom: 30px;
+    margin-top: $spacing-xs;
+    margin-bottom: $spacing-xs;
   }
 
   .subscription-plans {
@@ -34,7 +36,7 @@
   
   .plan {
     background-color: $color-card-background;
-    padding: 20px;
+    padding: $spacing-sm;
     border-radius: $border-radius;
     text-align: center;
     width: 200px;
@@ -98,7 +100,7 @@
 
     .comparison-table {
         margin: 40px auto;
-        max-width: 600px;
+        max-width: 500px;
             
         h4 {
           font-size: $font-size-large;

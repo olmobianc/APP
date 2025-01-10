@@ -1,0 +1,103 @@
+@import '../variables.scss';
+
+.tabs-container {
+    background: $white;
+    border-radius: $border-radius;
+    padding: $spacing-md $spacing-xxl $spacing-xxl;
+    
+    .tabs-header {
+        display: flex;
+        gap: $spacing-sm;
+        border-radius: $spacing-md;
+        margin-bottom: $spacing-lg;
+        background-color: $light-grey;
+        padding: $spacing-sm;
+        
+        .tab-button {
+            padding: $spacing-sm $spacing-md;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: $font-size-medium;
+            color: gray;
+            display: flex;
+            align-items: center;
+            gap: $spacing-sm;
+            border-radius: $spacing-md;
+            
+            &.active {
+                background-color: $white;
+                color: $black;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+                border: none;
+            }
+            
+            &:hover {
+                background-color: lightgray;
+                color: $black;
+            }
+        }
+    }
+    
+    .tab-content {
+        display: flex;
+        gap: $spacing-lg;
+        
+        .skills-list {
+            flex: 1;
+            text-align: left;
+            
+            h3 {
+                margin-bottom: $spacing-md;
+            }
+            
+            ul {
+                list-style: none;
+                padding: 0;
+                
+                .skill-item {
+                    padding: $spacing-sm;
+                    cursor: pointer;
+                    border-radius: $border-radius;
+                    
+                    &:hover {
+                        background: $light-grey;
+                    }
+                    
+                    &.active {
+                        background: $subscribe-color-heading;
+                        font-weight: 700;
+                        color: $white;
+                    }
+                }
+            }
+        }
+        
+        .skill-preview {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            background: $light-grey;
+            border-radius: $border-radius;
+            
+            img {
+                max-width: 100%;
+                max-height: 300px;
+                object-fit: cover;
+                border-radius: $border-radius;
+            }
+            
+            h3 {
+                margin-top: $spacing-md;
+            }
+            
+            .placeholder {
+                color: $dark-grey;
+                font-size: $font-size-large;
+            }
+        }
+    }
+} 

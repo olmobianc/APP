@@ -24,6 +24,7 @@ import './styles/components/Header.scss';
 import './styles/components/CTA.scss';
 import './styles/components/HowItWorks.scss';
 import './styles/components/Footer.scss';
+import './styles/components/Tabs.scss';
 import './styles/components/MacroCategory.scss';
 import './styles/pages/LoginPage.scss';
 import './styles/pages/Signup.scss';
@@ -41,6 +42,7 @@ import './styles/components/Calendar.scss';
 import './styles/components/Card.scss';
 import './styles/components/ImageCarousel.scss';
 import './styles/components/ScheduleMeetingForm.scss';
+
 
 import 'font-awesome/css/font-awesome.min.css';
 

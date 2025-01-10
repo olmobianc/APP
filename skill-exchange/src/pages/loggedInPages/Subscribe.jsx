@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import icons from '../../utils/icons.js';
+import Tabs from '../../components/Tabs';
 
 const Subscribe = () => {
 
@@ -65,7 +66,7 @@ const Subscribe = () => {
         </header>
 
         <div className="subscribe-container">
-          <FontAwesomeIcon icon={icons.key} className="subscribe-icon" />
+          <img src='./superheroes.png' className='subscribe-image'></img>
           <h1 className="subscribe-heading">Unlock Your Potential with Marcopolo Pro</h1>
           <p className="subscribe-description">
             Premium gives you full access to every course - and more.
@@ -97,13 +98,18 @@ const Subscribe = () => {
           </div>
 
           <div className="features">
+
+            <h2>Unlock All Categories</h2>
+            <Tabs />
+
+
             <h2>No commitment, cancel anytime</h2>
             <div className="comparison-table">
                 <h4>Unlock it all with Premium</h4>
                 <table>
                   <thead>
                     <tr>
-                      <th>Feature</th>
+                      <th>Benefits</th>
                       <th>Free</th>
                       <th>Premium</th>
                     </tr>
@@ -132,6 +138,7 @@ const Subscribe = () => {
                   </tbody>
                 </table>
               </div>
+              
           </div>
 
         </div>
