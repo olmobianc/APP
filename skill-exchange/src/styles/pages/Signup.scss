@@ -19,7 +19,7 @@
     .progress {
       height: 10px; // Height of the progress bar
       border-radius: $border-radius;
-      background-color: $primary-color; // Color of the progress
+      background-color: $signup-green; // Color of the progress
       transition: width 0.3s ease; // Smooth transition for progress
     }
   }
@@ -40,10 +40,14 @@
       justify-content: center;
       box-shadow: $box-shadow; // Add shadow for depth
       margin-bottom: $spacing-md;
-
+  
       span {
         font-size: 2rem; // Size of the icon
       }
+    }
+
+    .signup-img {
+      width: 200px;
     }
 
     h2 {
@@ -54,16 +58,22 @@
   }
 
   .continue-button {
-    padding: $spacing-sm $spacing-lg; // Button padding
-    background-color: $primary-color; // Button background color
-    color: $white; // Button text color
-    border: none; // No border
-    border-radius: $border-radius; // Rounded corners
-    cursor: pointer; // Pointer cursor on hover
-    transition: background-color 0.3s ease; // Smooth transition
-
+    min-width: 400px;
+    color: $white;
+    font-weight: 600;
+    border: none;
+    background-color: $font-color;
+    padding: $spacing-md;
+    font-size: $font-size-medium;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    box-shadow: 0px 4px 0px 2px $black;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-lg;
+  
     &:hover {
-      background-color: $color-primary-dark; // Darker background on hover
+      opacity: 85%;
     }
   }
 
@@ -74,7 +84,7 @@
   display: flex; // Set display to flex
   flex-direction: column; // Arrange buttons in a column
   align-items: center; // Center align buttons
-  justify-content: flex-start; // Align to the start
+  justify-content: space-between; // Align to the start
 
   .skills-list {
     &--btn {
@@ -95,9 +105,34 @@
       h3 {
         font-weight: 400;
       }
+
+      &.selected {
+        background-color: rgba($color-primary-dark, 0.1);
+        border: 2px solid $icon-blue;
+      }
+
+      .option-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: $spacing-sm;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
     }
     &--btn:hover {
       border: 2px solid $black;
+    }
+  }
+
+  .continue-button {
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
     }
   }
 }
@@ -109,6 +144,10 @@
   box-sizing: border-box;
   justify-content: space-between;
   padding-bottom: $spacing-lg;
+  .continue-button {
+    background-color: #28cc57;
+    box-shadow: 0px 4px 0px 2px #15993a;
+  }
   .icon-container {
     flex-direction: column;
     margin-top: $spacing-lg;
@@ -139,5 +178,56 @@
 
   .continue-button {
     margin-top: $spacing-xxl;
+  }
+}
+
+.levels-container {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  width: 60%;
+  padding: 0 $spacing-md;
+  margin: $spacing-lg 0;
+
+  .level-card {
+    flex: 1;
+    max-width: 250px;
+    background: $white;
+    border: 2px solid $color-border;
+    border-radius: $border-radius;
+    padding: $spacing-md;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &:hover {
+      border-color: $black;
+    }
+
+    &.selected {
+      background-color: rgba($color-primary-dark, 0.1);
+      border: 2px solid $icon-blue;
+    }
+
+    .level-image {
+      width: 180px;
+      height: 180px;
+      margin-bottom: $spacing-sm;
+    }
+
+    h3 {
+      margin: $spacing-sm 0;
+      color: $color-text;
+      font-size: $font-size-medium;
+    }
+
+    p {
+      color: gray;
+      font-size: $font-size-small;
+      line-height: 1.4;
+      margin: 0;
+    }
   }
 }

@@ -9,44 +9,38 @@ const skills = [
   { name: 'Music', icon: icons.guitar },
   { name: 'Cooking and Baking', icon: icons.utensils },
   { name: 'Sports and Fitness', icon: icons.basketball },
-  { name: 'Something Else', icon: icons.beginner },
+  { name: 'Hmm, not sure..', icon: icons.moderate },
 ];
 
-const FirstStep = () => {
+const ThirdStep = () => {
   const navigate = useNavigate();
   const [selectedSkill, setSelectedSkill] = useState(null);
 
   const handleSkillSelect = (skill) => {
     setSelectedSkill(skill);
-    // Here you can also store the skill in your global state management solution
-    // For example, if using Redux:
-    // dispatch(setUserSkill(skill));
-    // Or if using Context:
-    // setUserContext({ ...userContext, selectedSkill: skill });
   };
 
   const handleContinueClick = () => {
-    // If it's "Something Else" or doesn't exist, skip this step
-    if (!selectedSkill || selectedSkill.name === 'Something Else') {
-      navigate('/third-step');
-      return;
-    }
-
     if (selectedSkill) {
-      // Store the selected skill before navigating
-      localStorage.setItem('selectedSkill', JSON.stringify(selectedSkill));
-      navigate('/second-step');
+      // If user is not sure, skip the fourth step
+      if (selectedSkill.name === 'Hmm, not sure..') {
+        navigate('/fifth-step');
+        return;
+      }
+
+      // Store the teaching skill before navigating
+      localStorage.setItem('teachingSkill', JSON.stringify(selectedSkill));
+      navigate('/fourth-step');
     }
-    
   };
 
   return (
     <div className="signup-page first-step">
       <div className="progress-bar">
-        <div className="progress" style={{ width: '28.5714%' }}></div>
+        <div className="progress" style={{ width: '57.1428%' }}></div>
       </div>
       <div className="icon-container">
-        <h2>What skills you want to learn the most?</h2>
+        <h2>What skills can you teach in return?</h2>
       </div>
       <div className="skills-list">
         {skills.map((skill, index) => (
@@ -71,4 +65,4 @@ const FirstStep = () => {
   );
 };
 
-export default FirstStep; 
+export default ThirdStep;

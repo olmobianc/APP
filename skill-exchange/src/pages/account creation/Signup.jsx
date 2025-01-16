@@ -11,11 +11,11 @@ const Signup = () => {
   return (
     <div className="signup-page">
       <div className="progress-bar">
-        <div className="progress" style={{ width: '25%' }}></div>
+        <div className="progress" style={{ width: '14.2857%' }}></div>
       </div>
       <div className="icon-container">
         <div className="icon-circle">
-          <span role="img" aria-label="light bulb">💡</span>
+          <img src='/signup-space-img.png' className='signup-img'></img>
         </div>
         <h2>Let's build a learning path just for you.</h2>
       </div>

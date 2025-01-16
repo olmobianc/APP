@@ -7,6 +7,9 @@ import LoginPage from './pages/login/LoginPage';
 import Signup from './pages/account creation/Signup';
 import FirstStep from './pages/account creation/FirstStep';
 import SecondStep from './pages/account creation/SecondStep';
+import ThirdStep from './pages/account creation/ThirdStep';
+import FourthStep from './pages/account creation/FourthStep';
+import FifthStep from './pages/account creation/FifthStep';
 import FinalStep from './pages/account creation/FinalStep'
 import Welcome from './pages/account creation/Welcome'
 import Dashboard from './pages/loggedInPages/Dashboard'
@@ -59,6 +62,9 @@ const App = () => {
     '/signup',
     '/first-step',
     '/second-step',
+    '/third-step',
+    '/fourth-step',
+    '/fifth-step',
     '/final-step',
     '/welcome',
   ];
@@ -94,6 +100,9 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/first-step" element={<FirstStep />} />
           <Route path="/second-step" element={<SecondStep />} />
+          <Route path="/third-step" element={<ThirdStep />} />
+          <Route path="/fourth-step" element={<FourthStep />} />
+          <Route path="/fifth-step" element={<FifthStep />} />
           <Route path="/final-step" element={<FinalStep />} />
           <Route path="/welcome" element={<Welcome />} />
 

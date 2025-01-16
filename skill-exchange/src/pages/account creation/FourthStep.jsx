@@ -8,112 +8,112 @@ import advancedImg from '../../utils/svgs/signup/advance.png';
 
 const levelDescriptions = {
   Languages: {
-    title: "What's your languages comfort level?",
+    title: "What's your teaching comfort level?",
     levels: [
       {
         name: "Beginner",
-        description: "You're just starting out and eager to learn the basics.",
+        description: "You can teach basic concepts and help others get started.",
         image: beginnerImg
       },
       {
         name: "Novice",
-        description: "You can handle basic conversations and understand simple contexts.",
+        description: "You can guide others through fundamental lessons and exercises.",
         image: noviceImg
       },
       {
         name: "Intermediate",
-        description: "You can express yourself well and understand most conversations.",
+        description: "You can teach complex topics and provide detailed feedback.",
         image: intermediateImg
       },
       {
         name: "Advanced",
-        description: "You're fluent and can handle complex conversations with ease.",
+        description: "You can mentor others at any level and share expert knowledge.",
         image: advancedImg
       }
     ]
   },
   "Arts and Crafts": {
-    title: "What's your artistic comfort level?",
+    title: "What's your teaching comfort level?",
     levels: [
       {
         name: "Beginner",
-        description: "You're excited to start and learn the fundamentals.",
+        description: "You can teach basic techniques and help others start their journey.",
         image: beginnerImg
       },
       {
         name: "Novice",
-        description: "You understand basic techniques and can create simple projects.",
+        description: "You can guide others through basic projects and provide tips.",
         image: noviceImg
       },
       {
         name: "Intermediate",
-        description: "You can handle various techniques and create more complex pieces.",
+        description: "You can teach various techniques and help improve skills.",
         image: intermediateImg
       },
       {
         name: "Advanced",
-        description: "You're skilled in multiple techniques and can create advanced works.",
+        description: "You can mentor others in complex projects and advanced techniques.",
         image: advancedImg
       }
     ]
-  },
-  // Add more categories as needed
+  }
 };
 
-const SecondStep = () => {
+const FourthStep = () => {
   const navigate = useNavigate();
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [categoryData, setCategoryData] = useState(null);
 
   useEffect(() => {
     try {
-      // Get the selected skill from localStorage
-      const selectedSkill = JSON.parse(localStorage.getItem('selectedSkill'));
-      
-      // If it's "Something Else" or doesn't exist, skip this step
-      if (!selectedSkill || selectedSkill.name === 'Something Else') {
+      // Get the selected teaching skill from localStorage
+      const teachingSkill = JSON.parse(localStorage.getItem('teachingSkill'));
+
+      // Check if teachingSkill exists and has a name property
+      if (!teachingSkill || !teachingSkill.name) {
+        // If no teaching skill is found, redirect back to third step
         navigate('/third-step');
         return;
       }
 
       // Get the appropriate category data
-      const data = levelDescriptions[selectedSkill.name];
+      const data = levelDescriptions[teachingSkill.name];
       if (data) {
         setCategoryData({
           ...data,
-          title: `What's your ${selectedSkill.name.toLowerCase()} comfort level?`
+          title: `What's your ${teachingSkill.name.toLowerCase()} teaching comfort level?`
         });
       } else {
         // If no specific data for this category, use a generic template
         setCategoryData({
-          title: `What's your ${selectedSkill.name.toLowerCase()} comfort level?`,
+          title: `What's your ${teachingSkill.name.toLowerCase()} teaching comfort level?`,
           levels: [
             {
               name: "Beginner",
-              description: "You're just starting out and eager to learn the basics.",
+              description: "You can teach basic concepts and help others get started.",
               image: beginnerImg
             },
             {
               name: "Novice",
-              description: "You understand the basics and are ready to learn more.",
+              description: "You can guide others through fundamental lessons and exercises.",
               image: noviceImg
             },
             {
               name: "Intermediate",
-              description: "You have good experience and want to improve further.",
+              description: "You can teach various techniques and provide detailed guidance.",
               image: intermediateImg
             },
             {
               name: "Advanced",
-              description: "You're highly skilled and looking for new challenges.",
+              description: "You can mentor others at any level and share expert knowledge.",
               image: advancedImg
             }
           ]
         });
       }
     } catch (error) {
-      console.error('Error accessing selected skill:', error);
-      navigate('/first-step');
+      console.error('Error accessing teaching skill:', error);
+      navigate('/third-step');
     }
   }, [navigate]);
 
@@ -123,8 +123,8 @@ const SecondStep = () => {
 
   const handleContinueClick = () => {
     if (selectedLevel) {
-      localStorage.setItem('learningLevel', JSON.stringify(selectedLevel));
-      navigate('/third-step');
+      localStorage.setItem('teachingLevel', JSON.stringify(selectedLevel));
+      navigate('/fifth-step');
     }
   };
 
@@ -133,7 +133,7 @@ const SecondStep = () => {
   return (
     <div className="signup-page first-step">
       <div className="progress-bar">
-        <div className="progress" style={{ width: '42.8571%' }}></div>
+        <div className="progress" style={{ width: '71.4285%' }}></div>
       </div>
       <div className="icon-container">
         <h2>{categoryData.title}</h2>
@@ -162,4 +162,4 @@ const SecondStep = () => {
   );
 };
 
-export default SecondStep; 
+export default FourthStep; 
